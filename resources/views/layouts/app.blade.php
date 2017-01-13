@@ -74,7 +74,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/top') }}">
+            <a class="navbar-brand" href="{{ url('/home') }}">
                 <img src="/src/image/logo.png" alt="">
             </a>
         </div>
@@ -181,28 +181,26 @@
 <nav class="navbar dropup bottom navbar-fixed-bottom">
     <div class="container">
         <div class="collapse navbar-collapse">
-        @if ( !Auth::guest())
             <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-left">
-                    <li >
-                        <a href="">登録</a>
-                        <ul class="ul-setting">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle a-flag" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-cogs" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <div class="sprect-bottom">&nbsp;</div>
-                                    <li><a href="#" id='setting-busyo'>部署マスター</a></li>
-                                    <li><a href="#">職業登録</a></li>
-                                    <li><a href="#" id='personal-registration'>個人情報登録</a></li>
+            <ul class="nav navbar-nav navbar-left">
+                <li >
+                    <a href="">登録</a>
+                    <ul class="ul-setting">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle a-flag" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <div class="sprect-bottom">&nbsp;</div>
+                                <li><a href="#" id='setting-busyo'>部署マスター</a></li>
+                                <li><a href="#">職業登録</a></li>
+                                <li><a href="#" id='personal-registration'>個人情報登録</a></li>
 
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            @endif
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
