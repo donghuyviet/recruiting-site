@@ -16,50 +16,53 @@ Route::get('/', function () {
 });
 Route::get('/lang/{lang}', 'LanguageController@index');
 
-Route::get('/template', function(){
-    return view('template.index');
-});
+Route::group( ['middleware' => 'auth' ], function()
+{
+    Route::get('/template', function(){
+        return view('template.index');
+    });
 
-Route::get('/components', function(){
-    return view('template.component');
-});
+    Route::get('/components', function(){
+        return view('template.component');
+    });
 
-Route::get('/template/full-page', function(){
-    return view('template.full-page');
-});
+    Route::get('/template/full-page', function(){
+        return view('template.full-page');
+    });
 
-Route::get('/template/list', function(){
-    return view('template.list');
-});
+    Route::get('/template/list', function(){
+        return view('template.list');
+    });
 
-Route::get('/template/form', function(){
-    return view('template.form');
-});
+    Route::get('/template/form', function(){
+        return view('template.form');
+    });
 
-Route::get('/template/button', function(){
-    return view('template.button');
-});
+    Route::get('/template/button', function(){
+        return view('template.button');
+    });
 
-Route::get('/template/text', function(){
-    return view('template.text');
-});
+    Route::get('/template/text', function(){
+        return view('template.text');
+    });
 
-Route::get('/template/ajax', function(){
-    return view('template.ajax');
-});
+    Route::get('/template/ajax', function(){
+        return view('template.ajax');
+    });
 
-Route::get('/template/confirm', function(){
-    return view('template.confirm');
-});
+    Route::get('/template/confirm', function(){
+        return view('template.confirm');
+    });
 
-Route::get('/template/icon', function(){
-    return view('template.icon');
-});
-Route::get('/template/model', function(){
-    return view('template.model');
-});
-Route::get('/template/popupmessage', function(){
-    return view('template.popup-message');
+    Route::get('/template/icon', function(){
+        return view('template.icon');
+    });
+    Route::get('/template/model', function(){
+        return view('template.model');
+    });
+    Route::get('/template/popupmessage', function(){
+        return view('template.popup-message');
+    });
 });
 
 Auth::routes();
