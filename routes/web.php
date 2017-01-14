@@ -68,5 +68,10 @@ Route::group( ['middleware' => 'auth' ], function()
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/orderer', 'OrdererController@index');
+Route::get('/orderer/entry', 'OrdererController@create');
+Route::post('/orderer/store', 'OrdererController@store');
+
 Route::get('/jobs/entry', 'JobsController@index');
 Route::post('/jobs/store', 'JobsController@save');
