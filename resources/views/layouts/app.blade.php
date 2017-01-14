@@ -18,6 +18,7 @@
     <link href="/{{ config('app.source') }}/css/jquery-confirm.css" rel="stylesheet">
     <link href="/{{ config('app.source') }}/css/main.css" rel="stylesheet">
     <link href="/{{ config('app.source') }}/css/customize/custom.css" rel="stylesheet">
+    <link href="/{{ config('app.source') }}/css/bootstrap-datepicker3.css" rel="stylesheet">
     <link href="/{{ config('app.source') }}/fullcalendar/fullcalendar.min.css" rel="stylesheet">
 
     <!-- Scripts -->
@@ -42,6 +43,7 @@
     <script src="/{{ config('app.source') }}/js/ajax.js"></script>
     <script src="/{{ config('app.source') }}/js/customize/notifications.js"></script>
     <script src="/{{ config('app.source') }}/js/socket.io.js"></script>
+    <script src="/{{ config('app.source') }}/js/bootstrap-datepicker.min.js"></script>
 
     <script>
 

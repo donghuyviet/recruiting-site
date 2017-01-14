@@ -61,3 +61,5 @@ Route::get('/template/popupmessage', function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/jobs/entry', 'JobsController@index');
+Route::post('/jobs/store', 'JobsController@save');
