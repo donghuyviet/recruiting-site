@@ -20,6 +20,10 @@ Route::get('/template', function(){
     return view('template.index');
 });
 
+Route::get('/components', function(){
+    return view('template.component');
+});
+
 Route::get('/template/full-page', function(){
     return view('template.full-page');
 });

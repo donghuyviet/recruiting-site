@@ -18,6 +18,7 @@
                         <li><a href="/template/confirm">Confirm</a></li>
                         <li><a href="/template/icon">Icons</a></li>
                         <li><a href="/template/popupmessage">Popup message</a></li>
+                        <li><a href="/template/model">model</a></li>
                     </ul>
                 </div>
             </div>
@@ -26,12 +27,11 @@
         <div class="col-md-10">
             <div class="box">
                 <div class="box-header">
-                    にデスクト
+                    text
                 </div>
                 <div class="box-content">
-                    <div>This is text for test font</div>
-                    <div>誰か今日中にサンプルのテンプレートを作成してもらえませんか？</div>
-                    <div>Đây là đoạn chữ kiểm tra phông chữ</div>
+                   <button class="btn btn-primary" onclick="a()" >Alert </button>
+                   <button class="btn btn-primary" onclick="b()" >Confirm </button>
 
                 </div>
             </div>
@@ -42,7 +42,33 @@
 
 
 
+    <script>
+        function a(){
+            $.alert({
+                title: 'Alert!',
+                content: 'Simple alert!',
+            });
+        }
 
+        function b(){
+            $.confirm({
+                buttons: {
+                    cancel: function(){
+                        // here the key 'something' will be used as the text.
+                        $.alert('You clicked on something.');
+                    },
+                    ok: {
+                        text: 'Ok', // Some Non-Alphanumeric characters
+                        action: function(){
+                            $.alert('You clicked on something else');
+                        },
+                        btnClass: 'btn-primary',
+
+                    }
+                }
+            });
+        }
+    </script>
 
 
 

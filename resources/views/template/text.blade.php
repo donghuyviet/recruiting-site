@@ -18,6 +18,7 @@
                         <li><a href="/template/confirm">Confirm</a></li>
                         <li><a href="/template/icon">Icons</a></li>
                         <li><a href="/template/popupmessage">Popup message</a></li>
+                        <li><a href="/template/model">model</a></li>
                     </ul>
                 </div>
             </div>
@@ -26,12 +27,20 @@
         <div class="col-md-10">
             <div class="box">
                 <div class="box-header">
-                    にデスクト
+                    text
                 </div>
                 <div class="box-content">
-                    <div>This is text for test font</div>
-                    <div>誰か今日中にサンプルのテンプレートを作成してもらえませんか？</div>
-                    <div>Đây là đoạn chữ kiểm tra phông chữ</div>
+                    <div class="alert alert-success" role="alert">Well done! You successfully read this important alert message.</div>
+                    <div class="alert alert-info" role="alert">Heads up! This alert needs your attention, but it's not super important.</div>
+                    <div class="alert alert-warning" role="alert">Warning! Better check yourself, you're not looking too good.</div>
+                    <div class="alert alert-danger" role="alert">Oh snap! Change a few things up and try submitting again.</div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+                    </div>
 
                 </div>
             </div>
