@@ -6,9 +6,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register Jobs</div>
+                <div class="panel-heading">求人登録</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ url('/jobs/store') }}">
+                    <form class="form-horizontal" id = "post_jobs" method="POST" action="{{ url('/jobs/store') }}">
                        {{ csrf_field() }}
                         <div class="form-group">
                             <label for="title" class="col-md-3 control-label">タイトル</label>
@@ -38,7 +38,7 @@
 	                     </div>
                        <div class="form-group">
                            <label class="col-md-3 control-label" for="end_date">
-                             求人開始日
+                             求人完了日
                             </label>
                             <div class="col-sm-3">
                                <div class="input-group">
@@ -52,7 +52,7 @@
                        </div>
                          <input type="hidden" name="orderer_id" value ="1">
                          <button class="btn btn-primary " name="submit" type="submit">
-                            Submit
+                            提出
                            </button>
                     </form>
                 </div>
@@ -63,6 +63,7 @@
 </div>
 <script>
   $(document).ready(function(){
+    document.getElementById("post_jobs").reset();
     var date_input_create =$('input[name="start_date"]'); //our date input has the name "date"
     var date_input_complete =$('input[name="end_date"]'); 
     var container='body';

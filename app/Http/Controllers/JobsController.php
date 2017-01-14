@@ -24,6 +24,6 @@ class JobsController extends Controller
 		$job->end_date = $convert_end_date;
 
         $job->save();
-    	return 'success post jobs';
+    	return '求人の登録に成功しました。';
     }	
 }
