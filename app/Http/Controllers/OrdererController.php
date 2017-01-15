@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Orderer;
+use Illuminate\Support\Facades\DB;
 class OrdererController extends Controller
 {
     public function index()
     {
-        $orderer = Orderer::all();
+        $orderer = DB::table('orderer')->join('jobs', 'orderer.id', '=', 'jobs.orderer_id')->paginate(100);
         return view('orderer.index', ['orderer'=>$orderer]);
     }
 
@@ -47,7 +48,7 @@ class OrdererController extends Controller
             $orderer->email = $request->email;
 
             $orderer->save();
-            return redirect('/orderer')->with('success', 'bạn đã thêm '.$orderer->name.' thành công');
+            return redirect('/orderer')-> with('success', 'you add '.$orderer -> name.' success');
 
     }   
 }

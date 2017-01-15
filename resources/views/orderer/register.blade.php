@@ -3,7 +3,7 @@
 @section('content')
 	<div class="row">
         <div class="col-md-2">
-            @include('sidebar.index');
+            @include('sidebar.index')
 
         </div>
         <div class="col-md-10">
@@ -22,9 +22,9 @@
                     <form class="form-horizontal"  method="POST" action="{{ url('/orderer/store') }}">
                     <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">名前</label>
+                            <label for="" class="col-sm-3 control-label">指名</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="name" id="" placeholder="名前">
+                                <input type="text" class="form-control" name="name" id="" placeholder="指名">
                             </div>
                         </div>
                         <div class="form-group">
@@ -34,9 +34,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">電話</label>
+                            <label for="" class="col-sm-3 control-label">電話番号 </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="tel" id="" placeholder="電話">
+                                <input type="text" class="form-control" name="tel" id="" placeholder="電話番号 ">
                             </div>
                         </div>
                         <div class="form-group">
