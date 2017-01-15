@@ -18,37 +18,40 @@
                 			{{session('success')}}
                 		</div>
                 	@endif
-                    <table class="table table-bordered table-hover">
-                    	<thead>
-                        <tr>
-                            <th>#</th>
-                            <th>指名</th>
-                            <th>住所</th>
-                            <th>電話番号</th>
-                            <th>メール</th>
-                            <th>タイトル</th>
-                            <th>求人目的</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>	
-                        @foreach($orderer as $or)			      
-					      <tr>
-					        <td>{{$or->user_id}}</td>
-					        <td>{{$or->name}}</td>
-					        <td>{{$or->address}} </td>
-					        <td>{{$or->tel}} </td>
-                            <td>{{$or->email}} </td>
-                            <td>{{$or->title}} </td>
-					        <td>{{$or->description}} </td>
-					        <td>
-                                <button class="btn btn-default">Edit</button>
-                                <button class="btn btn-danger">Del</button>
-                            </td>
-					      </tr>
-					     @endforeach
-					     </tbody>
-                    </table>
+                      <div class="table-responsive">          
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>指名</th>
+                                <th>住所</th>
+                                <th>電話番号</th>
+                                <th>メール</th>
+                                <th>タイトル</th>
+                                <th>求人目的</th>
+                                <th></th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @foreach($orderer as $or)               
+                              <tr>
+                                <td>{{$or->user_id}}</td>
+                                <td>{{$or->name}}</td>
+                                <td>{{$or->address}} </td>
+                                <td>{{$or->tel}} </td>
+                                <td>{{$or->email}} </td>
+                                <td>{{$or->title}} </td>
+                                <td>{{$or->description}} </td>
+                                <td>
+                                    <button class="btn btn-default">Edit</button>
+                                    <button class="btn btn-danger">Del</button>
+                                </td>
+                              </tr>
+                             @endforeach
+                            </tbody>
+                          </table>
+                      </div>
                     <div class="text-right">
                         {{$orderer->links()}}
                     </div>
