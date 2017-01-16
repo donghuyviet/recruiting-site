@@ -17,7 +17,7 @@ class JobsController extends Controller
     	$convert_start_date = date("Y-m-d", strtotime($request->input('start_date')));
     	$convert_end_date = date("Y-m-d", strtotime($request->input('end_date')));
 		
-        $job->orderer_id = $request->input('orderer_id');
+        $job->orderer_id = $job->get_oderer_id();
     	$job->title = $request->input('title');
     	$job->description = $request->input('description');
     	$job->start_date = $convert_start_date;
@@ -25,5 +25,23 @@ class JobsController extends Controller
 
         $job->save();
     	return view('template.jobs', ['message' => 1]);
+    }
+    public function listjobs()
+    {
+        $job = new Job;
+        $Jobs = $job->get_list_jobs();
+        return view('template.listjobs', ['Jobs'=>$Jobs]);
+    }
+    public function viewjob($id)
+    {
+         $job = new Job;
+         $detail = $job->get_detail_job($id);
+         return view('template.jobdetail', ['detail'=>$detail]);
+    }
+    public function view_author_job($orderer_id)
+    {
+        $job = new Job;
+        $author = $job->get_author_jobs($orderer_id);
+        return view('template.jobauthor', ['author'=>$author]);
     }	
 }
