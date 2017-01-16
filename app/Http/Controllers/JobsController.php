@@ -8,7 +8,7 @@ class JobsController extends Controller
 {
     public function index()
     {
-    	return view('template.jobs', ['user' => 1]);
+    	return view('template.jobs', ['message' => 0]);
     }
     public function save(Request $request)
     {
@@ -24,6 +24,6 @@ class JobsController extends Controller
 		$job->end_date = $convert_end_date;
 
         $job->save();
-    	return '求人の登録に成功しました。';
+    	return view('template.jobs', ['message' => 1]);
     }	
 }

@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">求人登録</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" id = "post_jobs" method="POST" action="{{ url('/jobs/store') }}">
+                    <form class="form-horizontal" id = "post_jobs" method="POST" action="{{ url('/jobs/entry') }}">
                        {{ csrf_field() }}
                         <div class="form-group">
                             <label for="title" class="col-md-3 control-label">タイトル</label>
@@ -51,8 +51,11 @@
                             </div>
                        </div>
                          <input type="hidden" name="orderer_id" value ="1">
+                         @if($message)
+                          <div class="alert alert-success" role="alert">求人の登録に成功しました。.</div>
+                         @endif
                          <button class="btn btn-primary " name="submit" type="submit">
-                            提出
+                            登録する
                            </button>
                     </form>
                 </div>

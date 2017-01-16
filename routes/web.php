@@ -74,4 +74,4 @@ Route::get('/orderer/entry', 'OrdererController@create');
 Route::post('/orderer/store', 'OrdererController@store');
 
 Route::get('/jobs/entry', 'JobsController@index');
-Route::post('/jobs/store', 'JobsController@save');
+Route::post('/jobs/entry', 'JobsController@save');
