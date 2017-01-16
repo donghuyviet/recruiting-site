@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Orderer;
+use App\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class OrdererController extends Controller
 {
     public function index()
@@ -40,7 +42,7 @@ class OrdererController extends Controller
             ]
             );
             $orderer = new Orderer;
-            $orderer->user_id = $request->user_id;
+            $orderer->user_id = Auth::user()->id;
             $orderer->name = $request->name;
             $orderer->address = $request->address;
             $orderer->tel = $request->tel;

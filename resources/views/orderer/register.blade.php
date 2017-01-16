@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-		                    	<input type="hidden" name="user_id" value ="1">
+		                    	<input type="hidden" name="user_id">
                                 <button type="submit" class="btn btn-primary" name="submit">追加する</button>
                                 <a href="/orderer" type="submit" class="btn btn-default">閉じる</a>
                             </div>

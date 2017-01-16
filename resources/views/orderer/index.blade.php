@@ -43,10 +43,6 @@
                                 <td>{{$or->email}} </td>
                                 <td>{{$or->title}} </td>
                                 <td>{{$or->description}} </td>
-                                <td>
-                                    <button class="btn btn-default">Edit</button>
-                                    <button class="btn btn-danger">Del</button>
-                                </td>
                               </tr>
                              @endforeach
                             </tbody>

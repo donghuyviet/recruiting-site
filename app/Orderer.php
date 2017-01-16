@@ -17,8 +17,9 @@ class Orderer extends Model
         'email'
     ];
 
-    public function oderererAvailabel(){
-        $result = DB::table($this->table)->join('jobs', 'orderer.id', '=', 'jobs.orderer_id')->get();
-        return $result;
+    public function getId()
+    {
+        $data = DB::table('users')->whereIn('id', $user)->get();
+        return $this->id;
     }
 }
