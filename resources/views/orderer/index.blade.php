@@ -12,24 +12,14 @@
                     List
                 </div>
                 <div class="box-content">
-                	@if(Session('success'))
-                		<div class="alert alert-success alert-dismissible" role="alert">
-	                	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                			{{session('success')}}
-                		</div>
-                	@endif
                       <div class="table-responsive">          
                           <table class="table">
                             <thead>
                               <tr>
                                 <th>ID</th>
                                 <th>指名</th>
-                                <th>住所</th>
-                                <th>電話番号</th>
+                                <th>会社名</th>
                                 <th>メール</th>
-                                <th>タイトル</th>
-                                <th>求人目的</th>
-                                <th></th>
                                 
                               </tr>
                             </thead>
@@ -38,11 +28,8 @@
                               <tr>
                                 <td>{{$or->user_id}}</td>
                                 <td>{{$or->name}}</td>
-                                <td>{{$or->address}} </td>
-                                <td>{{$or->tel}} </td>
+                                <td>{{$or->companyname}} </td>
                                 <td>{{$or->email}} </td>
-                                <td>{{$or->title}} </td>
-                                <td>{{$or->description}} </td>
                               </tr>
                              @endforeach
                             </tbody>

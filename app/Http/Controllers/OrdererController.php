@@ -11,7 +11,7 @@ class OrdererController extends Controller
 {
     public function index()
     {
-        $orderer = DB::table('orderer')->join('jobs', 'orderer.id', '=', 'jobs.orderer_id')->where('user_id','=',Auth::user()->id)->paginate(100);
+        $orderer = DB::table('orderer')->where('user_id','=',Auth::user()->id)->paginate(100);
         return view('orderer.index', ['orderer'=>$orderer]);
     }
 
@@ -50,7 +50,7 @@ class OrdererController extends Controller
             $orderer->email = $request->email;
 
             $orderer->save();
-            return redirect('/orderer')-> with('success', 'you add '.$orderer -> name.' success');
+            return redirect('/orderer/entry')-> with('success', 'register '.$orderer -> name.' success');
 
     }   
 }

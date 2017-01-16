@@ -73,6 +73,9 @@ Route::get('/orderer', 'OrdererController@index');
 Route::get('/orderer/entry', 'OrdererController@create');
 Route::post('/orderer/store', 'OrdererController@store');
 
+Route::get('/findjobsdetai/entry', 'RegisFindJobsController@entry');
+Route::post('/findjobsdetai/store', 'RegisFindJobsController@store');
+
 Route::get('/jobs/entry', 'JobsController@index');
 Route::post('/jobs/entry', 'JobsController@save');
 Route::get('/jobs', 'JobsController@listjobs');
