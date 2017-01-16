@@ -75,3 +75,6 @@ Route::post('/orderer/store', 'OrdererController@store');
 
 Route::get('/jobs/entry', 'JobsController@index');
 Route::post('/jobs/entry', 'JobsController@save');
+Route::get('/jobs', 'JobsController@listjobs');
+Route::get('/jobDetails/{id}', 'JobsController@viewjob');
+Route::get('/jobAuthor/{id}', 'JobsController@view_author_job');
