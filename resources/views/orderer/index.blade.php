@@ -22,7 +22,7 @@
                           <table class="table">
                             <thead>
                               <tr>
-                                <th>#</th>
+                                <th>ID</th>
                                 <th>指名</th>
                                 <th>住所</th>
                                 <th>電話番号</th>

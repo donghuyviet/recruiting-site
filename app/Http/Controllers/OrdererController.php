@@ -11,7 +11,7 @@ class OrdererController extends Controller
 {
     public function index()
     {
-        $orderer = DB::table('orderer')->join('jobs', 'orderer.id', '=', 'jobs.orderer_id')->paginate(100);
+        $orderer = DB::table('orderer')->join('jobs', 'orderer.id', '=', 'jobs.orderer_id')->where('user_id','=',Auth::user()->id)->paginate(100);
         return view('orderer.index', ['orderer'=>$orderer]);
     }
 
