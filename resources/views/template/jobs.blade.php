@@ -51,8 +51,12 @@
                             </div>
                        </div>
                          <input type="hidden" name="orderer_id" value ="1">
-                         @if($message)
-                          <div class="alert alert-success" role="alert">求人の登録に成功しました。.</div>
+                         @if($status === 1 || $status === 2)
+                            @if($status === 1)
+                              <div class="alert alert-success" role="alert">{{$message}}.</div>
+                            @else
+                              <div class="alert alert-danger" role="alert">{{$message}}</div>
+                            @endif
                          @endif
                          <button class="btn btn-primary " name="submit" type="submit">
                             登録する

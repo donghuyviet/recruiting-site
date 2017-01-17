@@ -21,8 +21,14 @@ class Job extends Model
     public function get_oderer_id()
     {
     		$id_user = Auth::user()->id;
-    		$user = DB::table('orderer')->where('user_id', $id_user)->get();
-    		return $user[0]->id;
+    		$user = DB::table('orderer')->where('user_id', $id_user)->first();
+            if ($user === null) {
+               return 0;
+            }
+            else
+            {
+    		  return $user->id;
+            }
 
     }
     public function get_list_jobs()

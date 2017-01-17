@@ -8,23 +8,32 @@ class JobsController extends Controller
 {
     public function index()
     {
-    	return view('template.jobs', ['message' => 0]);
+    	return view('template.jobs', ['status'=> 0,'message' => ""]);
     }
     public function save(Request $request)
     {
     	$job = new Job;
-
+        $status = 0;
+        $message ="";
     	$convert_start_date = date("Y-m-d", strtotime($request->input('start_date')));
     	$convert_end_date = date("Y-m-d", strtotime($request->input('end_date')));
 		
-        $job->orderer_id = $job->get_oderer_id();
-    	$job->title = $request->input('title');
-    	$job->description = $request->input('description');
-    	$job->start_date = $convert_start_date;
-		$job->end_date = $convert_end_date;
-
-        $job->save();
-    	return view('template.jobs', ['message' => 1]);
+        if($job->get_oderer_id())
+        {
+            $job->orderer_id = $job->get_oderer_id();
+        	$job->title = $request->input('title');
+        	$job->description = $request->input('description');
+        	$job->start_date = $convert_start_date;
+    		$job->end_date = $convert_end_date;
+            $job->save();
+            $status = 1;
+            $message = '求人の登録に成功しました。';
+        }
+        else{
+            $status = 2;
+            $message = 'Please Register Profile';
+        }
+    	return view('template.jobs', ['status' => $status,'message' => $message]);
     }
     public function listjobs()
     {
