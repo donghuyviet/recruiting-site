@@ -13,7 +13,7 @@ class OrdererController extends Controller
     {  
             $orderer = DB::table('orderer')->where('user_id','=',Auth::user()->id)->paginate(100);
 
-            $jobs = DB::table('jobs')->paginate(100);
+            $jobs = DB::table('orderer')->join('jobs', 'orderer.id', '=', 'jobs.orderer_id')->paginate(100);
         return view('orderer.index', ['orderer'=>$orderer,'jobs'=>$jobs] );
     }
 

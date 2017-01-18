@@ -8,9 +8,7 @@
         </div>
         <div class="col-md-10">
             <div class="box">
-                <div class="box-header">
-                    List
-                </div>
+                
                 <div class="box-content">
                       <div class="table-responsive">          
                           <table class="table">
