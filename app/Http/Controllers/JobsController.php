@@ -31,7 +31,7 @@ class JobsController extends Controller
         }
         else{
             $status = 2;
-            $message = 'Please Register Profile';
+            $message = 'プロファイルを登録ください。';
         }
     	return view('template.jobs', ['status' => $status,'message' => $message]);
     }
