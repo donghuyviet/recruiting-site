@@ -14,22 +14,31 @@
                 <div class="box-content">
                       <div class="table-responsive">          
                           <table class="table">
-                            <thead>
-                              <tr>
-                                <th>ID</th>
-                                <th>指名</th>
-                                <th>会社名</th>
-                                <th>メール</th>
-                                
-                              </tr>
-                            </thead>
                             <tbody>
-                              @foreach($orderer as $or)               
+                              @foreach($orderer as $or) 
                               <tr>
                                 <td>{{$or->user_id}}</td>
                                 <td>{{$or->name}}</td>
                                 <td>{{$or->companyname}} </td>
-                                <td>{{$or->email}} </td>
+                              </tr>
+                             @endforeach
+                            </tbody>
+                          </table>
+                      </div>
+                      <div class="table-responsive">          
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th>title</th>
+                                <th>description</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @foreach($jobs as $or)               
+                              <tr>
+                                <td>{{$or->title}}</td>
+                                <td>{{$or->description}} </td>
                               </tr>
                              @endforeach
                             </tbody>

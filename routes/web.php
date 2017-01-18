@@ -73,8 +73,11 @@ Route::get('/orderer', 'OrdererController@index');
 Route::get('/orderer/entry', 'OrdererController@create');
 Route::post('/orderer/store', 'OrdererController@store');
 
-Route::get('/findjobsdetai/entry', 'RegisFindJobsController@entry');
+Route::get('/findjobsdetail/entry', 'RegisFindJobsController@entry');
 Route::post('/findjobsdetai/store', 'RegisFindJobsController@store');
+
+Route::get('/findjobsdetail/edit/{id}','RegisFindJobsController@edit');
+Route::post('/findjobsdetail/edit/{id}','RegisFindJobsController@update');
 
 Route::get('/jobs/entry', 'JobsController@index');
 Route::post('/jobs/entry', 'JobsController@save');

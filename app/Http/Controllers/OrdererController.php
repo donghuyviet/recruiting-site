@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\Auth;
 class OrdererController extends Controller
 {
     public function index()
-    {
-        $orderer = DB::table('orderer')->where('user_id','=',Auth::user()->id)->paginate(100);
-        return view('orderer.index', ['orderer'=>$orderer]);
+    {  
+            $orderer = DB::table('orderer')->where('user_id','=',Auth::user()->id)->paginate(100);
+
+            $jobs = DB::table('jobs')->paginate(100);
+        return view('orderer.index', ['orderer'=>$orderer,'jobs'=>$jobs] );
     }
 
     public function create(){
@@ -31,13 +33,13 @@ class OrdererController extends Controller
                 'email'=>'required|unique:orderer',
             ],
             [
-                'name.required'=>'あなたが名前を入力しませんでした',
+                'name.required'=>'名前を入力してください。',
                 'name.unique'=>'名前が存在します ',
-                'address.required'=>'あなたはアドレスをインポートしません',
-                'tel.required'=>'携帯電話を入力していません',
+                'address.required'=>'アドレスを入力してくださ',
+                'tel.required'=>'電話番号を入力してください',
                 'tel.unique'=>'携帯電話を存在',
-                'companyname.required'=>'会社が入力されていません',
-                'email.required'=>'メールアドレスを入力していません',
+                'companyname.required'=>'会社名を入力してください。',
+                'email.required'=>'メールアドレスを入力してくださ',
                 'email.unique'=>'存在する電子メール',
             ]
             );

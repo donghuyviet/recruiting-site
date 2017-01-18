@@ -25,43 +25,43 @@
                             {{session('success')}}
                         </div>
                     @endif
-                    <form class="form-horizontal"  method="POST" action="{{ url('/findjobsdetai/store') }}">
-                    <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+                    <form class="form-horizontal"  method="POST" action="{{ url('/') }}/findjobsdetail/edit/{{ $edit->id }}">
+                    {!! csrf_field() !!}
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">氏名</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="name" id="" placeholder="氏名">
+                                <input type="text" class="form-control" name="name" value="{{$edit->name}}" id="" placeholder="氏名">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">住所</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="address" id="" placeholder="住所">
+                                <input type="text" class="form-control" name="address" value="{{$edit->address}}" id="" placeholder="住所">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">電話番号 </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="tel" id="" placeholder="電話番号 ">
+                                <input type="text" class="form-control" name="tel" value="{{$edit->tel}} " id="" placeholder="電話番号 ">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">メール</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="email" id="" placeholder="メール">
+                                <input type="text" class="form-control" value="{{$edit->email}} " name="email" id="" placeholder="メール">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">自己紹介</label>
                             <div class="col-sm-6">
-                            <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+                            <textarea class="form-control" rows="5" id="comment"  value="{{$edit->text}} " name="text"></textarea>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-		                    	<input type="hidden" name="userid">
-                                <button type="submit" class="btn btn-primary" name="submit">追加する</button>
+                                <input type="hidden" name="userid" >
+                                <button type="submit" class="btn btn-primary" name="submit">更新</button>
                                 <a href="/orderer" type="submit" class="btn btn-default">閉じる</a>
                             </div>
                         </div>
