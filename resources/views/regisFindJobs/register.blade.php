@@ -25,7 +25,7 @@
                             {{session('success')}}
                         </div>
                     @endif
-                    <form class="form-horizontal"  method="POST" action="{{ url('/findjobsdetai/store') }}">
+                    <form class="form-horizontal"  method="POST" action="{{ url('/seeker/store') }}">
                     <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">氏名</label>
@@ -54,19 +54,18 @@
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">自己紹介</label>
                             <div class="col-sm-6">
-                            <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+                            <input class="form-control" rows="5" id="comment" name="text" placeholder="自己紹介"></input>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-		                    	<input type="hidden" name="userid">
+                                <input type="hidden" name="userid">
                                 <button type="submit" class="btn btn-primary" name="submit">追加する</button>
                                 <a href="/orderer" type="submit" class="btn btn-default">閉じる</a>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
 

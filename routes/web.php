@@ -71,13 +71,14 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/orderer', 'OrdererController@index');
 Route::get('/orderer/entry', 'OrdererController@create');
+Route::get('/orderer/detail/{id}', 'OrdererController@view_detail');
 Route::post('/orderer/store', 'OrdererController@store');
 
-Route::get('/findjobsdetail/entry', 'RegisFindJobsController@entry');
-Route::post('/findjobsdetai/store', 'RegisFindJobsController@store');
+Route::get('/seeker/entry', 'RegisFindJobsController@entry');
+Route::post('/seeker/store', 'RegisFindJobsController@store');
 
-Route::get('/findjobsdetail/edit/{id}','RegisFindJobsController@edit');
-Route::post('/findjobsdetail/edit/{id}','RegisFindJobsController@update');
+Route::get('/seeker/edit/{id}','RegisFindJobsController@edit');
+Route::post('/seeker/edit/{id}','RegisFindJobsController@update');
 
 Route::get('/jobs/entry', 'JobsController@index');
 Route::post('/jobs/entry', 'JobsController@save');

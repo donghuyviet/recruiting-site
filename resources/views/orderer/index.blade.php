@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="row">
+  <div class="row">
         <div class="col-md-2">
             @include('sidebar.index')
 
@@ -12,6 +12,13 @@
                 <div class="box-content">
                       <div class="table-responsive">          
                           <table class="table">
+                          <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>氏名</th>
+                                <th>会社名</th>
+                              </tr>
+                            </thead>
                             <tbody>
                               @foreach($orderer as $or) 
                               <tr>
@@ -27,8 +34,8 @@
                           <table class="table">
                             <thead>
                               <tr>
-                                <th>title</th>
-                                <th>description</th>
+                                <th>タイトル</th>
+                                <th>内容 </th>
                                 
                               </tr>
                             </thead>

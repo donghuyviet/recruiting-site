@@ -10,13 +10,25 @@ use Illuminate\Support\Facades\Auth;
 class OrdererController extends Controller
 {
     public function index()
-    {  
-            $orderer = DB::table('orderer')->where('user_id','=',Auth::user()->id)->paginate(100);
+    {
+            // $orderer = DB::table('orderer')->where('user_id','=',Auth::user()->id)->paginate(100);
+            // $get_user = Auth::user()->id;
+            // $orderer = DB::table('orderer')->where('user_id',$get_user)->paginate(100);
+        $orderer = DB::table('orderer')->where('user_id','=',Auth::user()->id)->paginate(100);
 
-            $jobs = DB::table('orderer')->join('jobs', 'orderer.id', '=', 'jobs.orderer_id')->paginate(100);
+        $jobs = DB::table('orderer')->join('jobs', 'orderer.id', '=', 'jobs.orderer_id')->paginate(100);
         return view('orderer.index', ['orderer'=>$orderer,'jobs'=>$jobs] );
+        // $ord = new Orderer;
+        // $orderer = $ord->list_order();
+        // return view('orderer.index', ['orderer'=>$orderer] );
     }
 
+    public function view_detail($id){
+        $detail = DB::table('orderer')->join('jobs', 'orderer.id', '=', 'jobs.orderer_id')->select('orderer.*','jobs.*')->where('orderer.orderer_id', $id);
+        // $ord = new Orderer;
+        // $detail = $ord->get_detail($id);
+        return view('orderer.detail',['detail'=>$detail]);
+    }
     public function create(){
         return view('orderer.register');
     }
@@ -24,7 +36,7 @@ class OrdererController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request, 
+        $this->validate($request,
             [
                 'name'=>'required|unique:orderer',
                 'address'=>'required',
@@ -54,5 +66,5 @@ class OrdererController extends Controller
             $orderer->save();
             return redirect('/orderer/entry')-> with('success', 'register '.$orderer -> name.' success');
 
-    }   
+    }
 }

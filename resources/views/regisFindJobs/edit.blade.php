@@ -25,7 +25,7 @@
                             {{session('success')}}
                         </div>
                     @endif
-                    <form class="form-horizontal"  method="POST" action="{{ url('/') }}/findjobsdetail/edit/{{ $edit->id }}">
+                    <form class="form-horizontal"  method="POST" action="{{ url('/') }}/seeker/edit/{{$edit->id}}">
                     {!! csrf_field() !!}
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">氏名</label>
@@ -54,7 +54,7 @@
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">自己紹介</label>
                             <div class="col-sm-6">
-                            <textarea class="form-control" rows="5" id="comment"  value="{{$edit->text}} " name="text"></textarea>
+                            <input class="form-control"  type="text"  value="{{$edit->text}} " name="text" placeholder="自己紹介"></input>
                             </div>
                         </div>
                         
