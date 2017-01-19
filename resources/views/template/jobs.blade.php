@@ -4,7 +4,10 @@
 <div class="bootstrap-iso">
  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-2">
+            @include('sidebar.jobs');
+        </div>
+        <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">求人登録</div>
                 <div class="panel-body">
