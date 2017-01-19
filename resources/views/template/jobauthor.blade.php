@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-10">
             <div class="box">
-                <div class="container">
+                <div class="container" style="padding-bottom: 10px;">
                   <div class="table-responsive">          
                       <table class="table">
                         <thead>
@@ -32,6 +32,7 @@
                           <table class="table">
                             <thead>
                               <tr>
+                                <th></th>
                                 <th>タイトル</th>
                                 <th>内容 </th>
                                 
@@ -40,6 +41,7 @@
                             <tbody>
                               @foreach($jobs_author as $or)               
                               <tr>
+                                <td></td>
                                 <td>{{$or->title}}</td>
                                 <td>{{$or->description}} </td>
                               </tr>
