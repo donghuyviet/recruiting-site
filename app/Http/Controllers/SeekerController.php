@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\RegisFindJobs;
+use App\Seeker;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class RegisFindJobsController extends Controller
+class SeekerController extends Controller
 {
     public function entry(){
         $get_user=Auth::user()->id;
@@ -16,7 +16,7 @@ class RegisFindJobsController extends Controller
         if ($seeker) {
             return redirect('/seeker/edit/'.$seeker->id);
         }else{
-    	    return view('regisFindJobs.register');
+    	    return view('seeker.register');
         }
     }
 
@@ -39,7 +39,7 @@ class RegisFindJobsController extends Controller
                         'email.unique'=>'存在する電子メール',
                         'text.required'=>'自己紹介',
                     ]);
-                    $findJobs = new RegisFindJobs;
+                    $findJobs = new Seeker;
                     $findJobs->userid = Auth::user()->id;
     	            $findJobs->name = $request->name;
     	            $findJobs->address = $request->address;
@@ -52,12 +52,12 @@ class RegisFindJobsController extends Controller
     }
 
     public function edit($id){
-    	$edit = RegisFindJobs::find($id);
-    	return view('/regisFindJobs.edit', ['edit'=>$edit]);
+    	$edit = Seeker::find($id);
+    	return view('/seeker.edit', ['edit'=>$edit]);
     }
 
     public function update(Request $request, $id){
-        $update = regisFindJobs::find($id);
+        $update = Seeker::find($id);
     	$this->validate($request,
             [],
             []);

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class RegisFindJobs extends Model
+class Seeker extends Model
 {
     protected $table = 'user';
     protected $fillable = [
