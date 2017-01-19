@@ -20,14 +20,21 @@ class JobsController extends Controller
 		
         if($job->get_oderer_id())
         {
-            $job->orderer_id = $job->get_oderer_id();
-        	$job->title = $request->input('title');
-        	$job->description = $request->input('description');
-        	$job->start_date = $convert_start_date;
-    		$job->end_date = $convert_end_date;
-            $job->save();
-            $status = 1;
-            $message = '求人の登録に成功しました。';
+            if (trim($request->input('description')) == "") {
+                 $status = 2;
+                 $message = 'please description not empty';
+            }
+            else
+            {
+                $job->orderer_id = $job->get_oderer_id();
+            	$job->title = $request->input('title');
+            	$job->description = $request->input('description');
+            	$job->start_date = $convert_start_date;
+        		$job->end_date = $convert_end_date;
+                $job->save();
+                $status = 1;
+                $message = '求人の登録に成功しました。';
+            }
         }
         else{
             $status = 2;
@@ -51,6 +58,7 @@ class JobsController extends Controller
     {
         $job = new Job;
         $author = $job->get_author_jobs($orderer_id);
-        return view('template.jobauthor', ['author'=>$author]);
-    }	
+        $jobs_author= $job->get_author_lists_jobs($orderer_id);
+        return view('template.jobauthor', ['author'=>$author,'jobs_author' => $jobs_author]);
+    }       
 }

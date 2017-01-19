@@ -7,33 +7,50 @@
     	<div class="col-md-2">
             @include('sidebar.jobs');
         </div>
-        <div class="col-md-6 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">{{$author->name}}</div>
-                <div class="panel-body">
-                   <table class="table table-user-information">
-	                    <tbody>
-	                      <tr>
-	                        <td>Address:</td>
-	                        <td>{{$author->address}}</td>
-	                      </tr>
-	                      <tr>
-	                        <td>Phone Number:</td>
-	                        <td>{{$author->tel}}</td>
-	                      </tr>
-	                      <tr>
-	                        <td>Company name</td>
-	                        <td>{{$author->companyname}}</td>
-	                      </tr>	                      
-	                      <tr>
-	                        <td>Email</td>
-	                        <td>{{$author->email}}</td>
-	                      </tr>	                      
-	                    </tbody>
-                  </table>
-                  <a href="/jobs"><button type="button" class="btn btn-primary">Back List</button></a>
+        <div class="col-md-10">
+            <div class="box">
+                <div class="container">
+                  <div class="table-responsive">          
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>名前</th>
+                            <th>会社名</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{$author->id}}</td>
+                            <td>{{$author->name}}</td>
+                            <td>{{$author->companyname}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </div>
+                      <div class="table-responsive">          
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th>タイトル</th>
+                                <th>内容 </th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @foreach($jobs_author as $or)               
+                              <tr>
+                                <td>{{$or->title}}</td>
+                                <td>{{$or->description}} </td>
+                              </tr>
+                             @endforeach
+                            </tbody>
+                          </table>
+                      </div>
+                    <a href="/jobs"><button type="button" class="btn btn-primary">Back List</button></a>
                 </div>
             </div>
+        </div>
         </div>
     </div>
     </div>

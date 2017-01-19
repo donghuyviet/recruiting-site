@@ -54,4 +54,10 @@ class Job extends Model
     	$author = DB::table('orderer')->where('id', $orderer_id)->first();
     	return $author;
     }
+    public function get_author_lists_jobs($orderer_id)
+    {
+        $jobs_author = DB::table('jobs')->where('orderer_id', $orderer_id)->paginate(100);
+        return $jobs_author;
+    }
+
 }
