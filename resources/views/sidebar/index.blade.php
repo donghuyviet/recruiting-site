@@ -12,7 +12,7 @@
                         </h4>
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse">
-                        <div class="panel-body">
+                        <div class="panel-body menu-main">
                             <table class="table">
                                 <tr>
                                     <td>
@@ -31,7 +31,7 @@
                         </h4>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
-                        <div class="panel-body">
+                        <div class="panel-body menu-main">
                             <table class="table">
                                 <tr>
                                     <td>
@@ -49,7 +49,7 @@
                         </h4>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse">
-                        <div class="panel-body">
+                        <div class="panel-body menu-main">
                             <table class="table">
                                 <tr>
                                     <td>

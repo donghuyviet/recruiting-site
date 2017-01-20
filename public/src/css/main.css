@@ -487,3 +487,5 @@ ul.side-bar img{
     letter-spacing: 1.5px;
 }
 .glyphicon { margin-right:10px; }
+.menu-main { padding:0px; }
+.menu-main .table {margin-bottom: 0px; }
