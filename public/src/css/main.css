@@ -486,3 +486,7 @@ ul.side-bar img{
     line-height: 1.3;
     letter-spacing: 1.5px;
 }
+.glyphicon { margin-right:10px; }
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 15px }
+.panel-body .table {margin-bottom: 0px; }

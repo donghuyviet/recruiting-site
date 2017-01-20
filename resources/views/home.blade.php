@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <div class="col-sm-6 text-center" style="background: rgba(231, 76, 60, 0.9);">
+                    <!-- <div class="col-sm-6 text-center" style="background: rgba(231, 76, 60, 0.9);">
                          <div class="content-sub">
                                 <h1>仕事を探す</h1>
                                <a href = "{{ url('/jobs') }}"><button type="button" class="btn btn-info">仕事のリストを見る。</button></a>
@@ -19,7 +19,8 @@
                                 <h1>仕事を依頼する。</h1>
                                 <a href = "{{ url('/seeker/entry') }}"><button type="button" class="btn btn-info">新しい仕事を依頼する。</button></a>
                         </div>
-                    </div>
+                    </div> -->
+                     You are logged in!
                 </div>
             </div>
         </div>

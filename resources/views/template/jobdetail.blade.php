@@ -3,7 +3,7 @@
 @section('content')
 	<div class="row">
         <div class="col-md-2">
-            @include('sidebar.jobs')
+            @include('sidebar.index')
 
         </div>
         <div class="col-md-10">
