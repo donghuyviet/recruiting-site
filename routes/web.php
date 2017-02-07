@@ -80,6 +80,8 @@ Route::post('/seeker/store', 'SeekerController@store');
 Route::get('/seeker/edit/{id}','SeekerController@edit');
 Route::post('/seeker/edit/{id}','SeekerController@update');
 
+Route::get('/search','SearchController@index');
+
 Route::get('/jobs/entry', 'JobsController@index');
 Route::post('/jobs/entry', 'JobsController@save');
 Route::get('/jobs', 'JobsController@listjobs');
