@@ -2,10 +2,6 @@
 
 @section('content')
   <div class="row">
-        <div class="col-md-2">
-            @include('sidebar.index')
-
-        </div>
         <div class="col-md-10">
             <div class="box">
 				<div class="box-header text-center">
