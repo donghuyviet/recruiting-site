@@ -4,7 +4,7 @@
   <div class="row">
         <div class="col-md-10">
             <div class="box">
-				<div class="box-header text-center">
+				<div class="box-header header-top text-center">
                     ロゴ
                 </div> 
             </div>
@@ -37,24 +37,25 @@
             <div class="search-main">
             	<ul class="search">
             		<li>
-            			<div class="box">
-            			<a href="#">
-            				<img class="img-search" src="src/image/item/ico_search.png">
-            				<p class="larger">ピッタリ条件で探す</p>
-            				<p class="small">新宿区 × フード × 時給1,000円</p>
-            			</a>
+            			<div class="box icon">
+	            			<a href="./search/fillter">
+	            				<img class="img-search" src="src/image/item/ico_search.png">
+	            				<p class="larger">ピッタリ条件で探す</p>
+	            				<p class="small">新宿区 × フード × 時給1,000円</p>
+	            				<!-- <img src="src/image/item/ico_arr_02.png"> -->
+	            			</a>
             			</div>
             		</li>
             		<li>
-	            		<div class="box">
-            			<a href="#">
+	            		<div class="box icon">
+            			<a href="./search/location">
             				<img class="img-search" src="src/image/item/ico_search_01.png">
             				<p class="larger">エリアから探す</p>
             			</a>
             			</div>
             		</li>
             		<li>
-	            		<div class="box">
+	            		<div class="box icon">
             			<a href="#">
             				<img class="img-search" src="src/image/item/ico_search_02.png">
             				<p class="larger">駅・路線から探す</p>
@@ -62,26 +63,26 @@
             			</div>
             		</li>
             		<li>
-	            		<div class="box">
+	            		<div class="box icon">
             			<a href="#">
             				<img class="img-search" src="src/image/item/ico_search_03.png">
             				<p class="larger">職種から探す</p>
             			</a>
             			</div>
             		</li>
-            		<li class="close-search" id="my-open">
+            		<!-- <li class="close-search" id="my-open">
 	            		<div class="box buttonIcon">
             			<a  data-toggle="collapse" href="#mysearch">
             				<img class="icon_plus" src="src/image/item/ico_plus.png">
             				<p>その他の条件から探す</p>
             			</a>
             			</div>
-            		</li>
+            		</li> -->
             		
         		</ul>
-        		<ul class="search search-hide" id="mysearch">
+        		<ul class="search " id="mysearch">
             		<li>
-	            		<div class="box">
+	            		<div class="box icon">
             			<a href="#">
             				<img class="img-search" src="src/image/item/ico_search_04.png">
             				<p class="larger">職種から探す</p>
@@ -89,7 +90,7 @@
             			</div>
             		</li>
             		<li>
-	            		<div class="box">
+	            		<div class="box icon">
             			<a href="#">
             				<img class="img-search" src="src/image/item/ico_search_05.png">
             				<p class="larger">職種から探す</p>
@@ -97,7 +98,7 @@
             			</div>
             		</li>
             		<li>
-	            		<div class="box">
+	            		<div class="box icon">
             			<a href="#">
             				<img class="img-search" src="src/image/item/ico_search_06.png">
             				<p class="larger">職種から探す</p>
@@ -105,7 +106,7 @@
             			</div>
             		</li>
             	</ul>
-            	<ul class="search " >
+            	<!-- <ul class="search " >
             		<li>
 	            		<div class="box">
             			<a href="#">
@@ -115,7 +116,7 @@
             			</div>
             		</li>
             		
-            	</ul>
+            	</ul> -->
             </div>
 
         </div>

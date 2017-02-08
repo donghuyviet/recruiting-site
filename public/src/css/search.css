@@ -1,5 +1,23 @@
+a:hover, a:active {
+    text-decoration: none;
+}
 .text-bold{
 	font-weight: bold;
+}
+.header-top{
+	padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.box .box-header {
+    padding-bottom: 0px;
+    padding: 10px !important;
+}
+.wrapper {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+    background: #ffffff;
+    padding-bottom: 10px;
 }
 .search-header{
 	font-size: 12px;
@@ -7,16 +25,37 @@
 .search{
 	padding-left: 0;
 }
-.search > li{
+.search > li {
 	display: block;
-    background-image: url(/public/src/image/item/ico_arr_02.png);
-    background-repeat: no-repeat;
-    background-color: transparent;
-    vertical-align: text-bottom;
 }
-.search > li > .box{
+.search  li .icon::after {
+	display: block;
+	position: absolute;
+    right: 10px;
+    display: block;
+    content: "";
+    background: url(../../src/image/item/ico_arr_02.png) no-repeat 0 0;
+    background-size: 13px auto;
+    margin: -28px 0 0 0;
+    width: 13px;
+    height: 20px;
+    vertical-align: -2px;
+}
+.search > li >.box{
 	height: 60px;
 	padding: 10px 0 0 10px;
+}
+.search > li{
+	position: relative;
+}
+.search > li::after{
+	position: absolute;
+    content: '';
+    display: block;
+    background: url('ico_arr_02.png')no-repeat;
+    right: 10px;
+    width: 34px;
+    margin-top: -35px;
 }
 .box > a > p{
 	font-size: 12px;
@@ -111,4 +150,252 @@
 }
 .img-submit > img {
 	height: 32px;
+}
+/***************** page 2 search *************/
+.mainContents > .pageTitle {
+    margin: 0 0 10px;
+    padding: 20px 10px;
+    background: #ff3300;
+    color: #ffffff;
+    font-size: 14px;
+}
+.mainContents > h2 {
+	border-top: 2px solid #ff3300;
+	padding: 10px;
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(238,238,238,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(238,238,238,1)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(238,238,238,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(238,238,238,1) 100%);
+    color: #ff3300;
+    font-size: 1.33em;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+.aseaSelect{
+	margin: 0;
+    padding: 10px;
+    border-top: 1px solid #ffffff;
+    background: #ffffff;
+    font-size: 13px;
+}
+.aseaLeft{
+	float: left;
+    display: inline;
+}
+.aseaLeft > h1 {
+    margin-top: 5px;
+    font-size: 13px;
+}
+.aseamain{
+    min-height: 15px;
+}
+.aseaRight{
+	float: right;
+    display: inline;
+}
+.aseaSelect > p > .title {
+	float: left;
+}
+.aseaSelect > p > select {
+    width: 89%;;
+}
+select{
+    position: relative;
+    padding: 6px 0;
+    width: 100%;
+    height: 30px;
+    vertical-align: middle;
+}
+.tableJobcate{
+	margin: 0;
+    table-layout: fixed;
+    width: 100%;
+    background: #ffffff;
+}
+.tableJobcate  td {
+    border-bottom: 1px solid #dddddd;
+    font-size: 1em;
+    padding: 0 10px;
+}
+.tableJobcate td > label {
+    display: table;
+    width: 100%;
+    font-weight: 500;
+}
+.tablemain {
+	min-height: 200px;
+	background: #ffffff;
+}
+.tableJobcate input{
+    width: 25px;
+    height: 25px;
+    vertical-align: -7px !important;
+    margin-top: 8px !important;
+    margin-right: 12px !important;
+    margin-bottom: 8px !important;
+    margin-left: 0px;
+}
+.tableJobcate td {
+
+}
+td .name {
+	font-size: 13px;
+}
+.commitment > .commited {
+	width: 100%;
+	padding-left: 0px;
+	background: #ffffff;
+	margin-bottom: 0;
+}
+.commited li > a {
+	position: relative;
+    display: block;
+    padding: 10px 26px 10px 10px;
+    color: #000000;
+}
+.commited li {
+    border-bottom: 1px solid #dddddd;
+}
+.commited li a::after {
+    position: absolute;
+    right: 10px;
+    display: block;
+    content: "";
+    background: url(../../src/image/item/mod_ico_arrow_07.png) no-repeat 0 0;
+    background-size: 13px auto;
+    margin: -15px 0 0 0;
+    width: 13px;
+    height: 13px;
+    vertical-align: -2px;
+}
+.numberwork {
+    padding: 10px;
+    background: #ffffff;
+}
+span input{
+	width: 100%;
+    height: 30px;
+    border: 1px solid #bab9b9;
+    padding: 5px 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    vertical-align: middle;
+    font-size: 1.167em;
+    -webkit-appearance: none;
+}
+.pagetop {
+	text-align: right;
+}
+.pagetop a::after{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    display: block;
+    content: "";
+    background: url(../../src/image/item/mod_ico_arrow_13.png) no-repeat 0 0;
+    background-size: 13px auto;
+    margin: -6px 0 0 0;
+    width: 13px;
+    height: 13px;
+    vertical-align: -2px;
+}
+#back-to-top{
+	position: relative;
+    padding-left: 18px;
+    color: #000000;
+    text-decoration: underline;
+    z-index: 0;
+    text-align: right;
+}
+.gfooter .unav {
+    display: block;
+    border-top: 1px solid #b2b2b2;
+    padding: 25px 0 0;
+    text-align: center;
+}
+.gfooter .unav ul {
+    overflow: hidden;
+    margin: 0 0 10px;
+    list-style: none;
+    line-height: 1;
+    padding-left: 10px;
+}
+.gfooter .unav li:first-child {
+    border-left: none;
+    padding: 0 8px 0 0;
+}
+.gfooter .unav li {
+    display: inline-block;
+    margin: 0 0 1em;
+    padding: 0 8px;
+    border-left: 1px solid #252525;
+}
+.gfooter .unav li a {
+    color: #252525;
+    text-decoration: underline;
+    font-size: 12px;
+}
+.hidden-bottom{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 10px 0;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 100;
+}
+.hidden-bottom li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px 2px 0;
+    font-size: 12px;
+}
+.hidden-bottom ul {
+    padding-left: 0;
+    text-align: center;
+}
+.hidden-bottom li a{
+	display: inline-block;
+    vertical-align: middle;
+}
+#search img {
+    width: 177px;
+    height: 49px;
+}
+#clear img{
+    width: 115px;
+    height: 40px;
+}
+/******** Location *******/
+.pageTitle-loca{
+    background: #EEEEEE;
+    text-align: center;
+    font-size: 16px;
+    height: 45px;
+    line-height: 2.5;
+}
+.pageTitle-loca a {
+    color: #000000;
+}
+a .local-header{
+    background: url(../../src/image/item/localHeader_back.png) no-repeat 0 0;
+    position: absolute;
+    background-position: 0px -6px;
+    background-repeat: no-repeat;
+    font-size: 13px;
+    background-size: 64px;
+    width: 63px;
+    height: 31px;
+    margin-top: 5px;
+    padding-top: 0px;
+    padding-left: 4px;
+    left: 5px;    
+}
+.mainContents {
+    min-height: 200px;
+}
+.mainContents form{
+    margin-top: -20px;
 }
