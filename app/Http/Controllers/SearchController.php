@@ -7,28 +7,12 @@ use App\search;
 class SearchController extends BaseController
 {
 	public function index(){
-		$keyword = Search::all();
-	    return response()->json([
-	         'data' => $keyword
-	    ], 200);
+		return view('search/index');
 	}
-	public function store(Request $request)
-	{
-	    if(! $request->keyword){
-	        return response()->json([
-	            'error' => [
-	                'message' => 'failse'
-	            ]
-	        ], 422);
-	    }
-	    $search = new Search;
- 		$search->keyword = $request->keyword;
-    	$search->hit = 1;
-    	$search->vote = 1;
-        $search->save();
-	    return response()->json([
-	       'status' => 1,
-	       'message' => 'success'
-	    ]);
+	public function fillter(){
+			return view('search/fillter');
+	}
+	public function location(){
+			return view('search/location');
 	}
 }

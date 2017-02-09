@@ -3,7 +3,7 @@
 @section('content')
   <div class="row wrapper">
         <div class="col-md-10 wrapper vdh">
-            
+
             <div class="mainContents">
             	<form class="" name="" method="" action="">
                     <h1 class="pageTitle-loca text-bold">
@@ -11,16 +11,16 @@
                             <span class="local-header">戻る</span>
                         </a>
                             エリアを選択する
-                    </h1>   
+                    </h1>
                     <div class="sppopulararea">
                         <div class="middinfo">
-                            
+
                         </div>
                     </div>
                 </form>
             </div>
-            
-                
+
+
         </div>
         <div class="hidden-bottom">
             <ul>
