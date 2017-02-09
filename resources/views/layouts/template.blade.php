@@ -64,14 +64,14 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <!-- <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="/src/image/logo.png" alt="">
-                </a>
+                </a> -->
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-left">
+               <!--  <ul class="nav navbar-nav navbar-left">
                     <li >
                         <a href="">マイページ</a>
 
@@ -89,7 +89,7 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
+                </ul> -->
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -98,15 +98,6 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-
-                    <li class="has-noti">
-                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i></a>
-                        <div class="show-noti show">3</div>
-                    </li>
-                    <li class="has-noti">
-                        <a href=""><i class="fa fa-bell-o" aria-hidden="true"></i></a>
-                        <div class="show-noti show">9</div>
-                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle a-flag" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <img src="/{{ config('app.source') }}/image/flag-{{ Lang::getLocale() }}.png" alt=""/>
