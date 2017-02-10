@@ -2,6 +2,10 @@
 
 @section('content')
   <div class="row ">
+        <div class="col-md-2 wrapper">
+            @include('sidebar.index')
+
+        </div>
         <div class="col-md-10 wrapper vdh">
             
             <div class="mainContents">
@@ -397,6 +401,9 @@
                         <li> <a href="#">会社概要</a></li>
                     </ul>
                 </nav>
+                <p class="copyright text-center">
+                    <a href="">@timefuns.net</a>
+                </p>
             </div>
                 
         </div>
