@@ -43,34 +43,42 @@
             		<li>
             			<div class="box icon">
 	            			<a href="./search/fillter">
-	            				<img class="img-search" src="src/image/item/ico_search.png">
-	            				<p class="larger">ピッタリ条件で探す</p>
-	            				<p class="small">新宿区 × フード × 時給1,000円</p>
-	            				<!-- <img src="src/image/item/ico_arr_02.png"> -->
+	            				<div>
+		            				<img class="img-search" src="src/image/item/ico_search.png">
+		            				<p class="larger">ピッタリ条件で探す</p>
+		            				<p class="small">新宿区 × フード × 時給1,000円</p>
+	            					
+	            				</div>
 	            			</a>
             			</div>
             		</li>
             		<li>
 	            		<div class="box icon">
             			<a href="./search/location">
+            				<div>
             				<img class="img-search" src="src/image/item/ico_search_01.png">
             				<p class="larger">エリアから探す</p>
+            				</div>
             			</a>
             			</div>
             		</li>
             		<li>
 	            		<div class="box icon">
-            			<a href="#">
+            			<a href="./search/rosen">
+            				<div>
             				<img class="img-search" src="src/image/item/ico_search_02.png">
             				<p class="larger">駅・路線から探す</p>
+            				</div>
             			</a>
             			</div>
             		</li>
             		<li>
 	            		<div class="box icon">
             			<a href="#">
+            				<div>
             				<img class="img-search" src="src/image/item/ico_search_03.png">
             				<p class="larger">職種から探す</p>
+            				</div>
             			</a>
             			</div>
             		</li>

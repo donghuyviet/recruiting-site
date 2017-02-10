@@ -71,7 +71,7 @@ ul {
     margin-right: 1px;
     vertical-align: middle;
 }
-.box > a > .img-search{
+.box> a div > .img-search{
     height: 40px !important;
     vertical-align: middle;
 }
@@ -414,6 +414,7 @@ a .local-header{
 .mainContents {
     min-height: 200px;
     background: #ffffff;
+    padding-bottom: 10px;
 }
 .mainContents form{
 }
@@ -684,4 +685,26 @@ a .local-header{
     background-position: 8px 47px;
     background-size: 24px;
     margin-bottom: 0;
+}
+/************ CONDITION*************/
+.linkLine {
+}
+.linkLine li a {
+    position: relative;
+    display: block;
+    padding: 10px;
+    color: #000000;
+}
+.linkLine li a::after {
+    display: block;
+    position: absolute;
+    right: 10px;
+    display: block;
+    content: "";
+    background: url(../../src/image/item/ico_arr_02.png) no-repeat 0 0;
+    background-size: 13px auto;
+    margin: -16px 0 0 0;
+    width: 13px;
+    height: 20px;
+    vertical-align: -2px;
 }
