@@ -4,26 +4,33 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\search;
+use App\Job;
 
 class ApiSearchController extends BaseController
 {
    public function index(Request $request)
 	{
-		$popular = Search::orderBy('hit', 'DESC')->select('keyword')->take(5)->get();
-		$vote = Search::orderBy('vote', 'DESC')->take(5)->get();
-		/*return response()
+		$limit = isset($request->limit) && (int)$request->limit ? (int)$request->limit : 5;
+		$popular = Search::orderBy('hit', 'DESC')->pluck('keyword')->take($limit);
+		$vote = Search::orderBy('vote', 'DESC')->pluck('keyword')->take($limit);
+
+		return response()
 		->json([
          'data' => [
-          'popular'=> $popular->keyword,
-          'favorite' => $vote->keyword
+          'popular'=> $popular,
+          'favorite' => $vote
           ]
-    	], 200);*/
-		$countries = $popular->lists('keyword');
-		return $countries;
+    	], 200);
 	}
 	public function get_job_in_keyrord(Request $request)
 	{
-		$search_term = $request->keyword;
-		$jokes = Job::orderBy('id', 'DESC')->where('title', 'LIKE', "%$search_term%")->select('id', 'body', 'user_id')->paginate($limit);
+		$keyword = $request->keyword;
+		$limit = isset($request->limit) && (int)$request->limit ? (int)$request->limit : 5;
+		$posts = Job::orderBy('id', 'DESC')->whereRaw(
+        "MATCH(title,description) AGAINST(? IN BOOLEAN MODE)", array($keyword))->get();
+        return response()
+		->json([
+         'data' => $posts
+    	], 200);
 	}
 }
