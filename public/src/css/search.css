@@ -20,8 +20,8 @@ ul {
     padding: 10px !important;
 }
 .wrapper {
-	padding-right: 0 !important;
-	padding-left: 0 !important;
+	padding-right: 5 !important;
+	padding-left: 5  !important;
 }
 .search-header{
 	font-size: 12px;
@@ -393,6 +393,7 @@ span input{
     font-size: 16px;
     height: 45px;
     line-height: 2.5;
+    margin: 0;
 }
 .pageTitle-loca a {
     color: #000000;
@@ -592,7 +593,6 @@ a .local-header{
     display: block;
 }
 .tabUnit {
-    margin-top: -10px;
 }
 .unitList {
     border-bottom: solid 4px #ff3300 !important;
@@ -706,5 +706,136 @@ a .local-header{
     margin: -16px 0 0 0;
     width: 13px;
     height: 20px;
+    vertical-align: -2px;
+}
+/*********** CAREER *************/
+.boxType .type-header .heading-pic >.image {
+    width: 120px;
+}
+.heading-pic >.image img {
+    width: 120px;
+    height: 90px;
+}
+.heading-pic .image, .heading-pic, .header-right{
+    display: table-cell;
+    vertical-align: middle;
+    direction: ltr;
+}
+.header-right{
+    width: 100%;
+    padding-left: 10px;
+}
+.header-right-title p {
+    padding: 0 2px 2px;
+    list-style: none;
+    font-size: 12px;
+    background-color: #FFFFFF;
+    color: #000000;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    margin: 0 0 8px;
+    overflow: hidden;
+    font-weight: bold;
+}
+.summerBox {
+    background: url(../../src/image/item/ico_arr_02.png) no-repeat 0 0;
+    background-size: 12px auto;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    margin-top: 10px;
+}
+.summer-table {
+    margin: 0;
+    width: 100%;
+}
+.summer-table tr {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.summer-table th {
+    width: 45px;
+    text-align: center;
+    background-color: #EEEEEE;
+    padding: 6px 0 5px;
+}
+.summer-table img {
+    vertical-align: middle;
+    width: 17px;
+    height: 15px;
+}
+.summer-table th span {
+    font-weight: 300;
+    font-size: 13px;
+}
+.summer-table td {
+    padding-left: 5px;
+    font-size: 13px;
+}
+.itemsave{
+    margin: auto;
+    border-radius: 8px;
+    width: 100%;
+    background: #9B9B9B;
+    background: -moz-linear-gradient(top, #ff5b00 0%, #ff0100 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9B9B9B), color-stop(100%,#838383));
+    background: -webkit-linear-gradient(top, #9B9B9B 0%,#838383 100%);
+    background: linear-gradient(to bottom, #9B9B9B 0%,#838383 100%);
+    margin-bottom: 10px;
+}
+.appbtn {
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.4); */
+     border-radius: 7px; 
+     border: 1px solid #ff3300;
+      background: #ff5b00; 
+    background: -moz-linear-gradient(top, #ff5b00 0%, #ff0100 100%);
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff5b00), color-stop(100%,#ff0100)); 
+     background: -webkit-linear-gradient(top, #ff5b00 0%,#ff0100 100%); 
+     background: linear-gradient(to bottom, #ff5b00 0%,#ff0100 100%);  
+}
+.itemsave a {
+        text-decoration: none;
+    height: 38px;
+    width: 290px;
+    border-radius: 7px;
+    position: relative;
+}
+.itemsave .star {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.33em;
+    line-height: 39px;
+    padding-left: 30px;
+    height: 38px;
+}
+.star {
+    background-image: url(../../src/image/item/C_saved_off.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 25% 5px;
+}
+.apply_btn {
+   
+}
+.table-bottom table {
+    text-align: center;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+}
+.image-complate{
+    display: block;
+    position: absolute;
+    right: 10px;
+    display: block;
+    content: "";
+    background: url(../../src/image/item/C_nearend_topicon.png) no-repeat 0 0;
+    background-size: 60px auto;
+    margin: -28px 0 0 0;
+    width: 60px;
+    height: 60px;
     vertical-align: -2px;
 }

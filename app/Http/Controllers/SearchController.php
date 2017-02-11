@@ -24,4 +24,7 @@ class SearchController extends BaseController
 	public function condition(){
 			return view('search/condition');
 	}
+	public function career(){
+			return view('search/career');
+	}
 }
