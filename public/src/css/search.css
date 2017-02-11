@@ -415,7 +415,7 @@ a .local-header{
 .mainContents {
     min-height: 200px;
     background: #ffffff;
-    padding-bottom: 10px;
+    margin-bottom: 50px;
 }
 .mainContents form{
 }
@@ -474,6 +474,7 @@ a .local-header{
 .tabs-left .nav-tabs li.active{
     background-color: #FFFFFF;
     border-left: 3px solid #ff3300;
+    width: 100%;
 }
 .tabs-left .nav-tabs li {
     position: relative;
