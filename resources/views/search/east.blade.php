@@ -42,7 +42,7 @@
                                                     </li>
                                                 </ul>
                                             </label>
-                                            <ul class="condLyer_03" id="rosen_01">
+                                            <ul class="condLyer_03 rosen" id="rosen_01">
                                                 <li>
                                                     <label>
                                                         <ul class="linkcell">
@@ -173,8 +173,6 @@
 
                                             </ul>
                                         </li>
-                                        <li class="tab-pane " id="link-tabs-02">sdfasdfas</li>
-                                        <li class="tab-pane " id="link-tabs-03">s</li>
                                     </ul>
                                 </li>
                             </ul>
