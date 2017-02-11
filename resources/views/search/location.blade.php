@@ -172,14 +172,14 @@
                         <li> <a href="#">会社概要</a></li>
                     </ul>
                 </nav>
-                <p class="logo-bottom text-center">
+                <!-- <p class="logo-bottom text-center">
                     <a href="#">
                         <img src="/src/image/item/tmp_gfooter_img_logo_01.gif">
                     </a>
-                </p>
-                <p class="copyright text-center">
+                </p> -->
+                <!-- <p class="copyright text-center">
                     <a href="">@timefuns.net</a>
-                </p>
+                </p> -->
             </div>
             </div>
 

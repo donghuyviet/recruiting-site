@@ -217,9 +217,9 @@
                             <li> <a href="#">会社概要</a></li>
                         </ul>
                     </nav>
-                    <p class="copyright text-center">
+                    <!-- <p class="copyright text-center">
                         <a href="">@timefuns.net</a>
-                    </p>
+                    </p> -->
                 </div>
             </div>
                 
