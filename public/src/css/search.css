@@ -634,6 +634,7 @@ a .local-header{
     color: #000000;
     font-weight: bold;
     display: block;
+    font-size: 12px;
     width: 100%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;

@@ -74,7 +74,7 @@
             		</li>
             		<li>
 	            		<div class="box icon">
-            			<a href="#">
+            			<a href="./search/career">
             				<div>
             				<img class="img-search" src="src/image/item/ico_search_03.png">
             				<p class="larger">職種から探す</p>
