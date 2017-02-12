@@ -517,7 +517,7 @@ a .local-header{
     padding-left: 30px;
 }
 .condLyer_03.rosen > li::after{
-     display: block;
+    /* display: block;
     position: absolute;
     right: 10px;
     display: block;
@@ -528,9 +528,10 @@ a .local-header{
     width: 13px;
     height: 20px;
     vertical-align: -2px;
+    */
 }
 .condLyer_03 > li::after{
-     display: block;
+   /*  display: block;
     position: absolute;
     right: 10px;
     display: block;
@@ -541,6 +542,7 @@ a .local-header{
     width: 13px;
     height: 20px;
     vertical-align: -2px;
+    */
 }
 .linkcell li a{
     color: #000000;

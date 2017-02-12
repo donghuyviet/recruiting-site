@@ -53,6 +53,9 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
+                                                            <li class="icon-blue rosen"><a href="./rosen-east">
+                                                        <img src="/src/image/item/arrow_blue.png">
+                                                    </a></li>
                                                         </ul>
                                                     </label>
                                                 </li>
@@ -66,6 +69,9 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
+                                                            <li class="icon-blue rosen"><a href="./rosen-east">
+                                                        <img src="/src/image/item/arrow_blue.png">
+                                                    </a></li>
                                                         </ul>
                                                     </label>
                                                 </li>
@@ -79,6 +85,9 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
+                                                            <li class="icon-blue rosen"><a href="./rosen-east">
+                                                        <img src="/src/image/item/arrow_blue.png">
+                                                    </a></li>
                                                         </ul>
                                                     </label>
                                                 </li>
@@ -92,6 +101,9 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
+                                                            <li class="icon-blue rosen"><a href="./rosen-east">
+                                                        <img src="/src/image/item/arrow_blue.png">
+                                                    </a></li>
                                                         </ul>
                                                     </label>
                                                 </li><li>
@@ -104,6 +116,9 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
+                                                            <li class="icon-blue rosen"><a href="./rosen-east">
+                                                        <img src="/src/image/item/arrow_blue.png">
+                                                    </a></li>
                                                         </ul>
                                                     </label>
                                                 </li>
@@ -117,6 +132,9 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
+                                                            <li class="icon-blue rosen"><a href="./rosen-east">
+                                                        <img src="/src/image/item/arrow_blue.png">
+                                                    </a></li>
                                                         </ul>
                                                     </label>
                                                 </li>
@@ -130,6 +148,9 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
+                                                            <li class="icon-blue rosen"><a href="./rosen-east">
+                                                        <img src="/src/image/item/arrow_blue.png">
+                                                    </a></li>
                                                         </ul>
                                                     </label>
                                                 </li>
@@ -143,6 +164,9 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
+                                                            <li class="icon-blue rosen"><a href="./rosen-east">
+                                                        <img src="/src/image/item/arrow_blue.png">
+                                                    </a></li>
                                                         </ul>
                                                     </label>
                                                 </li>
@@ -196,7 +220,7 @@
                     <span class="kaizen-mod-text">件</span>
                 </div>
             <ul>
-                <li class="kaizen-clone"><a href="#"><p>検索</p></a></li>
+                <li class="kaizen-clone"><a href="./career"><p>検索</p></a></li>
                 <li class="kaizen"><a href="./condition"><p>希望条件を追加</p></a></li>
             </ul>
         </div>
