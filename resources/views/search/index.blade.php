@@ -6,7 +6,7 @@
             @include('sidebar.index')
 
         </div>
-        <div class="col-md-10 wrapper">
+        <div class="col-md-10 wrapper" ng-controller="SearchCtrl">
             <div class="box">
 				<div class="box-header header-top text-center">
                     ロゴ
@@ -33,7 +33,7 @@
 	                	</ul>
 	                	<ul class="search-main">
 	                		<li><input class="input-search" type="text" name="" id="freewordInput" placeholder=" 例：データ入力、イベント"></li>
-	                		<li><a type="submit" class="img-submit" ><img src="src/image/item/A_01_btn_search_01.png"></a></li>
+	                		<li><a type="submit" class="img-submit" ng-click="resultSeach()" ><img src="src/image/item/A_01_btn_search_01.png"></a></li>
 	                	</ul>
 	                </div>
             	</div>
@@ -135,8 +135,6 @@
         <div class="clearfix"></div>
     </div>
 
-@endsection
 <link rel="stylesheet" type="text/css" href="/{{config('app.source')}}/css/search.css">
-<script type="text/javascript">
-	
-</script>
+<script src="/{{ config('app.source') }}/js/customize/search.js"></script>
+@endsection

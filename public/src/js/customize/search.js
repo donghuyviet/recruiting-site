@@ -1,13 +1,19 @@
-// $(function() {
-// $('.openClick').on('click', function() {
-//     if($(this).hasClass('open'))
-//     {
-//     	alert('ádfa');
-//         $(this).addClass('close').removeClass('open');
-//     }
-//     else
-//     {
-//        $(this).addClass('open').removeClass('close');
-//     }
-//   });
-// });
+// Seach Main controller
+_app.controller('SearchCtrl', function ($rootScope, $scope, $http) {
+	console.log('search process');
+
+	$scope.keyword = [];
+	$scope.listKeyword = function(){
+		_fetch.get('/api/keyword', {}, function(res) {
+			console.log(res);
+		});
+	}
+
+	// result search keywork
+	$scope.resultSeach = function(){
+		_fetch.get('api/search', {}, function(res){
+			console.log(res);
+		});
+	}
+
+});
