@@ -11,7 +11,7 @@
             <div class="mainContents">
             	<form class="" name="" method="" action="">
                     <h1 class="pageTitle-loca text-bold">
-                        <a href="#">
+                        <a href="./rosen">
                             <span class="local-header">戻る</span>
                         </a>
                             エリアを選択する
@@ -42,7 +42,7 @@
                                                     </li>
                                                 </ul>
                                             </label>
-                                            <ul class="condLyer_03 rosen" id="rosen_01">
+                                            <ul class="condLyer_03" id="rosen_01">
                                                 <li>
                                                     <label>
                                                         <ul class="linkcell">
@@ -52,9 +52,6 @@
                                                             <li>
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
-                                                            </li>
-                                                            <li class="icon-blue rosen">
-                                                            <a href="#"><img src="/src/image/item/arrow_blue.png"></a>
                                                             </li>
                                                         </ul>
                                                     </label>
@@ -69,9 +66,6 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
-                                                            <li class="icon-blue rosen">
-                                                            <a href="#"><img src="/src/image/item/arrow_blue.png"></a>
-                                                            </li>
                                                         </ul>
                                                     </label>
                                                 </li>
@@ -85,9 +79,6 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
-                                                            <li class="icon-blue rosen">
-                                                            <a href="#"><img src="/src/image/item/arrow_blue.png"></a>
-                                                            </li>
                                                         </ul>
                                                     </label>
                                                 </li>
@@ -100,9 +91,6 @@
                                                             <li>
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
-                                                            </li>
-                                                            <li class="icon-blue rosen">
-                                                            <a href="#"><img src="/src/image/item/arrow_blue.png"></a>
                                                             </li>
                                                         </ul>
                                                     </label>
@@ -116,8 +104,18 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
-                                                            <li class="icon-blue rosen">
-                                                            <a href="#"><img src="/src/image/item/arrow_blue.png"></a>
+                                                        </ul>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label>
+                                                        <ul class="linkcell">
+                                                            <li>
+                                                                <input value="1307" name="A3" type="checkbox" class="">
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
+                                                                </a>
                                                             </li>
                                                         </ul>
                                                     </label>
@@ -132,9 +130,6 @@
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
                                                             </li>
-                                                            <li class="icon-blue rosen">
-                                                            <a href="#"><img src="/src/image/item/arrow_blue.png"></a>
-                                                            </li>
                                                         </ul>
                                                     </label>
                                                 </li>
@@ -147,25 +142,6 @@
                                                             <li>
                                                                 <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
                                                                 </a>
-                                                            </li>
-                                                            <li class="icon-blue rosen">
-                                                            <a href="#"><img src="/src/image/item/arrow_blue.png"></a>
-                                                            </li>
-                                                        </ul>
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <label>
-                                                        <ul class="linkcell">
-                                                            <li>
-                                                                <input value="1307" name="A3" type="checkbox" class="">
-                                                            </li>
-                                                            <li>
-                                                                <a href="#" class="" onclick=""><p class="condlink">23区 (20650)</p>
-                                                                </a>
-                                                            </li>
-                                                            <li class="icon-blue rosen">
-                                                            <a href="#"><img src="/src/image/item/arrow_blue.png"></a>
                                                             </li>
                                                         </ul>
                                                     </label>
