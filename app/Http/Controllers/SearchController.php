@@ -15,4 +15,16 @@ class SearchController extends BaseController
 	public function location(){
 			return view('search/location');
 	}
+	public function rosen(){
+			return view('search/rosen');
+	}
+	public function east(){
+			return view('search/east');
+	}
+	public function condition(){
+			return view('search/condition');
+	}
+	public function career(){
+			return view('search/career');
+	}
 }

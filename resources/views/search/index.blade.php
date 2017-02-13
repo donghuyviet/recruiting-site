@@ -2,7 +2,11 @@
 
 @section('content')
   <div class="row">
-        <div class="col-md-10">
+  		<div class="col-md-2 wrapper">
+            @include('sidebar.index')
+
+        </div>
+        <div class="col-md-10 wrapper" ng-controller="SearchCtrl" id="snsCtrl">
             <div class="box">
 				<div class="box-header header-top text-center">
                     ロゴ
@@ -28,8 +32,8 @@
 	                		<li><a href="#">正社員</a></li>
 	                	</ul>
 	                	<ul class="search-main">
-	                		<li><input class="input-search" type="text" name="" id="freewordInput" placeholder=" 例：データ入力、イベント"></li>
-	                		<li><a type="submit" class="img-submit" ><img src="src/image/item/A_01_btn_search_01.png"></a></li>
+	                		<li><input class="input-search" type="text" id="valueSearch" ng-model="searchString" placeholder=" 例：データ入力、イベント"></li>
+	                		<li><a type="submit" class="img-submit" onclick="searchKey('')" ><img src="src/image/item/A_01_btn_search_01.png"></a></li>
 	                	</ul>
 	                </div>
             	</div>
@@ -39,34 +43,42 @@
             		<li>
             			<div class="box icon">
 	            			<a href="./search/fillter">
-	            				<img class="img-search" src="src/image/item/ico_search.png">
-	            				<p class="larger">ピッタリ条件で探す</p>
-	            				<p class="small">新宿区 × フード × 時給1,000円</p>
-	            				<!-- <img src="src/image/item/ico_arr_02.png"> -->
+	            				<div>
+		            				<img class="img-search" src="src/image/item/ico_search.png">
+		            				<p class="larger">ピッタリ条件で探す</p>
+		            				<p class="small">新宿区 × フード × 時給1,000円</p>
+	            					
+	            				</div>
 	            			</a>
             			</div>
             		</li>
             		<li>
 	            		<div class="box icon">
             			<a href="./search/location">
+            				<div>
             				<img class="img-search" src="src/image/item/ico_search_01.png">
             				<p class="larger">エリアから探す</p>
+            				</div>
             			</a>
             			</div>
             		</li>
             		<li>
 	            		<div class="box icon">
-            			<a href="#">
+            			<a href="./search/rosen">
+            				<div>
             				<img class="img-search" src="src/image/item/ico_search_02.png">
             				<p class="larger">駅・路線から探す</p>
+            				</div>
             			</a>
             			</div>
             		</li>
             		<li>
 	            		<div class="box icon">
-            			<a href="#">
+            			<a href="./search/career">
+            				<div>
             				<img class="img-search" src="src/image/item/ico_search_03.png">
             				<p class="larger">職種から探す</p>
+            				</div>
             			</a>
             			</div>
             		</li>
@@ -123,8 +135,6 @@
         <div class="clearfix"></div>
     </div>
 
-@endsection
 <link rel="stylesheet" type="text/css" href="/{{config('app.source')}}/css/search.css">
-<script type="text/javascript">
-	
-</script>
+<script src="/{{ config('app.source') }}/js/customize/search.js"></script>
+@endsection

@@ -5,7 +5,7 @@
  <div class="container-fluid">
     <div class="row">
       <div class="col-md-2">
-            @include('sidebar.index');
+            @include('sidebar.index')
         </div>
         <div class="col-md-8">
             <div class="panel panel-default">

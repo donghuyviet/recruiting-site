@@ -2,6 +2,10 @@
 
 @section('content')
   <div class="row ">
+        <div class="col-md-2 wrapper">
+            @include('sidebar.index')
+
+        </div>
         <div class="col-md-10 wrapper vdh">
             
             <div class="mainContents">
@@ -379,24 +383,27 @@
                 <p class="pagetop">
                 <a id="back-to-top" href="#top" class="back-to-top">ページ上部へ戻る</a>
                 </p>
-            </div>
-            <div class="gfooter">
-                <nav class="unav">
-                    <ul>
-                        <li> <a href="#">求人情報サービス「an」トップへ</a></li>
-                        <li> <a href="#">お問い合わせ</a></li>
-                    </ul>
-                    <ul>
-                        <li> <a href="#">個人情報保護方針</a></li>
-                        <li> <a href="#">免責事項</a></li>
-                        <li> <a href="#">利用規約</a></li>
-                    </ul>
-                    <ul>
-                        <li> <a href="#">推奨環境</a></li>
-                        <li> <a href="#">サイトマップ</a></li>
-                        <li> <a href="#">会社概要</a></li>
-                    </ul>
-                </nav>
+                <div class="gfooter">
+                    <nav class="unav">
+                        <ul>
+                            <li> <a href="#">求人情報サービス「an」トップへ</a></li>
+                            <li> <a href="#">お問い合わせ</a></li>
+                        </ul>
+                        <ul>
+                            <li> <a href="#">個人情報保護方針</a></li>
+                            <li> <a href="#">免責事項</a></li>
+                            <li> <a href="#">利用規約</a></li>
+                        </ul>
+                        <ul>
+                            <li> <a href="#">推奨環境</a></li>
+                            <li> <a href="#">サイトマップ</a></li>
+                            <li> <a href="#">会社概要</a></li>
+                        </ul>
+                    </nav>
+                    <!-- <p class="copyright text-center">
+                        <a href="">@timefuns.net</a>
+                    </p> -->
+                </div>
             </div>
                 
         </div>

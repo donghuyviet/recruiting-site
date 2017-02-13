@@ -83,6 +83,10 @@ Route::post('/seeker/edit/{id}','SeekerController@update');
 Route::get('/search','SearchController@index');
 Route::get('/search/fillter','SearchController@fillter');
 Route::get('/search/location','SearchController@location');
+Route::get('/search/rosen','SearchController@rosen');
+Route::get('/search/rosen-east','SearchController@east');
+Route::get('/search/condition','SearchController@condition');
+Route::get('/search/career','SearchController@career');
 
 Route::get('/jobs/entry', 'JobsController@index');
 Route::post('/jobs/entry', 'JobsController@save');

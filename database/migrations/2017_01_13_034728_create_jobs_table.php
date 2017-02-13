@@ -22,6 +22,7 @@ class CreateJobsTable extends Migration
             $table->date('end_date');
             $table->timestamps();
         });
+        DB::statement('ALTER TABLE jobs ADD FULLTEXT search(title, description)');
     }
 
     /**
@@ -31,6 +32,9 @@ class CreateJobsTable extends Migration
      */
     public function down()
     {
+        Schema::table('jobs', function($table) {
+            $table->dropIndex('search');
+        });
         Schema::dropIfExists('jobs');
     }
 }
