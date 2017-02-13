@@ -6,7 +6,7 @@
             @include('sidebar.index')
 
         </div>
-        <div class="col-md-10 wrapper" ng-controller="SearchCtrl">
+        <div class="col-md-10 wrapper" ng-controller="SearchCtrl" id="snsCtrl">
             <div class="box">
 				<div class="box-header header-top text-center">
                     ロゴ
@@ -32,8 +32,8 @@
 	                		<li><a href="#">正社員</a></li>
 	                	</ul>
 	                	<ul class="search-main">
-	                		<li><input class="input-search" type="text" name="" id="freewordInput" placeholder=" 例：データ入力、イベント"></li>
-	                		<li><a type="submit" class="img-submit" ng-click="resultSeach()" ><img src="src/image/item/A_01_btn_search_01.png"></a></li>
+	                		<li><input class="input-search" type="text" id="valueSearch" ng-model="searchString" placeholder=" 例：データ入力、イベント"></li>
+	                		<li><a type="submit" class="img-submit" onclick="searchKey('')" ><img src="src/image/item/A_01_btn_search_01.png"></a></li>
 	                	</ul>
 	                </div>
             	</div>

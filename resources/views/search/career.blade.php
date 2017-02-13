@@ -44,7 +44,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">
-                                            <img src="/src/image/item/ico_category_g.png">
+                                            <img src="/src/image/item/ico_pay.png">
                                             <br>
                                             <span>職種</span>
                                         </th>
@@ -55,7 +55,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">
-                                            <img src="/src/image/item/ico_category_g.png">
+                                            <img src="/src/image/item/ico_train_g.png">
                                             <br>
                                             <span>職種</span>
                                         </th>
@@ -66,7 +66,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">
-                                            <img src="/src/image/item/ico_category_g.png">
+                                            <img src="/src/image/item/ico_shiftinfo.png">
                                             <br>
                                             <span>職種</span>
                                         </th>
@@ -138,7 +138,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">
-                                            <img src="/src/image/item/ico_category_g.png">
+                                            <img src="/src/image/item/ico_pay.png">
                                             <br>
                                             <span>職種</span>
                                         </th>
@@ -149,7 +149,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">
-                                            <img src="/src/image/item/ico_category_g.png">
+                                            <img src="/src/image/item/ico_train_g.png">
                                             <br>
                                             <span>職種</span>
                                         </th>
@@ -160,7 +160,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">
-                                            <img src="/src/image/item/ico_category_g.png">
+                                            <img src="/src/image/item/ico_shiftinfo.png">
                                             <br>
                                             <span>職種</span>
                                         </th>
