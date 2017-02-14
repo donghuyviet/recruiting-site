@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<link href="/{{ config('app.source') }}/css/chosen.min.css" rel="stylesheet">
 @section('content')
 <div class="bootstrap-iso">
  <div class="container-fluid">
@@ -53,6 +53,16 @@
                                </div>
                             </div>
                        </div>
+                       <div class="form-group">
+                            <label for="title" class="col-md-3 control-label">Location</label>
+                            <div class="col-md-6">
+                               <select class="html-multi-chosen-select" data-placeholder="Choose a Country..." multiple="multiple" name="location[]">
+                                   @foreach($locations as $item)
+                                      <option value="{{$item->id}}">{{$item->name_location}}</option>
+                                   @endforeach
+                                </select>
+                            </div>
+                       </div>
                          <input type="hidden" name="orderer_id" value ="1">
                          @if($status === 1 || $status === 2)
                             @if($status === 1)
@@ -71,10 +81,12 @@
     </div>
     </div>
 </div>
+<script src="/{{ config('app.source') }}/js/chosen.jquery.min.js"></script>
 <script>
   $(document).ready(function(){
     document.getElementById("post_jobs").reset();
-    var date_input_create =$('input[name="start_date"]'); //our date input has the name "date"
+    $('.html-multi-chosen-select').chosen({ width: "95%" });
+    var date_input_create =$('input[name="start_date"]');
     var date_input_complete =$('input[name="end_date"]'); 
     var container='body';
      date_input_create.datepicker({
