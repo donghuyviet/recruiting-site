@@ -41,7 +41,7 @@
 
     <script src="/{{ config('app.source') }}/js/main.js"></script>
     <script src="/{{ config('app.source') }}/js/ajax.js"></script>
-    <script src="/{{ config('app.source') }}/js/customize/notifications.js"></script>
+    <!-- <script src="/{{ config('app.source') }}/js/customize/notifications.js"></script> -->
     <script src="/{{ config('app.source') }}/js/socket.io.js"></script>
     <script src="/{{ config('app.source') }}/js/bootstrap-datepicker.min.js"></script>
 

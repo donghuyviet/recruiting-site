@@ -6,107 +6,13 @@
             @include('sidebar.index')
 
         </div>
-        <div class="col-md-10 wrapper vdh">
+        <div class="col-md-10 wrapper vdh" ng-controller="SearchResultCtrl">
             
             <div class="mainContents">
-            	<h1 class="pageTitle" alt="検索結果"></h1>
-                <div class="boxSearch">
+                <h1 class="pageTitle" alt="検索結果"></h1>
+                <div class="boxSearch" ng-repeat="job in results">
                     <div class="box-header text-bold text-left">
                         駅名を入力して探す
-                    </div>
-                    <div class="boxType">
-                        <div class="type-header text-left">
-                            <div class="heading-pic"><p class="image">
-                                <img src="/src/image/item/7325886.jpg">
-                            </p></div>
-                            <div class="header-right">
-                                <div class="header-right-title">
-                                    <p>アルバイト/パート/正社員</p>
-                                </div>
-                                <ul class="ListType-Right text-bold">
-                                    <li><a href="#">空前絶後のゆるゆる系バイト♪<週1日～OK◎完全自由出勤♪></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="summerBox">
-                            <table class="summer-table">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            <img src="/src/image/item/ico_category_g.png">
-                                            <br>
-                                            <span>職種</span>
-                                        </th>
-                                        <td><p>
-                                            1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
-                                            2.ホールSTAFF
-                                        </p></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <img src="/src/image/item/ico_pay.png">
-                                            <br>
-                                            <span>職種</span>
-                                        </th>
-                                        <td><p>
-                                            1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
-                                            2.ホールSTAFF
-                                        </p></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <img src="/src/image/item/ico_train_g.png">
-                                            <br>
-                                            <span>職種</span>
-                                        </th>
-                                        <td><p>
-                                            1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
-                                            2.ホールSTAFF
-                                        </p></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <img src="/src/image/item/ico_shiftinfo.png">
-                                            <br>
-                                            <span>職種</span>
-                                        </th>
-                                        <td><p>
-                                            1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
-                                            2.ホールSTAFF
-                                        </p></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="itemsave">
-                            <a href="#">
-                                <p class=" star text-center">とりあえず保存</p>
-                            </a>
-                        </div>
-                        <div class="itemsave appbtn">
-                            <a href="#">
-                                <p class=" star apply_btn text-center">とりあえず保存</p>
-                            </a>
-                        </div>
-                        <div class="table-bottom text-center">
-                            <table>
-                                <tbody>
-                                    <tr align="right">
-                                        <td align="right">
-                                            <span>掲載期間</span>
-                                            <span>：</span>
-                                            <span>2017/2/1～2017/3/28</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="boxSearch">
-                    <div class="box-header text-bold text-left">
-                        駅名を入力して探す
-                        <span class="image-complate"></span>
                     </div>
                     <div class="boxType">
                         <div class="type-header text-left">
@@ -227,6 +133,6 @@
         
         <div class="clearfix"></div>
     </div>
-
-@endsection
 <link rel="stylesheet" type="text/css" href="/{{config('app.source')}}/css/search.css">
+<script src="/{{ config('app.source') }}/js/customize/search-result.js"></script>
+@endsection

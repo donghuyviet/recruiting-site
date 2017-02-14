@@ -803,6 +803,7 @@ a .local-header{
 .summer-table td {
     padding-left: 5px;
     font-size: 13px;
+    text-align: left;
 }
 .itemsave{
     margin: auto;
