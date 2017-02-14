@@ -808,7 +808,7 @@ a .local-header{
 .itemsave{
     margin: auto;
     border-radius: 8px;
-    width: 100%;
+    width: 70%;
     background: #9B9B9B;
     background: -moz-linear-gradient(top, #ff5b00 0%, #ff0100 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9B9B9B), color-stop(100%,#838383));

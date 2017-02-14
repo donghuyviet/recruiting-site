@@ -6,13 +6,13 @@
             @include('sidebar.index')
 
         </div>
-        <div class="col-md-10 wrapper vdh" ng-controller="SearchResultCtrl">
+        <div class="col-md-10 wrapper vdh" ng-controller="SearchResultCtrl" ">
             
             <div class="mainContents">
                 <h1 class="pageTitle" alt="検索結果"></h1>
                 <div class="boxSearch" ng-repeat="job in results">
                     <div class="box-header text-bold text-left">
-                        駅名を入力して探す
+                       // job.title //
                     </div>
                     <div class="boxType">
                         <div class="type-header text-left">
@@ -21,10 +21,12 @@
                             </p></div>
                             <div class="header-right">
                                 <div class="header-right-title">
-                                    <p>アルバイト/パート/正社員</p>
+                                    <p><!-- アルバイト/パート/正社員 -->
+                                        // '' //
+                                    </p>
                                 </div>
                                 <ul class="ListType-Right text-bold">
-                                    <li><a href="#">空前絶後のゆるゆる系バイト♪<週1日～OK◎完全自由出勤♪></a></li>
+                                    <li><a href="#">// job.description | limitTo:100 // //(job.description.length) > 100 ? '...':'' //</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -38,8 +40,9 @@
                                             <span>職種</span>
                                         </th>
                                         <td><p>
-                                            1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
-                                            2.ホールSTAFF
+                                           <!--  1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
+                                            2.ホールSTAFF -->
+                                            // '...' //
                                         </p></td>
                                     </tr>
                                     <tr>
@@ -49,8 +52,9 @@
                                             <span>職種</span>
                                         </th>
                                         <td><p>
-                                            1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
-                                            2.ホールSTAFF
+                                            <!-- 1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
+                                            2.ホールSTAFF -->
+                                            // '...' //
                                         </p></td>
                                     </tr>
                                     <tr>
@@ -60,8 +64,9 @@
                                             <span>職種</span>
                                         </th>
                                         <td><p>
-                                            1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
-                                            2.ホールSTAFF
+                                            <!-- 1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
+                                            2.ホールSTAFF -->
+                                            // '...' //
                                         </p></td>
                                     </tr>
                                     <tr>
@@ -71,8 +76,9 @@
                                             <span>職種</span>
                                         </th>
                                         <td><p>
-                                            1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
-                                            2.ホールSTAFF
+                                           <!--  1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
+                                            2.ホールSTAFF -->
+                                            // '...' //
                                         </p></td>
                                     </tr>
                                 </tbody>
@@ -95,7 +101,7 @@
                                         <td align="right">
                                             <span>掲載期間</span>
                                             <span>：</span>
-                                            <span>2017/2/1～2017/3/28</span>
+                                            <span>//job.start_date //～ //job.end_date //</span>
                                         </td>
                                     </tr>
                                 </tbody>
