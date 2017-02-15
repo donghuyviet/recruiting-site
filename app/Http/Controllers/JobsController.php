@@ -31,6 +31,11 @@ class JobsController extends Controller
                  $status = 2;
                  $message = 'please description not empty';
             }
+            elseif(count($request->input('location')) === 0 || count($request->input('specializations')) === 0 || count($request->input('benefit'))=== 0 )
+            {
+                 $status = 2;
+                 $message = 'please select all field';
+            }
             else
             {
                 $job->orderer_id = $job->get_oderer_id();

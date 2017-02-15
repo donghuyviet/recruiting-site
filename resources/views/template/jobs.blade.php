@@ -14,14 +14,14 @@
                     <form class="form-horizontal" id = "post_jobs" method="POST" action="{{ url('/jobs/entry') }}">
                        {{ csrf_field() }}
                         <div class="form-group">
-                            <label for="title" class="col-md-3 control-label">タイトル</label>
-                            <div class="col-md-6">
+                            <label for="title" class="col-sm-3 control-label">タイトル</label>
+                            <div class="col-sm-6">
                                 <input id="msg" type="text" class="form-control" name="title" required autofocus>
                             </div>
                         </div>
                         <div class="form-group">
-	                          <label for="description" class="col-md-3 control-label">求人目的</label>
-	                          <div class="col-md-6">
+	                          <label for="description" class="col-sm-3 control-label">求人目的</label>
+	                          <div class="col-sm-6">
 	                              <textarea class="form-control" rows="5" name="description" required autofocus></textarea>
 	                          </div>
                         </div>
@@ -40,7 +40,7 @@
 	                          </div>
 	                     </div>
                        <div class="form-group">
-                           <label class="col-md-3 control-label" for="end_date">
+                           <label class="col-sm-3 control-label" for="end_date">
                              求人完了日
                             </label>
                             <div class="col-sm-3">
@@ -54,8 +54,8 @@
                             </div>
                        </div>
                        <div class="form-group">
-                            <label for="title" class="col-md-3 control-label">Location</label>
-                            <div class="col-md-6">
+                            <label for="title" class="col-sm-3 control-label">Location</label>
+                            <div class="col-sm-6">
                                <select class="html-multi-chosen-select" data-placeholder="Choose a Country..." multiple="multiple" name="location[]">
                                    @foreach($locations as $item)
                                       <option value="{{$item->id}}">{{$item->name_location}}</option>
@@ -64,8 +64,8 @@
                             </div>
                        </div>
                        <div class="form-group">
-                              <label for="title" class="col-md-3 control-label">Specializations</label>
-                              <div class="col-md-6">
+                              <label for="title" class="col-sm-3 control-label">Specializations</label>
+                              <div class="col-sm-6">
                                  <select class="html-multi-chosen-select" data-placeholder="Choose a Specializations..." multiple="multiple" name="specializations[]">
                                      @foreach($specializations as $item)
                                         <option value="{{$item->id}}">{{$item->name_specializations}}</option>
@@ -74,8 +74,8 @@
                               </div>
                          </div>
                          <div class="form-group">
-                              <label for="title" class="col-md-3 control-label">Benefit</label>
-                              <div class="col-md-6">
+                              <label for="title" class="col-sm-3 control-label">Benefit</label>
+                              <div class="col-sm-6">
                                  <select class="html-multi-chosen-select" data-placeholder="Choose a Benefit..." multiple="multiple" name="benefit[]">
                                      @foreach($benefits as $item)
                                         <option value="{{$item->id}}">{{$item->name_benefit}}</option>
