@@ -59,5 +59,56 @@ class Job extends Model
         $jobs_author = DB::table('jobs')->where('orderer_id', $orderer_id)->paginate(100);
         return $jobs_author;
     }
-
+    public function locations(){
+        return $this->belongsToMany('App\Location','job_location','job_id','location_id');
+    }
+    public function specializations(){
+        return $this->belongsToMany('App\Specializations','job_specializations','job_id','specialization_id');
+    }
+    public function benefits(){
+        return $this->belongsToMany('App\Benefit','job_benefit','job_id','benefit_id');
+    }
+    public function salarys(){
+        return $this->hasMany('App\Salary');
+    }
+    public function get_job_location($id_location)
+    {
+        $job_location = DB::table('location')
+            ->where('location.id', $id_location)
+            ->join('job_location', 'job_location.location_id', '=', 'location.id')
+            ->join('jobs', 'jobs.id', '=', 'job_location.job_id')
+            ->select('jobs.*')
+            ->get();
+        return $job_location;
+    }
+    public function get_job_specializations($id)
+    {
+        $job = DB::table('specializations')
+            ->where('specializations.id', $id)
+            ->join('job_specializations', 'job_specializations.specialization_id', '=', 'specializations.id')
+            ->join('jobs', 'jobs.id', '=', 'job_specializations.job_id')
+            ->select('jobs.*')
+            ->get();
+        return $job;
+    }
+    public function get_job_benefit($id)
+    {
+        $job = DB::table('benefit')
+            ->where('benefit.id', $id)
+            ->join('job_benefit', 'job_benefit.benefit_id', '=', 'benefit.id')
+            ->join('jobs', 'jobs.id', '=', 'job_benefit.job_id')
+            ->select('jobs.*')
+            ->get();
+        return $job;
+    }
+    public function get_job_salary($price,$unit)
+    {
+        $job_location = DB::table('salary')
+            ->where('salary.salary_unit',$unit)
+            ->whereBetween('salary.price', [1, $price])
+            ->join('jobs', 'jobs.id', '=', 'salary.job_id')
+            ->select('jobs.*')
+            ->get();
+        return $job_location;
+    }
 }

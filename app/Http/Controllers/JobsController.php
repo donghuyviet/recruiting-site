@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Job;
+use App\Location;
+use App\Specializations;
+use App\Benefit;
+use App\Salary;
 class JobsController extends Controller
 {
     public function index()
     {
-    	return view('template.jobs', ['status'=> 0,'message' => ""]);
+        $location = Location::all();
+        $specializations = Specializations::all();
+        $benefit = Benefit::all();
+    	return view('template.jobs', ['status'=> 0,'message' => "",'locations'=>$location,'specializations' =>$specializations,'benefits' => $benefit]);
     }
     public function save(Request $request)
     {
@@ -32,6 +39,24 @@ class JobsController extends Controller
             	$job->start_date = $convert_start_date;
         		$job->end_date = $convert_end_date;
                 $job->save();
+                $customer = Job::find($job->id);
+                //save location
+                $id_location =  $request->input('location');
+                $cat_ids = $id_location;
+                $customer->locations()->attach($cat_ids);
+                ///save skill
+                $id_specializations =  $request->input('specializations');
+                $customer->specializations()->attach($id_specializations);
+                //save benefit
+                $id_benefit =  $request->input('benefit');
+                $customer->benefits()->attach($id_benefit);
+                ///save salary
+                $salary = new Salary;
+                $salary->job_id = $job->id;
+                $salary->salary_unit = $request->input('salary_unit');
+                $salary->price = (int)$request->input('price');
+                $customer->salarys()->save($salary);
+
                 $status = 1;
                 $message = '求人の登録に成功しました。';
             }
@@ -40,7 +65,10 @@ class JobsController extends Controller
             $status = 2;
             $message = 'プロファイルを登録ください。';
         }
-    	return view('template.jobs', ['status' => $status,'message' => $message]);
+        $location = Location::all();
+        $specializations = Specializations::all();
+        $benefit = Benefit::all();
+    	return view('template.jobs', ['status' => $status, 'message' => $message, 'locations'=>$location, 'specializations' =>$specializations, 'benefits' => $benefit]);
     }
     public function listjobs()
     {

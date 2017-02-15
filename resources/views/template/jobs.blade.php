@@ -63,6 +63,37 @@
                                 </select>
                             </div>
                        </div>
+                       <div class="form-group">
+                              <label for="title" class="col-md-3 control-label">Specializations</label>
+                              <div class="col-md-6">
+                                 <select class="html-multi-chosen-select" data-placeholder="Choose a Specializations..." multiple="multiple" name="specializations[]">
+                                     @foreach($specializations as $item)
+                                        <option value="{{$item->id}}">{{$item->name_specializations}}</option>
+                                     @endforeach
+                                  </select>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label for="title" class="col-md-3 control-label">Benefit</label>
+                              <div class="col-md-6">
+                                 <select class="html-multi-chosen-select" data-placeholder="Choose a Benefit..." multiple="multiple" name="benefit[]">
+                                     @foreach($benefits as $item)
+                                        <option value="{{$item->id}}">{{$item->name_benefit}}</option>
+                                     @endforeach
+                                  </select>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                            <label for="title" class="col-sm-3 control-label">Salary</label>
+                            <div class="col-sm-2">
+                                <input id="msg" type="text" class="form-control" name="price" required autofocus>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "day">Day</label>
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "month" checked="checked" >Month</label>
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "year">Year</label>
+                            </div>
+                        </div>
                          <input type="hidden" name="orderer_id" value ="1">
                          @if($status === 1 || $status === 2)
                             @if($status === 1)
