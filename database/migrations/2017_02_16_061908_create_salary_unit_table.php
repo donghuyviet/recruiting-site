@@ -15,9 +15,10 @@ class CreateSalaryUnitTable extends Migration
     {
         Schema::create('salary_unit', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('time',100);
-            $table->integer('value');
-            $table->integer('salary');
+            $table->string('title',50);
+            $table->integer('unit');
+            $table->integer('from');
+            $table->integer('to');
             $table->timestamps();
         });
     }

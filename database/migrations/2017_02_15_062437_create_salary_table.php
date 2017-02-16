@@ -16,7 +16,7 @@ class CreateSalaryTable extends Migration
         Schema::create('salary', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('job_id'); 
-            $table->string('salary_unit', 100);
+            $table->integer('salary_unit');
             $table->integer('price');
             $table->timestamps();
         });

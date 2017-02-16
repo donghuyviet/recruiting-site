@@ -58,7 +58,7 @@ class JobsController extends Controller
                 ///save salary
                 $salary = new Salary;
                 $salary->job_id = $job->id;
-                $salary->salary_unit = $request->input('salary_unit');
+                $salary->salary_unit = (int)$request->input('salary_unit');
                 $salary->price = (int)$request->input('price');
                 $customer->salarys()->save($salary);
 

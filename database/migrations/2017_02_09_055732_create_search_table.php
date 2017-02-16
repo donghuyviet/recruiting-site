@@ -15,7 +15,7 @@ class CreateSearchTable extends Migration
     {
         Schema::create('search', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('keyword');
+            $table->string('keyword',50);
             $table->integer('hit');
             $table->integer('vote');
             $table->timestamps();

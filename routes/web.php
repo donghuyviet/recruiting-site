@@ -96,11 +96,12 @@ Route::get('/jobAuthor/{id}', 'JobsController@view_author_job');
 
 Route::get('/api/keyword','ApiSearchController@index');
 Route::get('/api/search','ApiSearchController@get_job_in_keyrord');
-Route::get('/api/location','ApiSearchController@get_job_location');
+/*Route::get('/api/location','ApiSearchController@get_job_location');
 Route::get('/api/specialization','ApiSearchController@get_job_specializations');
 Route::get('/api/benefit','ApiSearchController@get_job_benefit');
-Route::get('/api/salary','ApiSearchController@get_job_salary');
+Route::get('/api/salary','ApiSearchController@get_job_salary');*/
 Route::get('/api/all/location','ApiSearchController@get_all_locations');
 Route::get('/api/all/category','ApiSearchController@get_all_category');
 Route::get('/api/all/benefit','ApiSearchController@get_all_benefit');
 Route::get('/api/all/salary','ApiSearchController@get_all_salary_unit');
+Route::get('/api/all','ApiSearchController@search_all');

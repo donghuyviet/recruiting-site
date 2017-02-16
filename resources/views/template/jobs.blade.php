@@ -89,9 +89,9 @@
                                 <input id="msg" type="text" class="form-control" name="price" required autofocus>
                             </div>
                             <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "day">Day</label>
-                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "month" checked="checked" >Month</label>
-                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "year">Year</label>
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "1">Day</label>
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "2" checked="checked" >Month</label>
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "3">Year</label>
                             </div>
                         </div>
                          <input type="hidden" name="orderer_id" value ="1">

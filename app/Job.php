@@ -111,4 +111,41 @@ class Job extends Model
             ->get();
         return $job_location;
     }
+    public function get_all($id_location,$id_category,$id_benefit,$salary_from,$salary_to,$salary_unit)
+    {
+        $job = DB::table('jobs');
+        if ($id_location)
+        {
+             $job->join('job_location', 'jobs.id', '=', 'job_location.job_id');
+             $job->join('location', 'job_location.location_id', '=', 'location.id');
+             $job->where('location.id', $id_location);
+        }
+        if ($id_category)
+        {
+             $job->join('job_specializations', 'jobs.id', '=', 'job_specializations.job_id');
+             $job->join('specializations', 'job_specializations.specialization_id', '=', 'specializations.id');
+             $job->where('specializations.id', $id_category);
+        }
+        if ($id_benefit)
+        {
+             $job->join('job_benefit', 'jobs.id', '=', 'job_benefit.job_id');
+             $job->join('benefit', 'job_benefit.benefit_id', '=', 'benefit.id');
+             $job->where('benefit.id', $id_benefit);
+        }
+        if($salary_from || $salary_to)
+        {
+            $job->join('salary', 'jobs.id', '=', 'salary.job_id');
+            $job->where('salary.salary_unit',$salary_unit);
+        }
+        if ($salary_from)
+        {
+             $job->where('salary.price','>=',$salary_from);
+        }
+        if ($salary_to)
+        {
+             $job->where('salary.price', '<=', $salary_to);
+        }
+        $result = $job->select('jobs.*')->get();
+        return $result;
+    }
 }

@@ -67,25 +67,15 @@ class ApiSearchController extends BaseController
          'data' => $result
     	], 200);
 	}
-	public function get_job_salary(Request $request)
-	{
-		$option_salary = (int)$request->option;
-		$salary = (int)$request->price;
+	function search_all(Request $request){
+		$id_location = isset($request->id_location) && (int)$request->id_location ? (int)$request->id_location : 0;
+		$id_category = isset($request->id_category) && (int)$request->id_category ? (int)$request->id_category : 0;
+		$id_benefit =  isset($request->id_benefit) && (int)$request->id_benefit ? (int)$request->id_benefit : 0;
+		$salary_from = (int)$request->salary_from;
+		$salary_to =   (int)$request->salary_to ;
+		$salary_unit = (int)$request->salary_unit;
 		$job_location = new Job;
-		switch ($option_salary) {
-			case 0:
-				$result = $job_location->get_job_salary($salary,'day');
-				break;
-			case 1:
-				$result = $job_location->get_job_salary($salary,'month');
-				break;
-			case 2:
-				$result = $job_location->get_job_salary($salary,'year');
-				break;
-			default:
-				$result = 0;
-				break;
-		}
+		$result = $job_location->get_all($id_location,$id_category,$id_benefit,$salary_from,$salary_to,$salary_unit);
 		return response()
 		->json([
          'data' => $result
