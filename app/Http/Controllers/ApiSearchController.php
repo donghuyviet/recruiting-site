@@ -5,6 +5,10 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\search;
 use App\Job;
+use App\Location;
+use App\Specializations;
+use App\Benefit;
+use App\Salary;
 
 class ApiSearchController extends BaseController
 {
@@ -85,6 +89,35 @@ class ApiSearchController extends BaseController
 		return response()
 		->json([
          'data' => $result
+    	], 200);
+	}
+	public function get_all_locations(){
+		 $locations = Location::orderBy('id', 'DESC')->pluck('name_location')->all();
+		 return response()
+		->json([
+         'data' => $locations
+    	], 200);
+	}
+	public function get_all_category(){
+		 $category = Specializations::orderBy('id', 'DESC')->pluck('name_specializations')->all();
+		 return response()
+		->json([
+         'data' => $category
+    	], 200);
+	}
+	public function get_all_benefit(){
+		 $benefit = Benefit::all();
+		 return response()
+		->json([
+         'data' => $benefit
+    	], 200);
+	}
+	public function get_all_salary_unit(){
+		 $salary = new Salary;
+		 $salary_unit = $salary->get_all_salary_unit();
+		 return response()
+		->json([
+         'data' => $salary_unit
     	], 200);
 	}
 }
