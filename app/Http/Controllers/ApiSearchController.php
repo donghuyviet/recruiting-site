@@ -92,14 +92,14 @@ class ApiSearchController extends BaseController
     	], 200);
 	}
 	public function get_all_locations(){
-		 $locations = Location::orderBy('id', 'DESC')->pluck('name_location')->all();
+		 $locations = Location::all();
 		 return response()
 		->json([
          'data' => $locations
     	], 200);
 	}
 	public function get_all_category(){
-		 $category = Specializations::orderBy('id', 'DESC')->pluck('name_specializations')->all();
+		 $category = Specializations::all();
 		 return response()
 		->json([
          'data' => $category
