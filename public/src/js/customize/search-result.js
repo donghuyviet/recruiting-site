@@ -12,12 +12,13 @@ _app.controller('SearchResultCtrl', function ($rootScope, $scope, $http, $locati
     }
 	// console.log(paramsArr);
 	$scope.results = [];
-	$scope.doMainSearch = function(keyword){
-		if (typeof(keyword) == 'undefined'){
+	$scope.doMainSearch = function(keyword, location){
+		if (typeof(keyword) == 'undefined' || typeof(keyword) == 'undefined'){
 			return;
 		}
 		_fetch.get('/api/search', {
-			keyword: keyword
+			keyword: keyword,
+			location: location
 		}, function(res){
 			console.log(res);
 			if (res.data){
@@ -31,7 +32,7 @@ _app.controller('SearchResultCtrl', function ($rootScope, $scope, $http, $locati
 	if (typeof(paramsArr['action']) != 'undefined'){
 		switch (paramsArr['action']){
 			case 'main-search': {
-				$scope.doMainSearch(paramsArr['keyword']);
+				$scope.doMainSearch(paramsArr['keyword','location']);
 				break;
 			}
 		}

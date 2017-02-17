@@ -870,3 +870,24 @@ a .local-header{
     height: 60px;
     vertical-align: -2px;
 }
+/******** myform radio **************/
+ label.salary {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    width: 49%;
+    border-bottom: 1px solid #dddddd;
+}
+/*label.salary:last-child {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+}*/
+.salary .name {
+    font-size: 13px;
+    font-weight: 200;
+}

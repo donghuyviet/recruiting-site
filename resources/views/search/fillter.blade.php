@@ -6,8 +6,7 @@
             @include('sidebar.index')
 
         </div>
-        <div class="col-md-10 wrapper vdh">
-            
+        <div class="col-md-10 wrapper vdh" ng-controller="SearchLocationCtrl" id="main-search" style="display:none">
             <div class="mainContents">
             	<h1 class="pageTitle" alt="一発検索">一発検索</h1>
                 <h2 class="headerType">エリア</h2>
@@ -23,286 +22,59 @@
                     <br>
                     <p>
                         地域
-                        <select id="">
-                            <option value="">その他東京都</option>
-                            <option value="">23</option>
+                        <select id="" selected="selected">
+                            <option value="" > 23 wards</option>
                         </select>
                     </p>
                     <p>
                         市区
-                        <select id="">
-                            <option value="">その他東京都</option>
-                            <option value="">23</option>
+                        <select id="" selected="selected" name="repeatSelect" ng-model="searchString">
+                            <option ng-repeat="item in location" value="// item.name_location //"> // item.name_location //</option>
                         </select>
                     </p>
                 </div>
                 <h2 class="headerType">職種</h2>
                 <div class="tablemain">
-                    <table class="tableJobcate">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">営業職</span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">パワフルワーク</span>
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">医療・福祉・介護</span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">専門・技術職(資格を有するもの)</span>
-                                    </label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="numberwork tableJobcate "  >
+                    <form>
+                        <label class="salary">
+                            <input type="checkbox" value="" id="" name="" ng-model="selectedAll" ng-click="checkAll()">
+                            <span class="name">すべての職種</span>
+                        </label>
+                        <label class="salary" ng-repeat="item in category" >
+                            <input type="checkbox" value="// item.id //" id="" name="// item.name_specializations //" ng-model="item.Selected">
+                            <span class="name">// item.name_specializations //</span>
+                        </label>
+                    </form>
+                    </div>
                 </div>
                 <h2 class="headerType">こだわり</h2>
                 <div class="commitment">
                     <ul class="commited">
-                        <li>
-                            <a href="#work1" data-toggle="collapse" data-parent="#accordion" class="" aria-expanded="false">歓迎情報</a>
-                            <table class="tableJobcate" >
-                            <tbody class="panel-collapse collapse" id="work1">
-                                <tr>
-                                    <td>
-                                        <label>
-                                            <input type="checkbox" value="" id="" name="">
-                                            <span class="name">高校生歓迎</span>
-                                        </label>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            <input type="checkbox" value="" id="" name="">
-                                            <span class="name">大学生歓迎</span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input type="checkbox" value="" id="" name="">
-                                            <span class="name">主婦・主夫歓迎</span>
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            <input type="checkbox" value="" id="" name="">
-                                            <span class="name">フリーター歓迎</span>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input type="checkbox" value="" id="" name="">
-                                            <span class="name">未経験者歓迎</span>
-                                        </label>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </li>
-                        <li>
-                            <a href="#work2" data-toggle="collapse" data-parent="#accordion">シフト重視</a>
-                            <table class="tableJobcate "  >
-                                <tbody class="panel-collapse collapse" id="work2">
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>    
-                        </li>
-                        <li>
-                            <a href="#work3" data-toggle="collapse" data-parent="#accordion">お金のメリット</a>
-                            <table class="tableJobcate "  >
-                                <tbody class="panel-collapse collapse" id="work3">
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>    
-                        </li>
-                        <li>
-                            <a href="#work4" data-toggle="collapse" data-parent="#accordion">職場の環境</a>
-                            <table class="tableJobcate "  >
-                                <tbody class="panel-collapse collapse" id="work4">
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>    
-                        </li>
-                        <li>
-                            <a href="#work5" data-toggle="collapse" data-parent="#accordion">気になる待遇</a>
-                            <table class="tableJobcate "  >
-                                <tbody class="panel-collapse collapse" id="work5">
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" value="" id="" name="">
-                                                <span class="name">フード</span>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>    
-                        </li>
+                        <li ng-repeat="item in benefit">
+                            <a href="#work-//item.id//" data-toggle="collapse" data-parent="#accordion" class="" aria-expanded="false">//item.name_benefit//</a>
+                            <div class="numberwork tableJobcate panel-collapse collapse " id="work-//item.id//">
+                                <form >
+                                    <label class="salary">
+                                        <input type="checkbox" name="" value="">
+                                        <span class="name">高校生歓迎</span>
+                                    </label>
+                                    <label class="salary">
+                                        <input type="checkbox" name="" value="">
+                                        <span class="name">大学生歓迎</span>
+                                    </label>
+                                    <label class="salary">
+                                        <input type="checkbox" name="" value="">
+                                        <span class="name">主婦・主夫歓迎</span>
+                                    </label>
+                                    <label class="salary">
+                                        <input type="checkbox" name="" value="">
+                                        <span class="name">フリーター歓迎</span>
+                                    </label>
+                                </form>
+                            </div>
+                            
+                        </li>                        
                     </ul>
                 </div>
                 <h2 class="headerType">勤務日数</h2>
@@ -345,36 +117,15 @@
                     </select>
                 </div>
                 <h2 class="headerType">給与</h2>
-                <div class="numberwork">
-                    <table class="tableJobcate ">
-                        <tbody id="">
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="radio" value="" id="" name="">
-                                        <span class="name">時給1,000円以上</span>
-                                    </label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="radio" value="" id="" name="">
-                                        <span class="name">時給1,200円以上</span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input type="radio" value="" id="" name="">
-                                        <span class="name">日給10,000円以上</span>
-                                    </label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="numberwork tableJobcate "  >
+                    <form ng-model="searchString">
+                        <label class="salary" ng-repeat="item in salary" >
+                            <input type="radio" name="//item.salary//" value="//item.value//">
+                            <span class="name">//item.time//給//item.salary//円以上</span>
+                        </label>
+                    </form>
                 </div>
-                <h2 class="headerType">給与</h2>
+                <h2 class="headerType">フリーワード</h2>
                 <div class="numberwork">
                     <span class="text">
                         <input type="text" id="freewordInput" class="freeword" name="F1" value="" maxlength="50">
@@ -406,15 +157,17 @@
                 </div>
             </div>
                 
-        </div>
-        <div class="hidden-bottom">
-            <ul>
-                <li id="search"><a href="#"><img src="/src/image/item/mod_btn_search_02.png"></a></li>
-                <li id="clear"><a href="#"><img src="/src/image/item/mod_btn_clear_01.png"></a></li>
-            </ul>
+            <div class="hidden-bottom">
+                <ul>
+                    <li id="search"><a type="submit" ng-click="doSearchFilter()"><img src="/src/image/item/mod_btn_search_02.png"></a></li>
+                    <li id="clear"><a href="#"><img src="/src/image/item/mod_btn_clear_01.png"></a></li>
+                </ul>
+            </div>
         </div>
         <div class="clearfix"></div>
     </div>
 
+    <link rel="stylesheet" type="text/css" href="/{{config('app.source')}}/css/search.css">
+    <script src="/{{ config('app.source') }}/js/customize/search-location.js"></script>
+
 @endsection
-<link rel="stylesheet" type="text/css" href="/{{config('app.source')}}/css/search.css">
