@@ -83,15 +83,20 @@
                                   </select>
                               </div>
                          </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <label for="title" class="col-sm-3 control-label">Salary</label>
                             <div class="col-sm-2">
                                 <input id="msg" type="text" class="form-control" name="price" required autofocus>
                             </div>
-                            <div class="col-sm-4">
-                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "1">Day</label>
-                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "2" checked="checked" >Month</label>
-                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "3">Year</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="title" class="col-sm-3 control-label">Time Unit</label>
+                            <div class="col-sm-6">
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "1">Hour</label>
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "2" >Day</label>
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "3" >Week</label>
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "4" checked="checked" >Month</label>
+                                <label class="radio-inline"><input type="radio" name="salary_unit" value = "5">Year</label>
                             </div>
                         </div>
                          <input type="hidden" name="orderer_id" value ="1">
