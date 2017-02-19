@@ -29,23 +29,26 @@
                     <p>
                         市区
                         <select id="" selected="selected" name="repeatSelect" ng-model="searchString">
-                            <option ng-repeat="item in location" value="// item.name_location //"> // item.name_location //</option>
+                            <option ng-repeat="item in location" value="// item.id //" name="//item.name_location//"> // item.name_location //</option>
                         </select>
                     </p>
                 </div>
                 <h2 class="headerType">職種</h2>
-                <div class="tablemain">
-                    <div class="numberwork tableJobcate "  >
-                    <form>
-                        <label class="salary">
-                            <input type="checkbox" value="" id="" name="" ng-model="selectedAll" ng-click="checkAll()">
-                            <span class="name">すべての職種</span>
-                        </label>
-                        <label class="salary" ng-repeat="item in category" >
-                            <input type="checkbox" value="// item.id //" id="" name="// item.name_specializations //" ng-model="item.Selected">
-                            <span class="name">// item.name_specializations //</span>
-                        </label>
-                    </form>
+                <div class="tablemain" id="main-search-category" style="display: none;">
+                    <div class="numberwork tableJobcate ">
+                        <form>
+                            <!-- <label class="salary">
+                                <input type="checkbox" value="" id="" name="" ng-model="category.id" ng-click="checkAll()">
+                                <span class="name">すべての職種</span>
+                            </label> -->
+                            <label class="salary" ng-repeat="item in category" >
+                                <input type="checkbox" name="//item.name_specializations//" value="//item.id//" ng-model="searchCategory" id="//item.id//">
+                                <span class="name">// item.name_specializations //</span>
+                            </label>
+                        <!-- <select id=""  ng-model="searchCategory">
+                            <option ng-repeat="item in category" value="// item.id //" > // item.name_specializations //</option>
+                        </select> -->
+                        </form>
                     </div>
                 </div>
                 <h2 class="headerType">こだわり</h2>
@@ -118,7 +121,7 @@
                 </div>
                 <h2 class="headerType">給与</h2>
                 <div class="numberwork tableJobcate "  >
-                    <form ng-model="searchString">
+                    <form ng-model="searchSalary">
                         <label class="salary" ng-repeat="item in salary" >
                             <input type="radio" name="//item.salary//" value="//item.value//">
                             <span class="name">//item.time//給//item.salary//円以上</span>

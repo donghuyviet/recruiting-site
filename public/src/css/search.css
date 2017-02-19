@@ -845,7 +845,7 @@ a .local-header{
     background-image: url(../../src/image/item/C_saved_off.png);
     background-repeat: no-repeat;
     background-size: 25px;
-    background-position: 25% 5px;
+    background-position:10% 5px;
 }
 .apply_btn {
    
