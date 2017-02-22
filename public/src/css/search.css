@@ -871,6 +871,9 @@ a .local-header{
     vertical-align: -2px;
 }
 /******** myform radio **************/
+ label.salary.first:first-child {
+    width: 100%;
+}
  label.salary {
     display: inline-block;
     max-width: 100%;

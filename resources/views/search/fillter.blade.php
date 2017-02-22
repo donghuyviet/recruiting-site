@@ -6,7 +6,7 @@
             @include('sidebar.index')
 
         </div>
-        <div class="col-md-10 wrapper vdh" ng-controller="SearchLocationCtrl" id="main-search" style="display:none">
+        <div class="col-md-10 wrapper vdh" ng-controller="SearchLocationCtrl">
             <div class="mainContents">
             	<h1 class="pageTitle" alt="一発検索">一発検索</h1>
                 <h2 class="headerType">エリア</h2>
@@ -29,25 +29,23 @@
                     <p>
                         市区
                         <select id="" selected="selected" name="repeatSelect" ng-model="searchString">
+                            <option value="">---Please select---</option>
                             <option ng-repeat="item in location" value="// item.id //" name="//item.name_location//"> // item.name_location //</option>
                         </select>
                     </p>
                 </div>
                 <h2 class="headerType">職種</h2>
-                <div class="tablemain" id="main-search-category" style="display: none;">
+                <div class="tablemain" id="main-search-category">
                     <div class="numberwork tableJobcate ">
                         <form>
-                            <!-- <label class="salary">
-                                <input type="checkbox" value="" id="" name="" ng-model="category.id" ng-click="checkAll()">
+                            <label class="salary first">
+                                <input type="checkbox" value="" id="" name="" ng-model="searchCategory.all">
                                 <span class="name">すべての職種</span>
-                            </label> -->
+                            </label>
                             <label class="salary" ng-repeat="item in category" >
-                                <input type="checkbox" name="//item.name_specializations//" value="//item.id//" ng-model="searchCategory" id="//item.id//">
+                                <input type="checkbox" name="status" value="// item.id //" ng-model="searchCategory.id" ng-checked="searchCategory.all"  ng-true-value="//item.id//">
                                 <span class="name">// item.name_specializations //</span>
                             </label>
-                        <!-- <select id=""  ng-model="searchCategory">
-                            <option ng-repeat="item in category" value="// item.id //" > // item.name_specializations //</option>
-                        </select> -->
                         </form>
                     </div>
                 </div>
@@ -121,10 +119,10 @@
                 </div>
                 <h2 class="headerType">給与</h2>
                 <div class="numberwork tableJobcate "  >
-                    <form ng-model="searchSalary">
+                    <form >
                         <label class="salary" ng-repeat="item in salary" >
-                            <input type="radio" name="//item.salary//" value="//item.value//">
-                            <span class="name">//item.time//給//item.salary//円以上</span>
+                            <input type="radio" ng-model="searchCategory.salary_unit" ng-value="//item//">
+                            <span class="name">//item.title//</span>
                         </label>
                     </form>
                 </div>

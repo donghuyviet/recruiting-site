@@ -31,17 +31,6 @@ _app.controller('SearchResultCtrl', function ($rootScope, $scope, $http, $locati
 
 	// results search all
 	$scope.doMainResultSearch = function(id_location, id_category){
-		// if (typeof(id_location) == 'undefined') {
-		// 	return;
-		// }
-		if (typeof(id_location) != 'undefined' || typeof(id_category) != 'undefined' ){
-			$scope.searchString = id_location;
-			$scope.searchCategory = id_category;
-		}
-		// if (typeof(id_category) != 'undefined' ){
-		// }
-		console.log('location:'+$scope.searchString);
-		console.log('catess:'+$scope.searchCategory);
 
 		_fetch.get('/api/all', {
 			id_location : id_location,
