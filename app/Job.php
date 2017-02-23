@@ -68,6 +68,9 @@ class Job extends Model
     public function benefits(){
         return $this->belongsToMany('App\Benefit','job_benefit','job_id','benefit_id');
     }
+    public function stations(){
+        return $this->belongsToMany('App\Station','job_station','job_id','station_id');
+    }
     public function salarys(){
         return $this->hasMany('App\Salary');
     }

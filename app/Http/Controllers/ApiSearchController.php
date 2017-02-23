@@ -81,22 +81,34 @@ class ApiSearchController extends BaseController
          'data' => $result
     	], 200);
 	}
-	public function get_all_locations(){
-		 $locations = Location::all();
-		 return response()
+	public function get_all_locations(Request $request){
+		if (isset($request->id_location) && (int)$request->id_location) {
+			 $locations = Location::find((int)$request->id_location);
+		}
+		else
+		     $locations = Location::all();
+		return response()
 		->json([
          'data' => $locations
     	], 200);
 	}
-	public function get_all_category(){
-		 $category = Specializations::all();
+	public function get_all_category(Request $request){
+		if (isset($request->id_category) && (int)$request->id_category) {
+			$category = Location::find((int)$request->id_category);
+		}
+		else
+		 	$category = Specializations::all();
 		 return response()
 		->json([
          'data' => $category
     	], 200);
 	}
-	public function get_all_benefit(){
-		 $benefit = Benefit::all();
+	public function get_all_benefit(Request $request){
+		if (isset($request->id_benefit) && (int)$request->id_benefit) {
+			$benefit = Location::find((int)$request->id_benefit);
+		}
+		else
+		   	$benefit = Benefit::all();
 		 return response()
 		->json([
          'data' => $benefit
