@@ -56,11 +56,18 @@
                        <div class="form-group">
                             <label for="title" class="col-sm-3 control-label">Location</label>
                             <div class="col-sm-6">
-                               <select class="html-multi-chosen-select" data-placeholder="Choose a Country..." multiple="multiple" name="location[]">
+                               <select class="html-multi-chosen-select" id = "location_id" data-placeholder="Choose a Country..." multiple="multiple" name="location[]">
                                    @foreach($locations as $item)
                                       <option value="{{$item->id}}">{{$item->name_location}}</option>
                                    @endforeach
                                 </select>
+                            </div>
+                       </div>
+                       <div class="form-group">
+                            <label for="title" class="col-sm-3 control-label">Station</label>
+                            <div class="col-sm-6">
+                               <select class="html-multi-chosen-select" id = "station" data-placeholder="Choose station..." multiple="multiple" name="station[]">                                 
+                               </select>
                             </div>
                        </div>
                        <div class="form-group">
@@ -142,7 +149,25 @@
             var minDate = new Date(selected.date.valueOf());
             date_input_create.datepicker('setEndDate', minDate);
         });
+    $("#location_id").change(function(){
+         $("#station").empty(); 
+         $.ajax({
+            type: "GET",
+            url : "/api/rosen",
+            dataType : "json",
+            success : function(data){
+                if(data.length > 0) {
+                  console.log(data);
+                } else {
+                  console.log('Nothing in the DB');
+                }
+            }
+          }, "json");
 
+         $('#station').append('<option value="1">DUc</option>');
+         $("#station").trigger("chosen:updated");
+         $("#station").trigger("liszt:updated");
+    });
   })
 </script>
 @endsection
