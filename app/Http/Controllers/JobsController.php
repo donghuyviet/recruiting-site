@@ -61,6 +61,9 @@ class JobsController extends Controller
                 $salary->salary_unit = (int)$request->input('salary_unit');
                 $salary->price = (int)$request->input('price');
                 $customer->salarys()->save($salary);
+                ////save station
+                $id_station =  $request->input('station');
+                $customer->stations()->attach($id_station);
 
                 $status = 1;
                 $message = '求人の登録に成功しました。';

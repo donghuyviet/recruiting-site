@@ -33,9 +33,20 @@ class ApiSearchTrainController extends BaseController
          'data' => $station
         ], 200);
     }
-    public function get_station_location()
+    public function get_station_location(Request $request)
     {
-        
+        $array_location = ($request->array_location);
+        $arr = explode(",", $array_location);
+        foreach ($arr AS $index => $value)
+            $arr[$index] = (int)$value; 
+
+        $station = DB::table('stations')
+                 ->whereIn('location_id',$arr)
+                 ->get();
+        return response()
+        ->json([
+         'stations' => $station
+        ], 200);
     }
     public function get_router($id_location,$id_company)
     {
@@ -62,5 +73,22 @@ class ApiSearchTrainController extends BaseController
                 $myarray[$key] =  array('name' =>$value->name_company,'id' => $value->company_id, 'router'=> $this->get_router($id_location,$value->company_id));
          }           
         return $myarray;
+    }
+    public function get_job_station(Request $request)
+    {
+        $array_statiton = ($request->id_statiton);
+        $arr = explode(",", $array_statiton);
+        foreach ($arr AS $index => $value)
+            $arr[$index] = (int)$value; 
+
+        $job_station = DB::table('job_station')
+                 ->whereIn('job_station.station_id',$arr)
+                 ->join('jobs','jobs.id', '=', 'job_station.job_id')
+                 ->select('jobs.*')
+                 ->get();
+        return response()
+        ->json([
+         'stations' => $job_station
+        ], 200);
     }
 }

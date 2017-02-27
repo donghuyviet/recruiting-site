@@ -150,23 +150,16 @@
             date_input_create.datepicker('setEndDate', minDate);
         });
     $("#location_id").change(function(){
+         var array_id = $("#location_id").val();
          $("#station").empty(); 
-         $.ajax({
-            type: "GET",
-            url : "/api/rosen",
-            dataType : "json",
-            success : function(data){
-                if(data.length > 0) {
-                  console.log(data);
-                } else {
-                  console.log('Nothing in the DB');
-                }
-            }
-          }, "json");
-
-         $('#station').append('<option value="1">DUc</option>');
-         $("#station").trigger("chosen:updated");
-         $("#station").trigger("liszt:updated");
+         $.get('/api/get_station?array_location=' + array_id, function (data) {
+            //success data
+            jQuery.each( data.stations, function( i, val ) {
+             $('#station').append('<option value="'+val['id']+'">'+val['name_station']+'</option>');
+          });
+            $("#station").trigger("chosen:updated");
+             $("#station").trigger("liszt:updated");
+        })          
     });
   })
 </script>
