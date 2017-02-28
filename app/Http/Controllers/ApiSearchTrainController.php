@@ -84,11 +84,63 @@ class ApiSearchTrainController extends BaseController
         $job_station = DB::table('job_station')
                  ->whereIn('job_station.station_id',$arr)
                  ->join('jobs','jobs.id', '=', 'job_station.job_id')
-                 ->select('jobs.*')
+                 ->select('jobs.id')
+                 ->groupBy('jobs.id')
                  ->get();
+        $result = array_pluck($job_station,'id');
         return response()
         ->json([
-         'stations' => $job_station
+         'data' => $this->get_jobs($result),
         ], 200);
+    }
+    public function get_job_train(Request $request)
+    {
+        $result = [];
+        $result1 = [];
+        $result2 = [];
+        if(isset($request->id_router))
+        {
+            $array_router = ($request->id_router);
+            $arr = explode(",", $array_router);
+            foreach ($arr AS $index => $value)
+                $arr[$index] = (int)$value;
+
+            $list_jobs = DB::table('routes')
+                     ->whereIn('routes.id',$arr)
+                     ->join('router_station','router_station.router_id', '=', 'routes.id')
+                     ->join('job_station','job_station.station_id', '=', 'router_station.station_id')
+                     ->join('jobs','jobs.id', '=', 'job_station.job_id')
+                     ->select('jobs.id')
+                     ->groupBy('jobs.id')
+                     ->get();
+            $result1 = array_pluck($list_jobs,'id');
+        }
+        if(isset($request->id_statiton))
+        {
+            $array_statiton = ($request->id_statiton);
+            $arr = explode(",", $array_statiton);
+            foreach ($arr AS $index => $value)
+                $arr[$index] = (int)$value; 
+
+            $job_station = DB::table('job_station')
+                     ->whereIn('job_station.station_id',$arr)
+                     ->join('jobs','jobs.id', '=', 'job_station.job_id')
+                     ->select('jobs.id')
+                     ->groupBy('jobs.id')
+                     ->get();
+            $result2 = array_pluck($job_station,'id');
+        }
+        $result = $result1 + $result2;
+        return response()
+        ->json([
+         'data' => $this->get_jobs($result),
+        ], 200);
+    }
+    public function get_jobs($id)
+    {
+        $list_jobs = DB::table('jobs')
+                    ->whereIn('jobs.id', $id)
+                    ->get();
+        return  $list_jobs;
     }
 }
