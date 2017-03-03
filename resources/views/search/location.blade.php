@@ -584,6 +584,6 @@
         <div class="clearfix"></div>
     </div>
 
-@endsection
 <link rel="stylesheet" type="text/css" href="/{{config('app.source')}}/css/search.css">
-<script src="/{{ config('app.source') }}/js/customize/search.js"></script>
+<!-- <script src="/{{ config('app.source') }}/js/customize/search.js"></script> -->
+@endsection

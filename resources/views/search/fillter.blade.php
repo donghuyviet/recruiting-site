@@ -24,6 +24,7 @@
                         地域
                         <select id="" selected="selected">
                             <option value="" > 23 wards</option>
+                            <option value="" >その他東京都</option>
                         </select>
                     </p>
                     <p>
@@ -129,7 +130,7 @@
                 <h2 class="headerType">フリーワード</h2>
                 <div class="numberwork">
                     <span class="text">
-                        <input type="text" id="freewordInput" class="freeword" name="F1" value="" maxlength="50">
+                        <input type="text" id="freewordInput" class="freeword" maxlength="50" ng-model="searchString">
                     </span>
                 </div>
                 <p class="pagetop">

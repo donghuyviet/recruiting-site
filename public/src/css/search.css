@@ -410,7 +410,7 @@ a .local-header{
     margin-top: 5px;
     padding-top: 0px;
     padding-left: 4px;
-    left: 5px;
+    left: 10px;
 }
 .mainContents {
     min-height: 200px;
@@ -453,7 +453,7 @@ a .local-header{
     width: 100%;
 }
 .linklist {
-    width: 37%;
+    width: 30%;
 }
 .tabs-left .nav-tabs li {
     background-color: #EEEEEE;
@@ -489,7 +489,7 @@ a .local-header{
 .condRight{
     border-top: 1px solid #dddddd;
     vertical-align: top;
-    width: 64%;
+    width: 65%;
 }
 .linkcell {
     padding-left: 10px;
@@ -549,7 +549,7 @@ a .local-header{
 }
 .condLyer_03 .icon-blue {
     float: right;
-    margin: 10px 8px 0 5; 
+    margin: 10px 8px 0 5px; 
 }
 .icon-blue.rosen img {
     height: 15px;
@@ -612,7 +612,7 @@ a .local-header{
     background-size: 25px;
     width: 26px;
     height: 26px;
-    margin: -18px 5px 0 0;
+    margin: -18px 15px 0 0;
     float: right;
 }
 .tab-pane {
@@ -893,4 +893,9 @@ a .local-header{
 .salary .name {
     font-size: 13px;
     font-weight: 200;
+}
+.maincond .linklist .tabbable ul li.active a{
+    background: #ffffff;
+    color: #000000;
+    font-weight: 500;
 }
