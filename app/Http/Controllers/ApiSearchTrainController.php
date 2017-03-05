@@ -143,4 +143,79 @@ class ApiSearchTrainController extends BaseController
                     ->get();
         return  $list_jobs;
     }
+    public function get_district()
+    {
+        $myarray = array();
+        $list_district = DB::table('district')->select('id','name_district')->get();
+        foreach ($list_district as $key => $value) {
+           $myarray[$key] = array('id_district' => $value->id, 'name_district' => $value->name_district, 'city'=> $this->get_city_location($value->id));
+        }
+        return response()
+        ->json([
+         'district' => $myarray
+        ], 200);
+    }
+    public function get_city_location($id)
+    {
+        $myarray = array();
+        $citis = DB::table('city')
+                    ->where('city.district_id', $id)
+                    ->select('id','name_city')
+                    ->get();
+        foreach ($citis as $key => $value) {
+           $myarray[$key] = array('id_city' => $value->id, 'name_city' => $value->name_city, 'location'=> $this->get_city($value->id));
+        }
+        return $myarray;
+    }
+    public function get_city($id)
+    {
+        $location = DB::table('location')
+                    ->where('location.city_id', $id)
+                    ->select('id','name_location')
+                    ->get();
+        return  $location;
+    }
+    public function get_jobs_areaSearch(Request $request)
+    {
+        $result = [];
+        $result1 = [];
+        $result2 = [];
+        if(isset($request->id_city))
+        {
+            $array_city = ($request->id_city);
+            $arr = explode(",", $array_city);
+            foreach ($arr AS $index => $value)
+                $arr[$index] = (int)$value;
+
+            $list_city = DB::table('location')
+                     ->whereIn('location.city_id',$arr)
+                     ->join('job_location','job_location.location_id', '=', 'location.id')
+                     ->join('jobs','jobs.id', '=', 'job_location.job_id')
+                     ->select('jobs.id')
+                     ->groupBy('jobs.id')
+                     ->get();
+            $result1 = array_pluck($list_city,'id');
+        }
+        if(isset($request->id_location))
+        {
+            $array_location = ($request->id_location);
+            $arr = explode(",", $array_location);
+            foreach ($arr AS $index => $value)
+                $arr[$index] = (int)$value; 
+
+            $list_loc = DB::table('job_location')
+                     ->whereIn('job_location.location_id',$arr)
+                     ->join('jobs','jobs.id', '=', 'job_location.job_id')
+                     ->select('jobs.id')
+                     ->groupBy('jobs.id')
+                     ->get();
+            $result2 = array_pluck($list_loc,'id');
+        }
+        $result = array_merge($result1 , $result2);
+        $result = array_unique($result);
+        return response()
+        ->json([
+         'data' => $this->get_jobs($result)
+        ], 200);
+    }
 }
