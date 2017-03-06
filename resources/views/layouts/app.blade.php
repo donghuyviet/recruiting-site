@@ -172,7 +172,7 @@
     @yield('content')
 </div>
 
-<div class="space-fullwidth-50"></div>
+<!-- <div class="space-fullwidth-50"></div> -->
 <div class="modal fade large-modal" id="home_setting" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

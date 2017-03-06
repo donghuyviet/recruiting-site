@@ -6,7 +6,7 @@
             @include('sidebar.index')
 
         </div>
-        <div class="col-md-10 wrapper vdh">
+        <div class="col-md-10 wrapper vdh" ng-controller="ConditionCtrl">
             
             <div class="mainContents">
             	<h1 class="pageTitle" alt="絞り込み条件検索">絞り込み条件検索</h1>
@@ -90,6 +90,7 @@
         </div>
         <div class="clearfix"></div>
     </div>
-
-@endsection
 <link rel="stylesheet" type="text/css" href="/{{config('app.source')}}/css/search.css">
+<script src="/{{ config('app.source') }}/js/customize/result-condition.js"></script>
+@endsection
+
