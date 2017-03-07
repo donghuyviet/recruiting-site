@@ -7,7 +7,7 @@
 
         </div>
         <div class="col-md-10 wrapper vdh">
-
+            <div class="loading" ng-show="isLoading"> <img src="/src/image/loading.gif"/> </div>
             <div class="mainContents" ng-controller="LocationCtrl">
                 <form class="" name="" method="" action="">
                     <h1 class="pageTitle-loca text-bold">
@@ -37,7 +37,7 @@
                                             <label ng-repeat="city in item.city">
                                                 <ul class="linkcell">
                                                     <li>
-                                                        <input value="1307" name="A3" type="checkbox" class=""/ ng-click="doClick()" ng-model="searchString.all">
+                                                        <input value="//city.id_city//" ng-true-value="//city.id_city//" type="checkbox"  ng-click="doClick()" ng-model="searchString.id_city">
                                                     </li>
                                                     <li data-toggle="collapse" data-target="#listAll-//city.id_city//" aria-expanded="false" aria-controls="collapseExample">
                                                         <a href="" class="" onclick=""><p class="condlink">//city.name_city//</p>
@@ -54,7 +54,7 @@
                                                             <label>
                                                                 <ul class="linkcell">
                                                                     <li>
-                                                                        <input value="1307" name="A3" type="checkbox" class=""ng-click="doClick()"  ng-checked="searchString.all">
+                                                                        <input value="//loca.id//" ng-true-value="//loca.id//" ng-model="searchString.id"  type="checkbox" class=""ng-click="doClick()"  ng-checked="searchString.all">
                                                                     </li>
                                                                     <li>
                                                                         <a href="#" class=""><p class="condlink">//loca.name_location//</p>

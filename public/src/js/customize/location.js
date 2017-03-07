@@ -1,7 +1,7 @@
 // Seach Main controller
 _app.controller('LocationCtrl', function ($rootScope, $scope, $http) {
 	console.log('search process');
-	
+	$scope.isLoading = false;
 	$scope.listPopular = function(){
 		_fetch.get('/api/keyword', {}, function(res){
 			console.log(res);
@@ -15,9 +15,12 @@ _app.controller('LocationCtrl', function ($rootScope, $scope, $http) {
 	$scope.searchString = {
 		isActive : true,
 		all:false,
-		id_district: 0
+		id_district: 0,
+		id_city:0,
+		id_location: 0
 	}
 
+	$scope.dem = 0;
 	$scope.listDistrict = function(){
 		_fetch.get('/api/district', {}, function(res) {
 			console.log(res);
@@ -27,13 +30,6 @@ _app.controller('LocationCtrl', function ($rootScope, $scope, $http) {
 					
 				});
 			}
-			$scope.location = [];
-				angular.forEach($scope.district, function(loca) {
-					angular.forEach(loca.location, function(locaList) {
-					$scope.location.push(locaList);
-					console.log($scope.location);
-					})
-				})
 		});
 	}
 
@@ -52,13 +48,9 @@ _app.controller('LocationCtrl', function ($rootScope, $scope, $http) {
 
 	$scope.doSearch = function(){
 		
-		console.log($scope.searchString);
-		window.location.assign('/search/condition?action=cond-search&keyword='+$scope.searchString);
-		// _fetch.get('api/search', {
-		// 	keyword: $scope.searchString
-		// }, function(res){
-		// 	console.log(res);
-		// });
+		// console.log($scope.searchString.id_city);
+		// console.log($scope.searchString.id);
+		window.location.assign('/search/condition?action=cond-search&id_city='+$scope.searchString.id_city+'&id_location='+$scope.searchString.id);
 	}
 
 });
