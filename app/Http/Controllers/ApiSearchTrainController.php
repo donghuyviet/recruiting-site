@@ -23,6 +23,7 @@ class ApiSearchTrainController extends BaseController
     public function get_station(Request $request)
     {
         $id_router = $request->id_router;
+        $router = DB::table('routes')->where('id',$id_router)->first();
         $station = DB::table('router_station')
                  ->where('router_station.router_id', $id_router)
                  ->join('stations', 'stations.id', '=', 'router_station.station_id')
@@ -30,7 +31,8 @@ class ApiSearchTrainController extends BaseController
                  ->get();
         return response()
         ->json([
-         'data' => $station
+         'data' => $station,
+         'router' => $router
         ], 200);
     }
     public function get_station_location(Request $request)
@@ -217,5 +219,10 @@ class ApiSearchTrainController extends BaseController
         ->json([
          'data' => $this->get_jobs($result)
         ], 200);
+    }
+    public function get_condition_search(Request $request)
+    {
+         $myarray = array();
+         $list_loc = DB::table('job_location');
     }
 }

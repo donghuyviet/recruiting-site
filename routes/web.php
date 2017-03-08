@@ -84,6 +84,7 @@ Route::get('/search','SearchController@index');
 Route::get('/search/fillter','SearchController@fillter');
 Route::get('/search/location','SearchController@location');
 Route::get('/search/rosen','SearchController@rosen');
+Route::get('/search/rosen/{id}','SearchController@station');
 Route::get('/search/rosen-east','SearchController@east');
 Route::get('/search/condition','SearchController@condition');
 Route::get('/search/career','SearchController@career');

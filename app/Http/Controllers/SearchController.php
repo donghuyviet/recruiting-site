@@ -18,6 +18,9 @@ class SearchController extends BaseController
 	public function rosen(){
 			return view('search/rosen');
 	}
+	public function station($id){
+			return view('search/station',['id'=>$id]);
+	}
 	public function east(){
 			return view('search/east');
 	}
