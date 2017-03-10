@@ -28,12 +28,12 @@
                                 <li class="linklist">
                                     <div class="tabbable tabs-left">
                                         <ul class="nav nav-tabs">
-                                          <li ng-repeat="dist in districts"><a href="#link-tabs-0//dist.id_district//" data-toggle="tab">// dist.name_district //</a></li>
+                                          <li ng-repeat="dist in districts" ng-class='rowClass(dist, $index,1)'><a href="#link-tabs-0//dist.id_district//" data-toggle="tab">// dist.name_district //</a></li>
                                     </ul>
                                 </li>
                                 <li class="condRight">
                                     <ul class="condLyer_01 tab-content">
-                                        <li ng-repeat="item in districts" id="link-tabs-0//item.id_district//"  class="tab-pane active" >
+                                        <li ng-repeat="item in districts" id="link-tabs-0//item.id_district//" ng-class='rowClass(item, $index,2)' >
                                             <label ng-repeat="city in item.city">
                                                 <ul class="linkcell">
                                                     <li>

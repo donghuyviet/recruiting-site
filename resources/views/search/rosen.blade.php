@@ -49,7 +49,7 @@
                                             </li>
                                         <li class="condRight">
                                             <ul class="condLyer_01 tab-content">
-                                                <li ng-repeat="item in listTrains" ng-class='rowClass(train, $index,2)' id="link-tabs-0//item.id_location//">
+                                                <li ng-repeat="item in listTrains" ng-class='rowClass(item, $index,2)' id="link-tabs-0//item.id_location//">
                                                     <label ng-repeat="comp in item.company">
                                                         <ul class="linkcell">
                                                             <li>

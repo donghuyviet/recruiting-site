@@ -13,7 +13,7 @@
                 <h2 class="headerType">エリア/路線・駅</h2>
                 <div class="lineBox">
                 	<ul class="linkLine">
-                		<li><a href="#">選択している条件はありません</a></li>
+                		<li><a href="#">//listname//</a></li>
                 	</ul>
                 </div>
 

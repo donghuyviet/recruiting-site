@@ -222,7 +222,32 @@ class ApiSearchTrainController extends BaseController
     }
     public function get_condition_search(Request $request)
     {
-         $myarray = array();
-         $list_loc = DB::table('job_location');
+        $city = "";
+        $location = "";
+        if(isset($request->id_city))
+        {
+            $array_city = ($request->id_city);
+            $arr = explode(",", $array_city);
+            foreach ($arr AS $index => $value)
+                $arr[$index] = (int)$value; 
+             $city = DB::table('city')
+                    ->whereIn('city.id', $arr)
+                    ->pluck('name_city')->take(100);
+        }
+        if(isset($request->id_location))
+        {
+            $array_location = ($request->id_location);
+                $arr2 = explode(",", $array_location);
+                foreach ($arr2 AS $index => $value)
+                    $arr2[$index] = (int)$value; 
+             $location = DB::table('location')
+                    ->whereIn('location.id', $arr2)
+                    ->pluck('name_location')->take(100);
+        }
+       return response()
+        ->json([
+         'city' => $city->implode('/'),
+         'location' => $location->implode('/')
+        ], 200);
     }
 }

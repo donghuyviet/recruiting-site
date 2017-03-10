@@ -114,3 +114,4 @@ Route::get('/api/lits/jobStation','ApiSearchTrainController@get_job_station');
 Route::get('/api/train/listjobs','ApiSearchTrainController@get_job_train');
 Route::get('/api/district','ApiSearchTrainController@get_district');
 Route::get('/api/reaSearch','ApiSearchTrainController@get_jobs_areaSearch');
+Route::get('/api/conditionSearch','ApiSearchTrainController@get_condition_search');

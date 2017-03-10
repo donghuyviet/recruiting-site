@@ -32,7 +32,18 @@ _app.controller('LocationCtrl', function ($rootScope, $scope, $http) {
 			}
 		});
 	}
-
+	$scope.rowClass = function(item, index,style){
+         if(index == 0){
+         	if(style === 1)
+             	return 'active';
+         	else
+         		return 'tab-pane active';
+         }
+        if(style === 1)
+        	return '';
+    	else 
+    		return 'tab-pane';
+    }
 	$scope.listDistrict();
 	
 	$scope.doClick = function (){

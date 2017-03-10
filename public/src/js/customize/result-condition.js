@@ -12,7 +12,18 @@ _app.controller('ConditionCtrl', function ($rootScope, $scope, $http, $location)
     }
 	console.log(paramsArr);
 
-
+	$scope.listLocation = function(id_city,id_location){
+		_fetch.get('/api/conditionSearch', {
+			id_city : id_city,
+			id_location : id_location
+		}, function(res) {
+			if (res.location || res.city){
+				$scope.$apply(function () {
+					$scope.listname = res.city +' / '+ res.location;
+				});
+			}
+		});
+	}
 	// results search all
 	$scope.doMainResultSearch = function(id_location, id_category){
 
@@ -34,7 +45,7 @@ _app.controller('ConditionCtrl', function ($rootScope, $scope, $http, $location)
 	if (typeof(paramsArr['action']) != 'undefined'){
 		switch (paramsArr['action']){
 			case 'cond-search': 
-				$scope.doMainSearch(paramsArr['keyword']);
+				$scope.listLocation(paramsArr['id_city'],paramsArr['id_location']);
 				break;
 
 			
