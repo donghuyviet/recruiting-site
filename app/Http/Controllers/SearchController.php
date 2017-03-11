@@ -30,4 +30,7 @@ class SearchController extends BaseController
 	public function career(){
 			return view('search/career');
 	}
+	public function zenkoku(){
+			return view('search/zenkoku');
+	}
 }

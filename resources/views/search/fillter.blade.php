@@ -16,7 +16,7 @@
                             <h1>東京都</h1>
                         </div>
                         <div class="aseaRight">
-                            <a href="#">都道府県を変更する</a>
+                            <a href="./zenkoku">都道府県を変更する</a>
                         </div>
                     </div>
                     <br>

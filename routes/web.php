@@ -88,6 +88,7 @@ Route::get('/search/rosen/{id}','SearchController@station');
 Route::get('/search/rosen-east','SearchController@east');
 Route::get('/search/condition','SearchController@condition');
 Route::get('/search/career','SearchController@career');
+Route::get('/search/zenkoku','SearchController@zenkoku');
 
 Route::get('/jobs/entry', 'JobsController@index');
 Route::post('/jobs/entry', 'JobsController@save');

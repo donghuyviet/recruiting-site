@@ -30,11 +30,14 @@ _app.controller('SearchResultCtrl', function ($rootScope, $scope, $http, $locati
 	}
 
 	// results search all
-	$scope.doMainResultSearch = function(id_location, id_category){
+	$scope.doMainResultSearch = function(id_location, id_category,salary_from,id_benefit,salary_unit){
 
 		_fetch.get('/api/all', {
 			id_location : id_location,
-			id_category : id_category
+			id_category : id_category,
+			id_benefit : id_benefit,
+			salary_unit : salary_unit,
+			salary_from : salary_from,
 		}, function(res){
 			console.log(res);
 			if(res.data){
@@ -55,7 +58,7 @@ _app.controller('SearchResultCtrl', function ($rootScope, $scope, $http, $locati
 
 			case 'ontop':
 				console.log('case');
-				$scope.doMainResultSearch(paramsArr['id_location']);
+				$scope.doMainResultSearch(paramsArr['id_location'],paramsArr['id_category'],paramsArr['id_benefit'],paramsArr['salary_unit'],paramsArr['salary_from']);
 				break;
 		}
 	}

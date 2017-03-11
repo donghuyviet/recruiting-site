@@ -899,3 +899,62 @@ a .local-header{
     color: #000000;
     font-weight: 500;
 }
+/********zenkoku*********/
+.allTom {
+    font-size: 120%;
+    padding: 5px 10px !important;
+    margin: 0 0 10px;
+    background: #ff3300;
+    color: #ffffff;
+}
+.accordionUnit01 li.accordionBtn  {
+    text-decoration: none;
+    border-bottom: 1px solid #CCCCCC;
+}
+.accordionUnit01 li.accordionBtn p.actived::after {
+    background: url(../../src/image/item/ico_minus.png) no-repeat 0 0;
+    position: absolute;
+    right: 5px;
+    display: block;
+    content: "";
+    background-size: 25px auto;
+    margin: -22px 0 0 0;
+    width: 36px;
+    height: 25px;
+    vertical-align: -2px;
+}
+.accordionUnit01 li.accordionBtn.collapsed p.actived::after {
+    background: url(../../src/image/item/ico_plus.png) no-repeat 0 0;
+    position: absolute;
+    right: 5px;
+    display: block;
+    content: "";
+    background-size: 25px auto;
+    margin: -22px 0 0 0;
+    width: 36px;
+    height: 25px;
+    vertical-align: -2px;
+}
+.accordionUnit01 li.accordionBtn p {
+    padding: 15px 10px 15px 20px !important;
+    margin: 0;
+    color: #000000;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+.accordionUnit01 > li > ul {
+    border-top: 1px solid #cccccc;
+    margin: 0;
+}
+.accordionUnit01 > li > ul > li {
+    float: none !important;
+    text-decoration: none;
+    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    background: url(../../src/image/item/ico_arr_02.png) no-repeat 0 0;
+    background-size: 12px auto;
+    background-position-x: 96%;
+    background-position-y: 50%;
+    margin: 0 0 0 20px !important;
+    list-style-type: none;
+}

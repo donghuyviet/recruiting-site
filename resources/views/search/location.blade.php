@@ -11,7 +11,7 @@
             <div class="mainContents" ng-controller="LocationCtrl">
                 <form class="" name="" method="" action="">
                     <h1 class="pageTitle-loca text-bold">
-                        <a href="#">
+                        <a href="./">
                             <span class="local-header">戻る</span>
                         </a>
                             エリアを選択する

@@ -6,7 +6,7 @@
             @include('sidebar.index')
 
         </div>
-        <div class="col-md-10 wrapper vdh" ng-controller="SearchResultCtrl" ">
+        <div class="col-md-10 wrapper vdh" ng-controller="SearchResultCtrl">
             
             <div class="mainContents">
                 <h1 class="pageTitle" alt="検索結果"></h1>
@@ -49,7 +49,7 @@
                                         <th scope="row">
                                             <img src="/src/image/item/ico_pay.png">
                                             <br>
-                                            <span>職種</span>
+                                            <span>給与</span>
                                         </th>
                                         <td><p>
                                             <!-- 1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
@@ -61,7 +61,7 @@
                                         <th scope="row">
                                             <img src="/src/image/item/ico_train_g.png">
                                             <br>
-                                            <span>職種</span>
+                                            <span>交通</span>
                                         </th>
                                         <td><p>
                                             <!-- 1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
@@ -73,7 +73,7 @@
                                         <th scope="row">
                                             <img src="/src/image/item/ico_shiftinfo.png">
                                             <br>
-                                            <span>職種</span>
+                                            <span>時間</span>
                                         </th>
                                         <td><p>
                                            <!--  1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
