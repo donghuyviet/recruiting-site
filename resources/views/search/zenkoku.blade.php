@@ -15,7 +15,7 @@
                             <li ng-repeat="item in district" class="areaTopLink accordionBtn collapsed" data-toggle="collapse" data-parent="#accordion" href="#demo-0//item.id_district//" aria-expanded="false" aria-controls="demo-0//item.id_district//">
                                 <p class="actived">//item.name_district//</p>
                                 <ul  id="demo-0//item.id_district//" class="collapse">
-                                    <li ng-repeat="city in item.city" ng-click="dosearch()"><a href="./"><p>//city.name_city//</p></a></li>
+                                    <li ng-repeat="city in item.city" ng-click="dosearch(city.name_city)"><a href="./"><p>//city.name_city//</p></a></li>
                                 </ul>
                             </li>
                         </ul>
