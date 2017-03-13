@@ -84,7 +84,7 @@ _app.controller('SearchLocationCtrl', function ($rootScope, $scope, $http) {
 		// console.log('salary:'+$scope.searchCategory.salary_unit);
 		// console.log('salary:'+$scope.searchCategory.salary_unit);
 
-		window.location.assign('/search/career?action=ontop&id_location='+$scope.searchString+'&id_category='+$scope.searchCategory.id+'&id_benefit='+$scope.searchBenefit+'&salary_unit='+$scope.searchCategory.salary_unit.unit+'&salary_from='+$scope.searchCategory.salary_unit.from+'&keyword='+$scope.searchString);
+		window.location.assign('/search/career?action=ontop&id_location='+$scope.searchString+'&id_category='+$scope.searchCategory.id+'&id_benefit='+$scope.searchBenefit+'&salary_unit='+$scope.searchCategory.salary_unit.unit+'&salary_from='+$scope.searchCategory.salary_unit.from);
 	}
 
 });

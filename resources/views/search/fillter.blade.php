@@ -130,7 +130,7 @@
                 <h2 class="headerType">フリーワード</h2>
                 <div class="numberwork">
                     <span class="text">
-                        <input type="text" id="freewordInput" class="freeword" maxlength="50" ng-model="searchString">
+                        <input type="text" id="freewordInput" class="freeword" maxlength="50">
                     </span>
                 </div>
                 <p class="pagetop">
