@@ -23,10 +23,10 @@ _app.controller('zenkokuCtrl', function ($rootScope, $scope, $http) {
 	}
 	$scope.listDistrict();
 
-	$scope.searchString = ''
+	$scope.searchZenkoku = ''
 	$scope.dosearch = function(keyword){
 		if (typeof(keyword) != 'undefined'){
-			$scope.searchString = keyword;
+			$scope.searchZenkoku = keyword;
 		}
 		// console.log('doSearchFilter');
 		// console.log('key:'+$scope.searchString);
@@ -36,7 +36,7 @@ _app.controller('zenkokuCtrl', function ($rootScope, $scope, $http) {
 		// console.log('salary:'+$scope.searchCategory.salary_unit);
 		// console.log('salary:'+$scope.searchCategory.salary_unit);
 
-		window.location.assign('/search/fillter?city='+$scope.searchString);
+		window.location.assign('/search/fillter?action=main-filter&id_city='+$scope.searchZenkoku);
 	}
 
 });

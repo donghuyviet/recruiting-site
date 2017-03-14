@@ -1,20 +1,46 @@
 // Seach Main controller
-_app.controller('SearchLocationCtrl', function ($rootScope, $scope, $http) {
+_app.controller('SearchLocationCtrl', function ($rootScope, $scope, $http, $location) {
 	console.log('search filter process');
+	// param
+	var params = window.location.search;
+	var sURLVariables = params.split(/[&||?]/);
+	var paramsArr = {};
+	for (var i = 0; i < sURLVariables.length; i ++) {
+        var paramName = sURLVariables[i],
+            sParameterName = (paramName || '').split('=');
+        if (sParameterName.length == 2){
+        	paramsArr[sParameterName[0]] = sParameterName[1];
+        }
+    }
+	console.log(paramsArr);
+	$scope.results = [];
+
 	$scope.searchString = '';
 	// search theo location 
-	$scope.listLocation = function(){
-		_fetch.get('/api/all/location', {}, function(res) {
+	$scope.listCitys = function(id_city){
+		_fetch.get('/api/getLocationbyCity',  {
+			id_city : id_city
+		}, function(res) {
 			console.log(res);
-			if (res.data){
-				$scope.$apply(function () {
-					$scope.location = res.data;
-					// $('#main-search').show();
-				});
+			if (res.city.id){
+					$scope.ListCity = res.city;
+					console.log('city'+$scope.ListCity);
+			}
+			if(res.location){
+				$scope.ListLocation = res.location;
+				console.log('loca'+$scope.ListLocation);
 			}
 		});
 	}
-	$scope.listLocation();
+	$scope.listCitys();
+
+	if (typeof(paramsArr['action']) != 'undefined'){
+		switch (paramsArr['action']){
+			case 'main-filter': 
+				$scope.listCitys(paramsArr['id_city']);
+				break;
+		}
+	}
 
 	// search theo category
 	$scope.searchCategory = {

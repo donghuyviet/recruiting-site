@@ -22,16 +22,15 @@
                     <br>
                     <p>
                         地域
-                        <select id="" selected="selected">
-                            <option value="" > 23 wards</option>
-                            <option value="" >その他東京都</option>
+                        <select id="" selected="selected" ng-repeat="list in ListCity">
+                            <option  value="//ListCity.id//" >//ListCity.name_city//</option>
                         </select>
                     </p>
                     <p>
                         市区
                         <select id="" selected="selected" name="repeatSelect" ng-model="searchString">
                             <option value="">---Please select---</option>
-                            <option ng-repeat="item in location" value="// item.id //" name="//item.name_location//"> // item.name_location //</option>
+                            <option ng-repeat="loca in ListLocation" value="// loca.id //" name="//loca.name_location//"> // loca.name_location //</option>
                         </select>
                     </p>
                 </div>

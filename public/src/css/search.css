@@ -958,3 +958,6 @@ a .local-header{
     margin: 0 0 0 20px !important;
     list-style-type: none;
 }
+.aseaSelect > p > select + select {
+    display: none;
+}
