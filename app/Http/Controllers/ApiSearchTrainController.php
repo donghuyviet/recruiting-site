@@ -257,19 +257,22 @@ class ApiSearchTrainController extends BaseController
         if(isset($id_city))
         {
             $city = DB::table('city')
-                    ->where('city.id', $id_city);
+                    ->where('city.id', $id_city)
+                    ->first();
             $result = DB::table('city')
                  ->where('city.id' , $id_city)
                  ->join('location','location.city_id', '=', 'city.id')
-                 ->select('location.*','id as id_city','name_city')
+                 ->select('location.*')
                  ->get();
         }
         else
         {
+            $city = DB::table('city')->first();
             $result = DB::table('city')
-                 ->join('location','location.city_id', '=', 'city.id')
-                 ->select('location.*','id as id_city','name_city')
-                 ->first();
+                 ->where('city.id' , $city->id)
+                 ->join('location','city.id', '=','location.city_id' )
+                 ->select('location.*','city.id as id_city','name_city')
+                 ->get();
         }
         return response()
         ->json([
