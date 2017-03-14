@@ -250,4 +250,31 @@ class ApiSearchTrainController extends BaseController
          'location' => $location->implode('/')
         ], 200);
     }
+    public function get_location_by_city(Request $request)
+    {
+        $city='';
+        $id_city = ($request->id_city);
+        if(isset($id_city))
+        {
+            $city = DB::table('city')
+                    ->where('city.id', $id_city);
+            $result = DB::table('city')
+                 ->where('city.id' , $id_city)
+                 ->join('location','location.city_id', '=', 'city.id')
+                 ->select('location.*','id as id_city','name_city')
+                 ->get();
+        }
+        else
+        {
+            $result = DB::table('city')
+                 ->join('location','location.city_id', '=', 'city.id')
+                 ->select('location.*','id as id_city','name_city')
+                 ->first();
+        }
+        return response()
+        ->json([
+         'city' => $city,
+         'location' => $result
+        ], 200);
+    }
 }
