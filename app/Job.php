@@ -149,6 +149,45 @@ class Job extends Model
              $job->where('salary.price', '<=', $salary_to);
         }
         $result = $job->select('jobs.*')->get();
-        return $result;
+        $myarray = array();
+        foreach ($result as $key => $value) {
+                $myarray[$key] =  array(
+                    'title' =>$value->title,
+                    'description' => $value->description,
+                    'category'=> $this->get_category($value->id),
+                    'salary'  => $this->get_salary($value->id),
+                    'benefit' => $this->get_benefit($value->id),
+                    );
+         }     
+        return $myarray;
+    }
+    public function get_category($id_jobs)
+    {
+
+         $job = DB::table('job_specializations')
+                ->where('job_specializations.job_id', $id_jobs)
+                ->join('specializations', 'specializations.id', '=', 'job_specializations.specialization_id')
+                ->select('specializations.id','specializations.name_specializations')
+                ->groupBy('specializations.id','specializations.name_specializations')
+                ->get();
+        return $job;
+    }
+    public function get_salary($id_jobs)
+    {
+         $salary = DB::table('salary')
+                ->where('salary.job_id', $id_jobs)
+                ->select('salary.price','salary.salary_unit')
+                ->get();
+        return $salary;
+    }
+    public function get_benefit($id_jobs)
+    {
+        $benefit = DB::table('job_benefit')
+                ->where('job_benefit.job_id', $id_jobs)
+                ->join('benefit', 'job_benefit.benefit_id', '=', 'benefit.id')
+                ->select('benefit.id','benefit.name_benefit')
+                ->groupBy('benefit.id','benefit.name_benefit')
+                ->get();
+        return $benefit;
     }
 }
