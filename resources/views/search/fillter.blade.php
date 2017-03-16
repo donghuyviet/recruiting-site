@@ -80,33 +80,14 @@
                 </div>
                 <h2 class="headerType">勤務日数</h2>
                 <div class="numberwork">
-                    <table class="tableJobcate ">
-                        <tbody id="">
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="numberwork tableJobcate  " id="">
+                        <form >
+                            <label class="salary" ng-repeat="tm in time">
+                                <input type="checkbox" value="// tm.id //" ng-model="searchCategory.time"  ng-true-value="//tm.id//">
+                                <span class="name">//tm.number_day//</span>
+                            </label>
+                        </form>
+                    </div>
                 </div>
                 <h2 class="headerType">勤務期間</h2>
                 <div class="numberwork">

@@ -39,10 +39,10 @@
                                             <br>
                                             <span>職種</span>
                                         </th>
-                                        <td><p>
+                                        <td><p ng-repeat="cate in job.category">
                                            <!--  1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
                                             2.ホールSTAFF -->
-                                            // '...' //
+                                            // cate.name_specializations //
                                         </p></td>
                                     </tr>
                                     <tr>
@@ -51,10 +51,10 @@
                                             <br>
                                             <span>給与</span>
                                         </th>
-                                        <td><p>
+                                        <td><p ng-repeat="sala in job.salary">
                                             <!-- 1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
                                             2.ホールSTAFF -->
-                                            // '...' //
+                                            //sala.price//
                                         </p></td>
                                     </tr>
                                     <tr>
@@ -63,10 +63,10 @@
                                             <br>
                                             <span>交通</span>
                                         </th>
-                                        <td><p>
+                                        <td><p ng-repeat="ben in job.benefit">
                                             <!-- 1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
                                             2.ホールSTAFF -->
-                                            // '...' //
+                                            // ben.name_benefit //
                                         </p></td>
                                     </tr>
                                     <tr>
@@ -78,7 +78,7 @@
                                         <td><p>
                                            <!--  1.カウンターレディ※お店のお手伝い感覚でOK♪ <br>
                                             2.ホールSTAFF -->
-                                            // '...' //
+                                           //job.time.time_work || job.time.number_day//
                                         </p></td>
                                     </tr>
                                 </tbody>
