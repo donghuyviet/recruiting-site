@@ -961,3 +961,9 @@ a .local-header{
 .aseaSelect > p > select + select {
     display: none;
 }
+.container {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto;
+    margin-left: auto;
+}
