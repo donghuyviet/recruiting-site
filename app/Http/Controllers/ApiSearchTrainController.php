@@ -61,6 +61,13 @@ class ApiSearchTrainController extends BaseController
                 ->get();
         return $router;
     }
+    public function get_all_time(Request $request){    
+         $time = DB::table('work_day')->orderBy('id')->get();
+         return response()
+        ->json([
+         'data' => $time
+        ], 200);
+    }
     public function get_company($id_location)
     {
         $myarray = array();

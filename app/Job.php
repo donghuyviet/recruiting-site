@@ -157,6 +157,7 @@ class Job extends Model
                     'category'=> $this->get_category($value->id),
                     'salary'  => $this->get_salary($value->id),
                     'benefit' => $this->get_benefit($value->id),
+                    'time'    => $this->get_time($value->id),
                     );
          }     
         return $myarray;
@@ -189,5 +190,13 @@ class Job extends Model
                 ->groupBy('benefit.id','benefit.name_benefit')
                 ->get();
         return $benefit;
+    }
+    public function get_time($id_jobs)
+    {
+        $time = DB::table('work_day')
+                ->where('work_day.job_id', $id_jobs)
+                ->select('work_day.number_day','work_day.time_work')
+                ->first();
+        return $time;
     }
 }
