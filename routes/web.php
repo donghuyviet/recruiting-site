@@ -107,6 +107,7 @@ Route::get('/api/all/category','ApiSearchController@get_all_category');
 Route::get('/api/all/benefit','ApiSearchController@get_all_benefit');
 Route::get('/api/all/salary','ApiSearchController@get_all_salary_unit');
 Route::get('/api/all/time','ApiSearchTrainController@get_all_time');
+Route::get('/api/all/group_benefit','ApiSearchTrainController@get_all_group_benefit');
 Route::get('/api/all','ApiSearchController@search_all');
 
 Route::get('/api/rosen','ApiSearchTrainController@index');

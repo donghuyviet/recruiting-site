@@ -68,6 +68,23 @@ class ApiSearchTrainController extends BaseController
          'data' => $time
         ], 200);
     }
+    public function get_all_group_benefit(Request $request){    
+         $myarray = array();
+         $benefit = DB::table('benefit_group')->orderBy('id')->get();
+          foreach ($benefit as $key => $value) {
+            $myarray[$key] = array('name_group' =>$value->title, 'benefit'=> $this->get_benefit($value->id));
+          }
+         return response()
+        ->json([
+         'data' => $myarray
+        ], 200);
+    }
+    public function get_benefit($id){    
+         $benefit = DB::table('benefit')
+                    ->where('benefit.group_id',$id)
+                    ->get();
+        return $benefit;
+    }
     public function get_company($id_location)
     {
         $myarray = array();

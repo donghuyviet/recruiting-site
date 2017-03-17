@@ -154,6 +154,8 @@ class Job extends Model
                 $myarray[$key] =  array(
                     'title' =>$value->title,
                     'description' => $value->description,
+                    'start_date'  => $value->start_date,
+                    'end_date'    => $value->end_date,
                     'category'=> $this->get_category($value->id),
                     'salary'  => $this->get_salary($value->id),
                     'benefit' => $this->get_benefit($value->id),
