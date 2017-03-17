@@ -52,25 +52,13 @@
                 <h2 class="headerType">こだわり</h2>
                 <div class="commitment">
                     <ul class="commited">
-                        <li ng-repeat="item in benefit">
-                            <a href="#work-//item.id//" data-toggle="collapse" data-parent="#accordion" class="" aria-expanded="false">//item.name_benefit//</a>
-                            <div class="numberwork tableJobcate panel-collapse collapse " id="work-//item.id//">
+                        <li ng-repeat="item in benefit_group">
+                            <a href="#work-//item.benefit[0].group_id//" data-toggle="collapse" data-parent="#accordion" class="" aria-expanded="false">//item.name_group//</a>
+                            <div class="numberwork tableJobcate panel-collapse collapse " id="work-//item.benefit[0].group_id//">
                                 <form >
-                                    <label class="salary">
-                                        <input type="checkbox" name="" value="">
-                                        <span class="name">高校生歓迎</span>
-                                    </label>
-                                    <label class="salary">
-                                        <input type="checkbox" name="" value="">
-                                        <span class="name">大学生歓迎</span>
-                                    </label>
-                                    <label class="salary">
-                                        <input type="checkbox" name="" value="">
-                                        <span class="name">主婦・主夫歓迎</span>
-                                    </label>
-                                    <label class="salary">
-                                        <input type="checkbox" name="" value="">
-                                        <span class="name">フリーター歓迎</span>
+                                    <label class="salary" ng-repeat="bene in item.benefit">
+                                        <input type="checkbox" value="//bene.id//" ng-model="searchBenefit.id_bene" ng-true-value="//bene//">
+                                        <span class="name">//bene.name_benefit//</span>
                                     </label>
                                 </form>
                             </div>
