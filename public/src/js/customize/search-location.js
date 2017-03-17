@@ -90,7 +90,7 @@ _app.controller('SearchLocationCtrl', function ($rootScope, $scope, $http, $loca
 	// $scope.searchSalary = '';
 	$scope.listSalary = function(){
 		_fetch.get('/api/all/salary', {}, function(res){
-			console.log(res);
+			// console.log(res);
 			if(res.data){
 				$scope.$apply(function(){
 					$scope.salary = res.data;
@@ -121,13 +121,13 @@ _app.controller('SearchLocationCtrl', function ($rootScope, $scope, $http, $loca
 			$scope.searchString = keyword;
 		}
 		
-		console.log('key:'+$scope.searchString);
-		console.log('cate:'+$scope.searchCategory.id);
-		console.log('all:'+$scope.searchCategory.all);
-		console.log('benefit:'+$scope.searchBenefit.id_bene.id);
-		console.log('salary:'+$scope.searchCategory.salary_unit.unit);
-		console.log('salary:'+$scope.searchCategory.salary_unit.from);
-		console.log('time:'+$scope.searchCategory.time);
+		// console.log('key:'+$scope.searchString);
+		// console.log('cate:'+$scope.searchCategory.id);
+		// console.log('all:'+$scope.searchCategory.all);
+		// console.log('benefit:'+$scope.searchBenefit.id_bene.id);
+		// console.log('salary:'+$scope.searchCategory.salary_unit.unit);
+		// console.log('salary:'+$scope.searchCategory.salary_unit.from);
+		// console.log('time:'+$scope.searchCategory.time);
 
 		window.location.assign('/search/career?action=ontop&id_location='+$scope.searchString+'&id_category='+$scope.searchCategory.id+'&id_benefit='+$scope.searchBenefit.id_bene.id+'&salary_unit='+$scope.searchCategory.salary_unit.unit+'&salary_from='+$scope.searchCategory.salary_unit.from);
 	}
