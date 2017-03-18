@@ -160,6 +160,7 @@ class Job extends Model
                     'salary'  => $this->get_salary($value->id),
                     'benefit' => $this->get_benefit($value->id),
                     'time'    => $this->get_time($value->id),
+                    'station' => $this->get_train($value->id),
                     );
          }     
         return $myarray;
@@ -199,6 +200,15 @@ class Job extends Model
                 ->where('work_day.job_id', $id_jobs)
                 ->select('work_day.number_day','work_day.time_work')
                 ->first();
+        return $time;
+    }
+    public function get_train($id_jobs)
+    {
+        $time = DB::table('job_station')
+                ->where('job_station.job_id', $id_jobs)
+                ->join('stations', 'stations.id', '=', 'job_station.station_id')
+                ->select('stations.name_station','stations.id')
+                ->get();
         return $time;
     }
 }
