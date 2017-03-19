@@ -15,7 +15,6 @@ class CreateWorkDayTable extends Migration
     {
         Schema::create('work_day', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('job_id'); 
             $table->text('number_day');
             $table->text('time_work');
             $table->timestamps();

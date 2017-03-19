@@ -138,7 +138,7 @@ class Job extends Model
         if($salary_from || $salary_to)
         {
             $job->join('salary', 'jobs.id', '=', 'salary.job_id');
-            $job->where('salary.salary_unit',$salary_unit);
+           // $job->where('salary.salary_unit',$salary_unit);
         }
         if ($salary_from)
         {
