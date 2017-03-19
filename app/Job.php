@@ -156,7 +156,7 @@ class Job extends Model
         {
              $job->whereRaw("MATCH(title,description) AGAINST(? IN BOOLEAN MODE)", array($keyword));
         }
-        $result = $job->select('jobs.id')->get();
+        $result = $job->select('jobs.*')->get();
         $myarray = array();
         foreach ($result as $key => $value) {
                 $myarray[$key] =  array(
