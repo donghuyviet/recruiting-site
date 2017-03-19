@@ -114,7 +114,7 @@ class Job extends Model
             ->get();
         return $job_location;
     }
-    public function get_all($id_location,$id_category,$id_benefit,$salary_from,$salary_to,$salary_unit)
+    public function get_all($id_location,$id_category,$id_benefit,$salary_from,$salary_to,$salary_unit,$keyword,$id_time)
     {
         $job = DB::table('jobs');
         if ($id_location)
@@ -148,7 +148,15 @@ class Job extends Model
         {
              $job->where('salary.price', '<=', $salary_to);
         }
-        $result = $job->select('jobs.*')->get();
+        if ($id_time)
+        {
+             $job->where('jobs.work_id', $id_time);
+        }
+        if ($keyword)
+        {
+             $job->whereRaw("MATCH(title,description) AGAINST(? IN BOOLEAN MODE)", array($keyword));
+        }
+        $result = $job->select('jobs.id')->get();
         $myarray = array();
         foreach ($result as $key => $value) {
                 $myarray[$key] =  array(
