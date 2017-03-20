@@ -107,6 +107,8 @@ Route::get('/api/all/location','ApiSearchController@get_all_locations');
 Route::get('/api/all/category','ApiSearchController@get_all_category');
 Route::get('/api/all/benefit','ApiSearchController@get_all_benefit');
 Route::get('/api/all/salary','ApiSearchController@get_all_salary_unit');
+Route::get('/api/all/time','ApiSearchTrainController@get_all_time');
+Route::get('/api/all/group_benefit','ApiSearchTrainController@get_all_group_benefit');
 Route::get('/api/all','ApiSearchController@search_all');
 
 Route::get('/api/rosen','ApiSearchTrainController@index');
@@ -117,3 +119,4 @@ Route::get('/api/train/listjobs','ApiSearchTrainController@get_job_train');
 Route::get('/api/district','ApiSearchTrainController@get_district');
 Route::get('/api/reaSearch','ApiSearchTrainController@get_jobs_areaSearch');
 Route::get('/api/conditionSearch','ApiSearchTrainController@get_condition_search');
+Route::get('/api/getLocationbyCity','ApiSearchTrainController@get_location_by_city');

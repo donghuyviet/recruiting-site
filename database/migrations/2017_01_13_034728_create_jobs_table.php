@@ -18,6 +18,7 @@ class CreateJobsTable extends Migration
             $table->integer('orderer_id');
             $table->text('title');
             $table->longText('description');
+            $table->integer('work_id'); 
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

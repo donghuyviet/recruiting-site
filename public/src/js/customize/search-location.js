@@ -1,29 +1,57 @@
 // Seach Main controller
-_app.controller('SearchLocationCtrl', function ($rootScope, $scope, $http) {
+_app.controller('SearchLocationCtrl', function ($rootScope, $scope, $http, $location) {
 	console.log('search filter process');
+	// param
+	var params = window.location.search;
+	var sURLVariables = params.split(/[&||?]/);
+	var paramsArr = {};
+	for (var i = 0; i < sURLVariables.length; i ++) {
+        var paramName = sURLVariables[i],
+            sParameterName = (paramName || '').split('=');
+        if (sParameterName.length == 2){
+        	paramsArr[sParameterName[0]] = sParameterName[1];
+        }
+    }
+	console.log(paramsArr);
+	$scope.results = [];
+
 	$scope.searchString = '';
 	// search theo location 
-	$scope.listLocation = function(){
-		_fetch.get('/api/all/location', {}, function(res) {
+	$scope.listCitys = function(id_city){
+		_fetch.get('/api/getLocationbyCity',  {
+			id_city : id_city
+		}, function(res) {
 			console.log(res);
-			if (res.data){
-				$scope.$apply(function () {
-					$scope.location = res.data;
-					// $('#main-search').show();
-				});
+			if (res.city.id){
+					$scope.ListCity = res.city;
+					// console.log('city'+$scope.ListCity);
+			}
+			if(res.location){
+				$scope.ListLocation = res.location;
+				// console.log('loca'+$scope.ListLocation);
 			}
 		});
 	}
-	$scope.listLocation();
+	$scope.listCitys();
+
+	if (typeof(paramsArr['action']) != 'undefined'){
+		switch (paramsArr['action']){
+			case 'main-filter': 
+				$scope.listCitys(paramsArr['id_city']);
+				break;
+		}
+	}
 
 	// search theo category
+	
 	$scope.searchCategory = {
 		isActive : true,
-		id: 0,
+		id: '',
 		all: false,
-		salary_unit:0,
+		salary_unit:'',
 		salary_from:0,
-		id_benefit: 0
+		id_benefit: 0,
+		time:'' 
 	}
 	$scope.listCategory = function () {
 		_fetch.get('/api/all/category', {}, function(res){
@@ -38,13 +66,15 @@ _app.controller('SearchLocationCtrl', function ($rootScope, $scope, $http) {
 	$scope.listCategory();
 
 	// search benefit
-	$scope.searchBenefit = '';
+	$scope.searchBenefit = {
+		id_bene: ''
+	}
 	$scope.listBenefit = function(){
-		_fetch.get('/api/all/benefit', {}, function(res){
+		_fetch.get('/api/all/group_benefit', {}, function(res){
 			console.log(res);
 			if(res.data){
 				$scope.$apply(function(){
-					$scope.benefit = res.data;
+					$scope.benefit_group = res.data;
 					// $('#main-search').show();
 				});
 			}
@@ -60,7 +90,7 @@ _app.controller('SearchLocationCtrl', function ($rootScope, $scope, $http) {
 	// $scope.searchSalary = '';
 	$scope.listSalary = function(){
 		_fetch.get('/api/all/salary', {}, function(res){
-			console.log(res);
+			// console.log(res);
 			if(res.data){
 				$scope.$apply(function(){
 					$scope.salary = res.data;
@@ -72,19 +102,34 @@ _app.controller('SearchLocationCtrl', function ($rootScope, $scope, $http) {
 
 	$scope.listSalary();
 
+	$scope.listTime = function(){
+		_fetch.get('/api/all/time', {}, function(res){
+			console.log(res);
+			if(res.data){
+				$scope.$apply(function(){
+					$scope.time = res.data;
+					// $('#main-search').show();
+				});
+			}
+		});
+	}
+
+	$scope.listTime();
+
 	$scope.doSearchFilter = function(keyword){
 		if (typeof(keyword) != 'undefined'){
 			$scope.searchString = keyword;
 		}
-		// console.log('doSearchFilter');
+		
 		// console.log('key:'+$scope.searchString);
 		// console.log('cate:'+$scope.searchCategory.id);
 		// console.log('all:'+$scope.searchCategory.all);
-		// console.log('benefit:'+$scope.searchBenefit);
-		// console.log('salary:'+$scope.searchCategory.salary_unit);
-		// console.log('salary:'+$scope.searchCategory.salary_unit);
+		// console.log('benefit:'+$scope.searchBenefit.id_bene.id);
+		// console.log('salary:'+$scope.searchCategory.salary_unit.unit);
+		// console.log('salary:'+$scope.searchCategory.salary_unit.from);
+		// console.log('time:'+$scope.searchCategory.time);
 
-		window.location.assign('/search/career?action=ontop&id_location='+$scope.searchString+'&id_category='+$scope.searchCategory.id+'&id_benefit='+$scope.searchBenefit+'&salary_unit='+$scope.searchCategory.salary_unit.unit+'&salary_from='+$scope.searchCategory.salary_unit.from+'&keyword='+$scope.searchString);
+		window.location.assign('/search/career?action=ontop&id_location='+$scope.searchString+'&id_category='+$scope.searchCategory.id+'&id_benefit='+$scope.searchBenefit.id_bene.id+'&salary_unit='+$scope.searchCategory.salary_unit.unit+'&salary_from='+$scope.searchCategory.salary_unit.from);
 	}
 
 });

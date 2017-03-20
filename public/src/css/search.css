@@ -958,3 +958,12 @@ a .local-header{
     margin: 0 0 0 20px !important;
     list-style-type: none;
 }
+.aseaSelect > p > select + select {
+    display: none;
+}
+.container {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto;
+    margin-left: auto;
+}

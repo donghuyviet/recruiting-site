@@ -74,8 +74,10 @@ class ApiSearchController extends BaseController
 		$salary_from = (int)$request->salary_from;
 		$salary_to =   (int)$request->salary_to ;
 		$salary_unit = (int)$request->salary_unit;
+		$keyword = 	$request->keyword;
+		$id_time = (int)$request->id_time;
 		$job_location = new Job;
-		$result = $job_location->get_all($id_location,$id_category,$id_benefit,$salary_from,$salary_to,$salary_unit);
+		$result = $job_location->get_all($id_location,$id_category,$id_benefit,$salary_from,$salary_to,$salary_unit,$keyword,$id_time);
 		return response()
 		->json([
          'data' => $result

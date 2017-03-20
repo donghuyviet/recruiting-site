@@ -126,7 +126,7 @@ class Job extends Model
             ->get();
         return $job_location;
     }
-    public function get_all($id_location,$id_category,$id_benefit,$salary_from,$salary_to,$salary_unit)
+    public function get_all($id_location,$id_category,$id_benefit,$salary_from,$salary_to,$salary_unit,$keyword,$id_time)
     {
         $job = DB::table('jobs');
         if ($id_location)
@@ -150,7 +150,7 @@ class Job extends Model
         if($salary_from || $salary_to)
         {
             $job->join('salary', 'jobs.id', '=', 'salary.job_id');
-            $job->where('salary.salary_unit',$salary_unit);
+           // $job->where('salary.salary_unit',$salary_unit);
         }
         if ($salary_from)
         {
@@ -160,7 +160,75 @@ class Job extends Model
         {
              $job->where('salary.price', '<=', $salary_to);
         }
+        if ($id_time)
+        {
+             $job->where('jobs.work_id', $id_time);
+        }
+        if ($keyword)
+        {
+             $job->whereRaw("MATCH(title,description) AGAINST(? IN BOOLEAN MODE)", array($keyword));
+        }
         $result = $job->select('jobs.*')->get();
-        return $result;
+        $myarray = array();
+        foreach ($result as $key => $value) {
+                $myarray[$key] =  array(
+                    'title' =>$value->title,
+                    'description' => $value->description,
+                    'start_date'  => $value->start_date,
+                    'end_date'    => $value->end_date,
+                    'category'=> $this->get_category($value->id),
+                    'salary'  => $this->get_salary($value->id),
+                    'benefit' => $this->get_benefit($value->id),
+                    'time'    => $this->get_time($value->id),
+                    'station' => $this->get_train($value->id),
+                    );
+         }     
+        return $myarray;
+    }
+    public function get_category($id_jobs)
+    {
+
+         $job = DB::table('job_specializations')
+                ->where('job_specializations.job_id', $id_jobs)
+                ->join('specializations', 'specializations.id', '=', 'job_specializations.specialization_id')
+                ->select('specializations.id','specializations.name_specializations')
+                ->groupBy('specializations.id','specializations.name_specializations')
+                ->get();
+        return $job;
+    }
+    public function get_salary($id_jobs)
+    {
+         $salary = DB::table('salary')
+                ->where('salary.job_id', $id_jobs)
+                ->select('salary.price','salary.salary_unit')
+                ->get();
+        return $salary;
+    }
+    public function get_benefit($id_jobs)
+    {
+        $benefit = DB::table('job_benefit')
+                ->where('job_benefit.job_id', $id_jobs)
+                ->join('benefit', 'job_benefit.benefit_id', '=', 'benefit.id')
+                ->select('benefit.id','benefit.name_benefit')
+                ->groupBy('benefit.id','benefit.name_benefit')
+                ->get();
+        return $benefit;
+    }
+    public function get_time($id_jobs)
+    {
+        $time = DB::table('work_day')
+                ->where('work_day.job_id', $id_jobs)
+                ->select('work_day.number_day','work_day.time_work')
+                ->first();
+        return $time;
+    }
+    public function get_train($id_jobs)
+    {
+        $time = DB::table('job_station')
+                ->where('job_station.job_id', $id_jobs)
+                ->join('stations', 'stations.id', '=', 'job_station.station_id')
+                ->select('stations.name_station','stations.id')
+                ->get();
+        return $time;
     }
 }

@@ -22,16 +22,15 @@
                     <br>
                     <p>
                         地域
-                        <select id="" selected="selected">
-                            <option value="" > 23 wards</option>
-                            <option value="" >その他東京都</option>
+                        <select id="" selected="selected" ng-repeat="list in ListCity">
+                            <option  value="//ListCity.id//" >//ListCity.name_city//</option>
                         </select>
                     </p>
                     <p>
                         市区
                         <select id="" selected="selected" name="repeatSelect" ng-model="searchString">
                             <option value="">---Please select---</option>
-                            <option ng-repeat="item in location" value="// item.id //" name="//item.name_location//"> // item.name_location //</option>
+                            <option ng-repeat="loca in ListLocation" value="// loca.id //" name="//loca.name_location//"> // loca.name_location //</option>
                         </select>
                     </p>
                 </div>
@@ -53,25 +52,13 @@
                 <h2 class="headerType">こだわり</h2>
                 <div class="commitment">
                     <ul class="commited">
-                        <li ng-repeat="item in benefit">
-                            <a href="#work-//item.id//" data-toggle="collapse" data-parent="#accordion" class="" aria-expanded="false">//item.name_benefit//</a>
-                            <div class="numberwork tableJobcate panel-collapse collapse " id="work-//item.id//">
+                        <li ng-repeat="item in benefit_group">
+                            <a href="#work-//item.benefit[0].group_id//" data-toggle="collapse" data-parent="#accordion" class="" aria-expanded="false">//item.name_group//</a>
+                            <div class="numberwork tableJobcate panel-collapse collapse " id="work-//item.benefit[0].group_id//">
                                 <form >
-                                    <label class="salary">
-                                        <input type="checkbox" name="" value="">
-                                        <span class="name">高校生歓迎</span>
-                                    </label>
-                                    <label class="salary">
-                                        <input type="checkbox" name="" value="">
-                                        <span class="name">大学生歓迎</span>
-                                    </label>
-                                    <label class="salary">
-                                        <input type="checkbox" name="" value="">
-                                        <span class="name">主婦・主夫歓迎</span>
-                                    </label>
-                                    <label class="salary">
-                                        <input type="checkbox" name="" value="">
-                                        <span class="name">フリーター歓迎</span>
+                                    <label class="salary" ng-repeat="bene in item.benefit">
+                                        <input type="checkbox" value="//bene.id//" ng-model="searchBenefit.id_bene" ng-true-value="//bene//">
+                                        <span class="name">//bene.name_benefit//</span>
                                     </label>
                                 </form>
                             </div>
@@ -81,33 +68,14 @@
                 </div>
                 <h2 class="headerType">勤務日数</h2>
                 <div class="numberwork">
-                    <table class="tableJobcate ">
-                        <tbody id="">
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <label>
-                                        <input type="checkbox" value="" id="" name="">
-                                        <span class="name">フード</span>
-                                    </label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="numberwork tableJobcate  " id="">
+                        <form >
+                            <label class="salary" ng-repeat="tm in time">
+                                <input type="checkbox" value="// tm.id //" ng-model="searchCategory.time"  ng-true-value="//tm.id//">
+                                <span class="name">//tm.number_day//</span>
+                            </label>
+                        </form>
+                    </div>
                 </div>
                 <h2 class="headerType">勤務期間</h2>
                 <div class="numberwork">
@@ -130,7 +98,7 @@
                 <h2 class="headerType">フリーワード</h2>
                 <div class="numberwork">
                     <span class="text">
-                        <input type="text" id="freewordInput" class="freeword" maxlength="50" ng-model="searchString">
+                        <input type="text" id="freewordInput" class="freeword" maxlength="50">
                     </span>
                 </div>
                 <p class="pagetop">

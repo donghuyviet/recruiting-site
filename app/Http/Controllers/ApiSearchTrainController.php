@@ -61,6 +61,30 @@ class ApiSearchTrainController extends BaseController
                 ->get();
         return $router;
     }
+    public function get_all_time(Request $request){    
+         $time = DB::table('work_day')->orderBy('id')->get();
+         return response()
+        ->json([
+         'data' => $time
+        ], 200);
+    }
+    public function get_all_group_benefit(Request $request){    
+         $myarray = array();
+         $benefit = DB::table('benefit_group')->orderBy('id')->get();
+          foreach ($benefit as $key => $value) {
+            $myarray[$key] = array('name_group' =>$value->title, 'benefit'=> $this->get_benefit($value->id));
+          }
+         return response()
+        ->json([
+         'data' => $myarray
+        ], 200);
+    }
+    public function get_benefit($id){    
+         $benefit = DB::table('benefit')
+                    ->where('benefit.group_id',$id)
+                    ->get();
+        return $benefit;
+    }
     public function get_company($id_location)
     {
         $myarray = array();
@@ -248,6 +272,36 @@ class ApiSearchTrainController extends BaseController
         ->json([
          'city' => $city->implode('/'),
          'location' => $location->implode('/')
+        ], 200);
+    }
+    public function get_location_by_city(Request $request)
+    {
+        $city='';
+        $id_city = ($request->id_city);
+        if(isset($id_city))
+        {
+            $city = DB::table('city')
+                    ->where('city.id', $id_city)
+                    ->first();
+            $result = DB::table('city')
+                 ->where('city.id' , $id_city)
+                 ->join('location','location.city_id', '=', 'city.id')
+                 ->select('location.*')
+                 ->get();
+        }
+        else
+        {
+            $city = DB::table('city')->first();
+            $result = DB::table('city')
+                 ->where('city.id' , $city->id)
+                 ->join('location','city.id', '=','location.city_id' )
+                 ->select('location.*','city.id as id_city','name_city')
+                 ->get();
+        }
+        return response()
+        ->json([
+         'city' => $city,
+         'location' => $result
         ], 200);
     }
 }
