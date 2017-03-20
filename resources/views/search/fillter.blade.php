@@ -71,13 +71,13 @@
                     <div class="numberwork tableJobcate  " id="">
                         <form >
                             <label class="salary" ng-repeat="tm in time">
-                                <input type="checkbox" value="// tm.id //" ng-model="searchCategory.time"  ng-true-value="//tm.id//">
+                                <input type="checkbox" value="// tm.id //" ng-model="searchCategory.id_time"  ng-true-value="//tm.id//">
                                 <span class="name">//tm.number_day//</span>
                             </label>
                         </form>
                     </div>
                 </div>
-                <h2 class="headerType">勤務期間</h2>
+                <!-- <h2 class="headerType">勤務期間</h2>
                 <div class="numberwork">
                     <select name="">
                         <option value="" selected="selected">指定なし</option>
@@ -85,7 +85,7 @@
                         <option value="" >3日以内</option>
                         <option value="" >1週間以内</option>
                     </select>
-                </div>
+                </div> -->
                 <h2 class="headerType">給与</h2>
                 <div class="numberwork tableJobcate "  >
                     <form >
@@ -98,7 +98,7 @@
                 <h2 class="headerType">フリーワード</h2>
                 <div class="numberwork">
                     <span class="text">
-                        <input type="text" id="freewordInput" class="freeword" maxlength="50">
+                        <input ng-model="searchkeyword" type="text" id="freewordInput" class="freeword" maxlength="50">
                     </span>
                 </div>
                 <p class="pagetop">
