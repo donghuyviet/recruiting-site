@@ -8,6 +8,8 @@ use App\Location;
 use App\Specializations;
 use App\Benefit;
 use App\Salary;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class JobsController extends Controller
 {
     public function index()
@@ -96,5 +98,24 @@ class JobsController extends Controller
         $author = $job->get_author_jobs($orderer_id);
         $jobs_author= $job->get_author_lists_jobs($orderer_id);
         return view('template.jobauthor', ['author'=>$author,'jobs_author' => $jobs_author]);
-    }       
+    }
+
+    function apply(Request $request){
+        $current_date_time = date("Y-m-d H:i:s");
+        $message = (object)[];
+        $current_user = Auth::user();
+        $job_id = $request->input('jobID',0);
+        $job_applicant_id = DB::table('job_applicant')->insertGetId(
+            ['job_id' => $job_id, 'user_apply' => $current_user->id,'time_apply'=>$current_date_time,'status'=>0]
+        );
+        if($job_applicant_id>0){
+            $message->status = "OK";
+            $message->message = "Apply successful !";
+            $message->applyStatus = "待っている";
+        }else{
+            $message->status = "ERROR";
+            $message->message = "ERROR";
+        }
+        return response()->json($message);
+    }
 }

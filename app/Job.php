@@ -33,10 +33,22 @@ class Job extends Model
     }
     public function get_list_jobs()
     {
+        $current_user = Auth::user();
     	$Jobs = DB::table('jobs')
             ->join('orderer', 'jobs.orderer_id', '=', 'orderer.id')
             ->select('jobs.*', 'orderer.name')
             ->get();
+    	foreach ($Jobs as $Job){
+            $job_applicants = DB::table('job_applicant')
+                ->where([["job_id","=",$Job->id],["user_apply","=",$current_user->id]])
+                ->get();
+            if(count($job_applicants)>0){
+                $job_applicant = $job_applicants[0];
+                $Job->apply_status = $job_applicant->status;
+            }else{
+                $Job->apply_status = -1;
+            }
+        }
             return $Jobs;
     }
     public function get_detail_job($id)
