@@ -43,6 +43,7 @@ class JobsController extends Controller
                 $job->orderer_id = $job->get_oderer_id();
             	$job->title = $request->input('title');
             	$job->description = $request->input('description');
+                $job->work_id = 2;
             	$job->start_date = $convert_start_date;
         		$job->end_date = $convert_end_date;
                 $job->save();
