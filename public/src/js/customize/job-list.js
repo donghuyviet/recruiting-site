@@ -16,3 +16,8 @@ _app.controller('JobListCtrl', function ($rootScope, $scope, $http) {
         });
     }
 });
+_app.controller('ListUserApply', function ($rootScope, $scope, $http) {
+    $('#listuserapply').on('change', function() {
+          alert( this.value );
+    });
+});

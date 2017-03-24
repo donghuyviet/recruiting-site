@@ -123,12 +123,16 @@ class JobsController extends Controller
     {
         $job = new Job;
         $orderer_id = $job->get_oderer_id();
+        $list_jobs =  DB::table('jobs')
+                        ->where('jobs.orderer_id', $orderer_id)
+                        ->select('jobs.*')
+                        ->get();
         $list_user =  DB::table('jobs')
                         ->where('jobs.orderer_id', $orderer_id)
                         ->join('job_applicant', 'job_applicant.job_id', '=', 'jobs.id')
                         ->join('user', 'user.id', '=', 'job_applicant.id')
                         ->select('user.*','jobs.*')
                         ->get();
-       return view('template.listjobsapply', ['user' => $list_user]);
+       return view('template.listjobsapply', ['users' => $list_user, 'listjob' => $list_jobs ]);
     }
 }
