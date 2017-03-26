@@ -172,7 +172,8 @@ class Job extends Model
         $myarray = array();
         foreach ($result as $key => $value) {
                 $myarray[$key] =  array(
-                    'title' =>$value->title,
+                    'id_job' => $value->id,
+                    'title' => $value->title,
                     'description' => $value->description,
                     'start_date'  => $value->start_date,
                     'end_date'    => $value->end_date,
