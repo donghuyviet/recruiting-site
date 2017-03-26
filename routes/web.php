@@ -96,7 +96,9 @@ Route::get('/jobs', 'JobsController@listjobs');
 Route::get('/jobDetails/{id}', 'JobsController@viewjob');
 Route::get('/jobAuthor/{id}', 'JobsController@view_author_job');
 Route::post('/jobs/apply', 'JobsController@apply');
-Route::get('/jobs/listapply', 'JobsController@get_list_jobs_apply');
+Route::post('/jobs/userapply', 'JobsController@get_user_apply_jobs');
+Route::get('/jobs/listapply', 'JobsController@get_list_jobs_submmit');
+Route::get('/profileUser', 'JobsController@profileUser');
 
 Route::get('/api/keyword','ApiSearchController@index');
 Route::get('/api/search','ApiSearchController@get_job_in_keyrord');

@@ -18,6 +18,15 @@ _app.controller('JobListCtrl', function ($rootScope, $scope, $http) {
 });
 _app.controller('ListUserApply', function ($rootScope, $scope, $http) {
     $('#listuserapply').on('change', function() {
-          alert( this.value );
+        $scope.applyuser(this.value);
     });
+    $scope.applyuser = function(jobID){
+        var data = {id_job:jobID};
+        _fetch.post("/jobs/userapply",data,function (res) {
+            $scope.$apply(function () {
+                $scope.ListUser = res;
+            });
+        });
+    }
+    $scope.applyuser($("#listuserapply").val());
 });

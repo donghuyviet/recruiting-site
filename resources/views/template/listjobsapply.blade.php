@@ -2,10 +2,10 @@
 
 @section('content')
 	<div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
             @include('sidebar.index');
         </div>
-        <div class="col-md-10" ng-controller="ListUserApply">
+        <div class="col-md-8" ng-controller="ListUserApply">
             <div class="box">
                 <div class="box-header">
                     List
@@ -16,20 +16,23 @@
                           <option value="{{$job->id}}">{{$job->title}}</option>
                        @endforeach
                     </select>
-                    <div class="table-responsive">          
-                      <table class="table">
-                        <tbody>  
-                         @foreach($users as $user)            
-                          <tr>
-                            <td><a href = "">{{$user->name}}</a></td>
-                            <td> 
-                                <button class="btn btn-primary apply-job-button" data-id="">仕事の申し込み</button>
-                                <button class="btn btn-primary apply-job-button" data-id="">仕事の申し込み</button>
-                            </td>
-                         @endforeach
-                        </tbody>
-                    </table>
-                   </div>
+                    <div class="help-block"></div>
+                      <div class="panel panel-default">
+                          <div class="panel-heading text-center">
+                              <h3 class="panel-title">
+                                 List User Appy</h3>
+                          </div>
+                          <ul class="list-group">                              
+                             <li class="list-group-item" ng-repeat="user in ListUser.users">
+                             <a href="/profileUser?id=//user.user_apply//">// user.name //</a>
+                                <span class="pull-right">
+                                  <button class="btn btn-xs btn-info">Apply</button>
+                                  <button class="btn btn-xs btn-danger">Cancel</button>
+                                </span>
+                              </li>                   
+                          </ul>
+                      </div>
+                  
                 </div>
             </div>
 

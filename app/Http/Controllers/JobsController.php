@@ -17,16 +17,16 @@ class JobsController extends Controller
         $location = Location::all();
         $specializations = Specializations::all();
         $benefit = Benefit::all();
-    	return view('template.jobs', ['status'=> 0,'message' => "",'locations'=>$location,'specializations' =>$specializations,'benefits' => $benefit]);
+        return view('template.jobs', ['status'=> 0,'message' => "",'locations'=>$location,'specializations' =>$specializations,'benefits' => $benefit]);
     }
     public function save(Request $request)
     {
-    	$job = new Job;
+        $job = new Job;
         $status = 0;
         $message ="";
-    	$convert_start_date = date("Y-m-d", strtotime($request->input('start_date')));
-    	$convert_end_date = date("Y-m-d", strtotime($request->input('end_date')));
-		
+        $convert_start_date = date("Y-m-d", strtotime($request->input('start_date')));
+        $convert_end_date = date("Y-m-d", strtotime($request->input('end_date')));
+        
         if($job->get_oderer_id())
         {
             if (trim($request->input('description')) == "") {
@@ -41,11 +41,11 @@ class JobsController extends Controller
             else
             {
                 $job->orderer_id = $job->get_oderer_id();
-            	$job->title = $request->input('title');
-            	$job->description = $request->input('description');
+                $job->title = $request->input('title');
+                $job->description = $request->input('description');
                 $job->work_id = 2;
-            	$job->start_date = $convert_start_date;
-        		$job->end_date = $convert_end_date;
+                $job->start_date = $convert_start_date;
+                $job->end_date = $convert_end_date;
                 $job->save();
                 $customer = Job::find($job->id);
                 //save location
@@ -79,7 +79,7 @@ class JobsController extends Controller
         $location = Location::all();
         $specializations = Specializations::all();
         $benefit = Benefit::all();
-    	return view('template.jobs', ['status' => $status, 'message' => $message, 'locations'=>$location, 'specializations' =>$specializations, 'benefits' => $benefit]);
+        return view('template.jobs', ['status' => $status, 'message' => $message, 'locations'=>$location, 'specializations' =>$specializations, 'benefits' => $benefit]);
     }
     public function listjobs()
     {
@@ -119,7 +119,7 @@ class JobsController extends Controller
         }
         return response()->json($message);
     }
-    public function get_list_jobs_apply()
+    public function get_list_jobs_submmit()
     {
         $job = new Job;
         $orderer_id = $job->get_oderer_id();
@@ -127,12 +127,25 @@ class JobsController extends Controller
                         ->where('jobs.orderer_id', $orderer_id)
                         ->select('jobs.*')
                         ->get();
-        $list_user =  DB::table('jobs')
-                        ->where('jobs.orderer_id', $orderer_id)
-                        ->join('job_applicant', 'job_applicant.job_id', '=', 'jobs.id')
-                        ->join('user', 'user.id', '=', 'job_applicant.id')
-                        ->select('user.*','jobs.*')
+       return view('template.listjobsapply', ['listjob' => $list_jobs ]);
+    }
+    public function get_user_apply_jobs(Request $request)
+    {
+        $id_job = $request->id_job;
+         $list_user =  DB::table('job_applicant')
+                        ->where('job_applicant.job_id', $id_job)
+                        ->join('user', 'user.userid', '=', 'job_applicant.user_apply')
+                        ->select('user.*','job_applicant.user_apply')
                         ->get();
-       return view('template.listjobsapply', ['users' => $list_user, 'listjob' => $list_jobs ]);
+        return response()->json(['users' => $list_user]);
+    }
+    public function profileUser(Request $request)
+    {
+       $id_user = $request->id;
+       $user =  DB::table('user')
+                        ->where('user.userid', $id_user)
+                        ->select('user.*')
+                        ->get();
+        return view('template.profile-user', ['user' => $user[0] ]);
     }
 }
