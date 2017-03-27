@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Job;
 
 class ApiSearchTrainController extends BaseController
 {
@@ -239,9 +240,26 @@ class ApiSearchTrainController extends BaseController
         }
         $result = array_merge($result1 , $result2);
         $result = array_unique($result);
+
+        $myarray = array();
+        $job = new Job;
+        foreach ($this->get_jobs($result) as $key => $value) {
+                $myarray[$key] =  array(
+                    'id_job' => $value->id,
+                    'title' => $value->title,
+                    'description' => $value->description,
+                    'start_date'  => $value->start_date,
+                    'end_date'    => $value->end_date,
+                    'category'=> $job->get_category($value->id),
+                    'salary'  => $job->get_salary($value->id),
+                    'benefit' => $job->get_benefit($value->id),
+                    'time'    => $job->get_time($value->id),
+                    'station' => $job->get_train($value->id),
+                    );
+         }     
         return response()
         ->json([
-         'data' => $this->get_jobs($result)
+         'data' => $myarray
         ], 200);
     }
     public function get_condition_search(Request $request)
@@ -302,6 +320,41 @@ class ApiSearchTrainController extends BaseController
         ->json([
          'city' => $city,
          'location' => $result
+        ], 200);
+    }
+    public function get_jobs_by_location(Request $request)
+    {
+        $array_location = ($request->id_location);
+            $arr = explode(",", $array_location);
+            foreach ($arr AS $index => $value)
+                $arr[$index] = (int)$value;
+
+        $jobs = DB::table('job_location')
+                    ->whereIn('job_location.location_id', $arr)
+                    ->join('jobs','jobs.id', '=','job_location.job_id' )
+                    ->select('jobs.id')
+                    ->groupBy('jobs.id')
+                    ->get();
+        $result = array_pluck($jobs,'id');
+        $myarray = array();
+        $job = new Job;
+        foreach ($this->get_jobs($result) as $key => $value) {
+                $myarray[$key] =  array(
+                    'id_job' => $value->id,
+                    'title' => $value->title,
+                    'description' => $value->description,
+                    'start_date'  => $value->start_date,
+                    'end_date'    => $value->end_date,
+                    'category'=> $job->get_category($value->id),
+                    'salary'  => $job->get_salary($value->id),
+                    'benefit' => $job->get_benefit($value->id),
+                    'time'    => $job->get_time($value->id),
+                    'station' => $job->get_train($value->id),
+                    );
+         }     
+        return response()
+        ->json([
+         'data' => $myarray
         ], 200);
     }
 }
