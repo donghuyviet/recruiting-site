@@ -52,6 +52,38 @@ _app.controller('SearchResultCtrl', function ($rootScope, $scope, $http, $locati
 	}
 
 
+	// search location result
+	$scope.SearchResult = function(id_location, id_city){
+
+		_fetch.get('/api/all', {
+			id_location : id_location,
+			id_city : id_city
+		}, function(res){
+			console.log(res);
+			if(res.data){
+				$scope.$apply(function(){
+					$scope.results = res.data;
+					$('#main-resutls').show();
+				});
+			}
+		});
+	}
+	// results search all
+	$scope.SearchResult = function(id_location, id_city){
+
+		_fetch.get('/api/reaSearch', {
+			id_location : id_location,
+			id_city : id_city
+		}, function(res){
+			console.log(res);
+			if(res.data){
+				$scope.$apply(function(){
+					$scope.results = res.data;
+				});
+			}
+		});
+	}
+
 	if (typeof(paramsArr['action']) != 'undefined'){
 		switch (paramsArr['action']){
 			case 'main-search': 
@@ -62,6 +94,26 @@ _app.controller('SearchResultCtrl', function ($rootScope, $scope, $http, $locati
 				// console.log('case');
 				$scope.doMainResultSearch(paramsArr['id_location'],paramsArr['id_category'],paramsArr['id_benefit'],paramsArr['salary_unit'],paramsArr['salary_from'],paramsArr['id_time'],paramsArr['keyword']);
 				break;
+			case 'cond-search':
+				// console.log('case');
+				$scope.SearchResult(paramsArr['id_location'],paramsArr['id_city']);
+				break;
 		}
 	}
+	// apply jobs list
+	$("body").on("click",".apply-job-button",function () {
+        var jobID = $(this).attr("data-id");
+        $scope.apply(jobID,$(this));
+    });
+
+    $scope.apply = function(jobID,element){
+        var data = {jobID:jobID};
+        _fetch.post("/search/career/apply",data,function (res) {
+            if(res.status=="OK"){
+                element.parent().html(res.applyStatus);
+            }else{
+                alert(res.message);
+            }
+        });
+    }
 });

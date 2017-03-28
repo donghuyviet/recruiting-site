@@ -57,11 +57,17 @@ _app.controller('LocationCtrl', function ($rootScope, $scope, $http) {
 		window.location.assign('/search/career?action=main-search&keyword='+$scope.searchString);
 	}
 
-	$scope.doSearch = function(){
+	$scope.addCondition = function(){
 		
 		// console.log($scope.searchString.id_city);
 		// console.log($scope.searchString.id);
 		window.location.assign('/search/condition?action=cond-search&id_city='+$scope.searchString.id_city+'&id_location='+$scope.searchString.id);
+	}
+	$scope.SearchCondition = function(){
+		
+		// console.log($scope.searchString.id_city);
+		// console.log($scope.searchString.id);
+		window.location.assign('/search/career?action=cond-search&id_location='+$scope.searchString.id+'&id_city='+$scope.searchString.id_city);
 	}
 
 });

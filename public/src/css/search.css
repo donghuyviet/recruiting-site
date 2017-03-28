@@ -841,6 +841,9 @@ a .local-header{
     padding-left: 30px;
     height: 38px;
 }
+.itemsave .star.tick {
+    background-image: url(../../src/image/item/tick.png);
+ }
 .star {
     background-image: url(../../src/image/item/C_saved_off.png);
     background-repeat: no-repeat;

@@ -94,6 +94,11 @@
                                 <p class=" star apply_btn text-center">とりあえず保存</p>
                             </a>
                         </div>
+                        <div class="itemsave appbtn">
+                            <a href="#">
+                                <p class=" star apply_btn text-center apply-job-button" data-id="//job.id_job//">仕事の申し込み</p>
+                            </a>
+                        </div>
                         <div class="table-bottom text-center">
                             <table>
                                 <tbody>

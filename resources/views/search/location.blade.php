@@ -115,8 +115,8 @@
                     <span class="kaizen-mod-text">件</span>
                 </div>
             <ul>
-                <li class="kaizen-clone"><a href="./career"><p>検索</p></a></li>
-                <li class="kaizen"><a href="#" ng-click="doSearch()"><p>希望条件を追加</p></a></li>
+                <li class="kaizen-clone"><a href="#" ng-click="SearchCondition()"><p>検索</p></a></li>
+                <li class="kaizen"><a href="#" ng-click="addCondition()"><p>希望条件を追加</p></a></li>
             </ul>
         </div>
             </div>
