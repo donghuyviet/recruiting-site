@@ -41,9 +41,9 @@ class SearchController extends BaseController
 
 	function apply(Request $request){
         $current_user = Auth::user();
+        $message = (object)[];
         if(isset($current_user)){
 	        $current_date_time = date("Y-m-d H:i:s");
-	        $message = (object)[];
 	        $job_id = $request->input('jobID',0);
 	        $job_applicant_id = DB::table('job_applicant')
 		        ->insertGetId(['job_id' => $job_id,'user_apply' => $current_user->id,'time_apply'=>$current_date_time,'status'=>0]
@@ -57,9 +57,9 @@ class SearchController extends BaseController
 	            $message->message = "ERROR";
 	        }
 
-	        return response()->json($message);
         }else{
-        	echo "you are login!";
+        	$message->message = "are you login";
         }
+	        return response()->json($message);
     }
 }
