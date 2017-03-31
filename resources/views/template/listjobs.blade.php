@@ -32,21 +32,6 @@
 					        <td><a href="/jobDetails/{{$job->id}}">{{$job->title}}</a></td>
 					        <td>{{$job->start_date}} </td>
 					        <td>{{$job->end_date}}</td>
-                            <td>
-                                @if($job->apply_status==-1)
-                                    <button class="btn btn-primary apply-job-button" data-id="{{$job->id}}">仕事の申し込み</button>
-                                @elseif($job->apply_status==0)
-                                    待っている
-                                @elseif($job->apply_status==1)
-                                    賛成する
-                                @elseif($job->apply_status==2)
-                                    拒否されました
-                                @elseif($job->apply_status==3)
-                                    ジョブは存在しません。
-                                @else
-                                    <button class="btn btn-primary apply-job-button" data-id="{{$job->id}}">仕事の申し込み</button>
-                                @endif
-                            </td>
 					      </tr>
 					     @endforeach
 					     </tbody>
