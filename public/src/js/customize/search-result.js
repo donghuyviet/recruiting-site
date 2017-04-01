@@ -109,6 +109,7 @@ _app.controller('SearchResultCtrl', function ($rootScope, $scope, $http, $locati
     $scope.apply = function(jobID,element){
         var data = {jobID:jobID};
         _fetch.post("/search/career/apply",data,function (res) {
+			console.log('apply'+res);
             if(res.status=="OK"){
                 element.parent().html(res.applyStatus);
             }else{

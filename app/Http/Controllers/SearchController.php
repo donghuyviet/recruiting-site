@@ -31,9 +31,15 @@ class SearchController extends BaseController
 			return view('search/condition');
 	}
 	public function career(){
-		$job = new Job;
-        $Jobs = $job->get_list_jobs();
-		return view('search/career', ['Jobs'=>$Jobs]);
+		// $current_user = Auth::user();
+		// $Apply = DB::table('jobs') 
+		// 	->join('job_applicant','jobs.id', '=', 'job_applicant.job_id')
+		// 	->select('job_applicant.*' )
+		// 	->get();
+		// if($current_user){
+
+		// }
+		return view('search/career');
 	}
 	public function zenkoku(){
 			return view('search/zenkoku');
