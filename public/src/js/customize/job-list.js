@@ -28,5 +28,19 @@ _app.controller('ListUserApply', function ($rootScope, $scope, $http) {
             });
         });
     }
+    $scope.confirm = function (name,mail){
+        var data = {name:name,mail:mail};
+        $.ajax({
+            type: "POST",
+            data: data,
+            url: '/jobs/sendmail',
+            beforeSend: function() {
+                 $('#apply_user').prop('disabled', true);
+            },
+        }).done(function( msg ) {
+            alert( msg );
+            $('#apply_user').prop('false', true);
+        });
+    }
     $scope.applyuser($("#listuserapply").val());
 });

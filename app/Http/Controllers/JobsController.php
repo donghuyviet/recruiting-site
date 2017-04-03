@@ -10,6 +10,8 @@ use App\Benefit;
 use App\Salary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Confirm;
 class JobsController extends Controller
 {
     public function index()
@@ -147,5 +149,28 @@ class JobsController extends Controller
                         ->select('user.*')
                         ->get();
         return view('template.profile-user', ['user' => $user[0] ]);
+    }
+    public function send_mail(Request $request){
+         $message = (object)[];
+         $content = [
+            'name' => $request->name,
+            'subject'=> 'Test Apply Jobs',
+        ];
+        //Mail::to($receiverAddress)->send(new Confirm($content));
+        Mail::to($request->mail)->send(new Confirm($content));
+
+        $fail = Mail::failures();
+        if(!empty($fail))
+        {
+             $message->status = "OK";
+             $message->message = "Apply successful";
+        }
+        else
+        {
+            $message->status = "ERROR";
+            $message->message = 'Could not send';
+        }
+        
+        return response()->json($message);
     }
 }
