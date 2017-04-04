@@ -26,7 +26,7 @@
                              <li class="list-group-item" ng-repeat="user in ListUser.users">
                              <a href="/profileUser?id=//user.user_apply//">// user.name //</a>
                                 <span class="pull-right">
-                                  <button id="apply_user" class="btn btn-xs btn-info" ng-click="confirm(user.name , user.email)">Apply</button>
+                                  <button id="apply_user" class="btn btn-xs btn-info" ng-click="confirm(user)">Apply</button>
                                   <button class="btn btn-xs btn-danger">Cancel</button>
                                 </span>
                               </li>                   

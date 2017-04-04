@@ -28,8 +28,9 @@ _app.controller('ListUserApply', function ($rootScope, $scope, $http) {
             });
         });
     }
-    $scope.confirm = function (name,mail){
-        var data = {name:name,mail:mail};
+    $scope.confirm = function (user){
+        console.log(user);
+        var data = {name: user.name, mail: user.email, id_apply: user.id_job_applicant };
         $.ajax({
             type: "POST",
             data: data,
@@ -38,7 +39,7 @@ _app.controller('ListUserApply', function ($rootScope, $scope, $http) {
                  $('#apply_user').prop('disabled', true);
             },
         }).done(function( msg ) {
-            alert( msg );
+            console.log( msg );
             $('#apply_user').prop('false', true);
         });
     }

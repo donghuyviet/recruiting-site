@@ -137,7 +137,7 @@ class JobsController extends Controller
          $list_user =  DB::table('job_applicant')
                         ->where('job_applicant.job_id', $id_job)
                         ->join('user', 'user.userid', '=', 'job_applicant.user_apply')
-                        ->select('user.*','job_applicant.user_apply')
+                        ->select('user.*','job_applicant.user_apply','job_applicant.id as id_job_applicant')
                         ->get();
         return response()->json(['users' => $list_user]);
     }
@@ -158,19 +158,18 @@ class JobsController extends Controller
         ];
         //Mail::to($receiverAddress)->send(new Confirm($content));
         Mail::to($request->mail)->send(new Confirm($content));
-
-        $fail = Mail::failures();
-        if(!empty($fail))
-        {
-             $message->status = "OK";
-             $message->message = "Apply successful";
-        }
-        else
-        {
+        if (Mail::failures()) {
             $message->status = "ERROR";
             $message->message = 'Could not send';
         }
-        
+        else
+        {
+            $message->status = "OK";
+            $message->message = "Apply successful";
+            DB::table('job_applicant')
+                        ->where('id', $request->id_apply)
+                        ->update(['status' => 1]);
+        }        
         return response()->json($message);
     }
 }
