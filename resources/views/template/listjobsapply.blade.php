@@ -26,10 +26,10 @@
                              <li class="list-group-item" ng-repeat="user in ListUser.users">
                              <a href="/profileUser?id=//user.user_apply//">// user.name //</a>
                                 <span class="pull-right"> 
-                                   <button id="apply_user" class="btn btn-xs btn-info" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Processing" ng-click="confirm(user)" ng-if="user.status == 0 ">Accept</button>
+                                   <button id="apply_user_//user.user_apply//" class="btn btn-xs btn-info" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Processing" ng-click="confirm($event , user)" ng-if="user.status == 0 ">Accept</button>
                                    <button class="btn btn-xs btn-info" ng-if="user.status == 1 ">Accepted</button>
                                    <button class="btn btn-xs btn-warning" ng-if="user.status == 2 ">deined</button>
-                                   <button id="load_denied" class="btn btn-xs btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Processing" ng-click="denied(user)" ng-if="user.status == 0">Cancel</button>
+                                   <button id="load_denied_//user.user_apply//" class="btn btn-xs btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Processing" ng-click="denied($event , user)" ng-if="user.status == 0">Cancel</button>
                                 </span>
                               </li>                   
                           </ul>

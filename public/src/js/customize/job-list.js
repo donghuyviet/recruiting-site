@@ -28,19 +28,19 @@ _app.controller('ListUserApply', function ($rootScope, $scope, $http) {
             });
         });
     }
-    $scope.confirm = function (user){
+    $scope.confirm = function ($event , user){
         var data = {name: user.name, mail: user.email, id_apply: user.id_job_applicant };
         $.ajax({
             type: "POST",
             data: data,
             url: '/jobs/sendmail',
             beforeSend: function() {
-               $('#apply_user').button('loading');
+               $('#'+ $event.currentTarget.id).button('loading');
             },
             success: function(res) {
                 if(res.status=="OK"){                 
-                    $('#apply_user').text('Accepted');                            
-                    $( "#load_denied" ).remove();                  
+                    $('#' + $event.currentTarget.id).text('Accepted');                            
+                    $( "#load_denied_" + user.user_apply ).remove();                  
                 }
                 else
                 {
@@ -49,7 +49,7 @@ _app.controller('ListUserApply', function ($rootScope, $scope, $http) {
             }
         })
     }
-    $scope.denied = function (user){
+    $scope.denied = function ($event , user){
         var data = { id_apply: user.id_job_applicant };
         $.ajax({
             type: "POST",
@@ -57,13 +57,13 @@ _app.controller('ListUserApply', function ($rootScope, $scope, $http) {
             url: '/jobs/denied',
             beforeSend: function() {
                 var $this = $(this);
-               $('#load_denied').button('loading');
+               $('#' + $event.currentTarget.id).button('loading');
             },
             success: function(res) {
                 if(res.status=="OK"){
                     setTimeout(function() {
-                        $('#load_denied').text('denied');
-                        $( "#apply_user" ).remove();   
+                        $('#' + $event.currentTarget.id).text('denied');
+                        $( "#apply_user_" + user.user_apply).remove();   
                    }, 2000);
 
                 }
