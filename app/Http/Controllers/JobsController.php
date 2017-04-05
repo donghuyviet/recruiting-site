@@ -137,7 +137,7 @@ class JobsController extends Controller
          $list_user =  DB::table('job_applicant')
                         ->where('job_applicant.job_id', $id_job)
                         ->join('user', 'user.userid', '=', 'job_applicant.user_apply')
-                        ->select('user.*','job_applicant.user_apply','job_applicant.id as id_job_applicant')
+                        ->select('user.*','job_applicant.user_apply','job_applicant.id as id_job_applicant','job_applicant.status')
                         ->get();
         return response()->json(['users' => $list_user]);
     }
@@ -171,5 +171,22 @@ class JobsController extends Controller
                         ->update(['status' => 1]);
         }        
         return response()->json($message);
+    }
+    public function denied(Request $request){
+         $message = (object)[];
+         $result = DB::table('job_applicant')
+                        ->where('id', $request->id_apply)
+                        ->update(['status' => 2]);
+        if($result)
+        {
+            $message->status = "OK";
+            $message->message = 'successful';
+        }
+        else
+        {
+            $message->status = "ERROR";
+            $message->message = 'Could not Update';
+        }
+        return  response()->json($message);
     }
 }

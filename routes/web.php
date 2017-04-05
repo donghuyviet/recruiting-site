@@ -100,6 +100,7 @@ Route::post('/jobs/apply', 'JobsController@apply');
 Route::post('/jobs/userapply', 'JobsController@get_user_apply_jobs');
 Route::get('/jobs/listapply', 'JobsController@get_list_jobs_submmit');
 Route::post('/jobs/sendmail', 'JobsController@send_mail');
+Route::post('/jobs/denied', 'JobsController@denied');
 Route::get('/profileUser', 'JobsController@profileUser');
 
 Route::get('/api/keyword','ApiSearchController@index');

@@ -29,19 +29,51 @@ _app.controller('ListUserApply', function ($rootScope, $scope, $http) {
         });
     }
     $scope.confirm = function (user){
-        console.log(user);
         var data = {name: user.name, mail: user.email, id_apply: user.id_job_applicant };
         $.ajax({
             type: "POST",
             data: data,
             url: '/jobs/sendmail',
             beforeSend: function() {
-                 $('#apply_user').prop('disabled', true);
+               $('#apply_user').button('loading');
             },
-        }).done(function( msg ) {
-            console.log( msg );
-            $('#apply_user').prop('false', true);
-        });
+            success: function(res) {
+                if(res.status=="OK"){                 
+                    $('#apply_user').text('Accepted');                            
+                    $( "#load_denied" ).remove();                  
+                }
+                else
+                {
+                    alert(res.message);
+                }
+            }
+        })
+    }
+    $scope.denied = function (user){
+        var data = { id_apply: user.id_job_applicant };
+        $.ajax({
+            type: "POST",
+            data: data,
+            url: '/jobs/denied',
+            beforeSend: function() {
+                var $this = $(this);
+               $('#load_denied').button('loading');
+            },
+            success: function(res) {
+                if(res.status=="OK"){
+                    setTimeout(function() {
+                        $('#load_denied').text('denied');
+                        $( "#apply_user" ).remove();   
+                   }, 2000);
+
+                }
+                else
+                {
+                    alert(res.message);
+                }
+            },
+        })
+
     }
     $scope.applyuser($("#listuserapply").val());
 });
