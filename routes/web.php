@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('search/index');
 });
 Route::get('/lang/{lang}', 'LanguageController@index');
 
